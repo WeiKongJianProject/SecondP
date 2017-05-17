@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ReMenView : UIView
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end

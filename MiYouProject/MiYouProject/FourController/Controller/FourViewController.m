@@ -26,6 +26,8 @@ static int jd;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setTabBarImageAndTextColor];//设置Tabbar 文字和颜色
+
     NSDictionary * memDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
     self.userInfoModel = [MTLJSONAdapter modelOfClass:[UserInfoMTLModel class] fromJSONDictionary:memDic error:nil];
     
@@ -210,7 +212,7 @@ static int jd;
         for (int i = 0; i<zonButNum; i++) {
             NSString * stringURL = vipListARR[i];
             UIButton * btn = (UIButton *)fcell.VIPButtonARR[i];
-            btn.hidden = NO;
+            btn.hidden = YES;
             //NSLog(@"会员图标的链接：%@--%p",stringURL,btn);
             //[btn sd_setBackgroundImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal];
             //[btn sd_setBackgroundImageWithURL:[NSURL URLWithString:stringURL] forState:UIControlStateNormal placeholderImage:PLACEHOLDER_IMAGE];

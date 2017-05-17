@@ -31,6 +31,7 @@ target 'MiYouProject' do
   pod 'Masonry', '~> 1.0'
   pod 'MJRefresh', '~> 3.1'
   pod 'MBProgressHUD', '~> 1.0'
+  pod 'Bugly', '~> 2.4'
   pod 'WMPageController', '~> 2.2'
   pod 'MJExtension', '~> 3.0'
   pod 'IQKeyboardManager', '~> 4.0'
@@ -42,6 +43,6 @@ target 'MiYouProject' do
   pod 'VOSegmentedControl', '~> 1.0'
   pod 'UMengAnalytics', '~> 4.2'
   pod 'Bugly', '~> 2.4'
-  pod 'KYVedioPlayer', '~> 0.0'
+pod 'KYVedioPlayer', '~> 0.0'
   
 end

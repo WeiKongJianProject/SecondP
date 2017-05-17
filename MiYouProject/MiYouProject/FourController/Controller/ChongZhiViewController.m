@@ -898,54 +898,11 @@ typedef NS_ENUM(NSInteger,PAYJIEKOU_Type) {
             _currentOrderNUM = dic[@"payid"];
             //@"https://qr.alipay.com/bax00225fwvaxotgyqcj602a"
             
-            /*
-             *接口说明
-             controller 视图控制器
-             params 支付参数
-             type 支付通道类型代码 1微信支付，2支付宝支付，3点卡支付，4银联支付，5QQ支付，6百度支付，7京东支付
-             delegate 支付回调对象
-             */
-            // 必须
-            // 支付 start
-            FWParam *param = [[FWParam alloc] init];
-            // playerid：用户在第三方平台上的用户名
-            param.playerid  = UID;
-            // goodsname：购买商品名称
-            param.goodsname = [NSString stringWithFormat:@"%d",_currentJINE];
-            // amount：购买商品价格，单位是元
-            param.amount = [NSString stringWithFormat:@"%d",_currentJINE];
-            // payid：第三方平台上的订单号，请传真实订单号，方便后续对账，例子里采用随机数，
-            param.payid  =  _currentOrderNUM;//[self demoOrderId];
-            [FWInterface start:weakSelf withParams:param withDelegate:weakSelf];
-            //[FWInterface start:self withParams:param withType:2 withDelegate:self];
-            // 支付 end
             
         }
         else{
             _currentOrderNUM = dic[@"payid"];
-            //@"https://qr.alipay.com/bax00225fwvaxotgyqcj602a"
-            
-            /*
-             *接口说明
-             controller 视图控制器
-             params 支付参数
-             type 支付通道类型代码 1微信支付，2支付宝支付，3点卡支付，4银联支付，5QQ支付，6百度支付，7京东支付
-             delegate 支付回调对象
-             */
-            // 必须
-            // 支付 start
-            FWParam *param = [[FWParam alloc] init];
-            // playerid：用户在第三方平台上的用户名
-            param.playerid  = UID;
-            // goodsname：购买商品名称
-            param.goodsname = [NSString stringWithFormat:@"%d",_currentJINE];
-            // amount：购买商品价格，单位是元
-            param.amount  = [NSString stringWithFormat:@"%d",_currentJINE];
-            // payid：第三方平台上的订单号，请传真实订单号，方便后续对账，例子里采用随机数，
-            param.payid  =  _currentOrderNUM;//[self demoOrderId];
-            
-            [FWInterface start:weakSelf withParams:param withDelegate:weakSelf];
-            // 支付 end
+
             
         }
         
@@ -957,19 +914,7 @@ typedef NS_ENUM(NSInteger,PAYJIEKOU_Type) {
             _currentOrderNUM = dic[@"payid"];
             float jiaGeStr = [dic[@"price"] floatValue];
             NSLog(@"当前的订单号为：%@",_currentOrderNUM);
-            // 必须
-            // 支付 start
-            FWParam *param = [[FWParam alloc] init];
-            // playerid：用户在第三方平台上的用户名
-            param.playerid  = UID;
-            // goodsname：购买商品名称
-            param.goodsname = [NSString stringWithFormat:@"%d",_currentJINE];
-            // amount：购买商品价格，单位是元
-            param.amount  =  [NSString stringWithFormat:@"%.2f",jiaGeStr];
-            // payid：第三方平台上的订单号，请传真实订单号，方便后续对账，例子里采用随机数，
-            param.payid  =  _currentOrderNUM;//[self demoOrderId];
-            
-            [FWInterface start:weakSelf withParams:param withDelegate:weakSelf];
+
             
         }
         else{
@@ -977,20 +922,7 @@ typedef NS_ENUM(NSInteger,PAYJIEKOU_Type) {
             _currentOrderNUM = dic[@"payid"];
             float jiaGeStr = [dic[@"price"] floatValue];
             NSLog(@"当前的订单号为：%@",_currentOrderNUM);
-            //微信支付
-            // 必须
-            // 支付 start
-            FWParam *param = [[FWParam alloc] init];
-            // playerid：用户在第三方平台上的用户名
-            param.playerid  = UID;
-            // goodsname：购买商品名称
-            param.goodsname = [NSString stringWithFormat:@"%d",_currentJINE];
-            // amount：购买商品价格，单位是元
-            param.amount  = [NSString stringWithFormat:@"%.2f",jiaGeStr];
-            // payid：第三方平台上的订单号，请传真实订单号，方便后续对账，例子里采用随机数，
-            param.payid  =  _currentOrderNUM;//[self demoOrderId];
-            
-            [FWInterface start:weakSelf withParams:param withDelegate:weakSelf];
+
             
         }
         

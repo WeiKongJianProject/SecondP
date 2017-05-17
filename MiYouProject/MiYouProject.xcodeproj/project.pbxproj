@@ -39,6 +39,8 @@
 		730D38851E79244C00EE4692 /* VIPChongZhiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D38841E79244C00EE4692 /* VIPChongZhiView.m */; };
 		730D38871E79246400EE4692 /* UBChongZhiView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D38861E79246400EE4692 /* UBChongZhiView.xib */; };
 		730D38891E79247E00EE4692 /* VIPChongZhiView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D38881E79247E00EE4692 /* VIPChongZhiView.xib */; };
+		730F974C1ECC33B600B7A109 /* ZbFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730F974B1ECC33B600B7A109 /* ZbFirstViewController.m */; };
+		730F97501ECC355600B7A109 /* UIViewController+ZLBase2ViewControllerCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 730F974F1ECC355600B7A109 /* UIViewController+ZLBase2ViewControllerCategory.m */; };
 		732BC86A1E6FD17400B8B1BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC8691E6FD17400B8B1BD /* main.m */; };
 		732BC86D1E6FD17400B8B1BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC86C1E6FD17400B8B1BD /* AppDelegate.m */; };
 		732BC8701E6FD17400B8B1BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC86F1E6FD17400B8B1BD /* ViewController.m */; };
@@ -68,10 +70,6 @@
 		7339CB241EBABAA400E5E600 /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7339CB221EBABAA400E5E600 /* libUMessage_Sdk_1.5.0a.a */; };
 		7339CB261EBABABF00E5E600 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7339CB251EBABABF00E5E600 /* UserNotifications.framework */; };
 		7339CB3D1EBB120000E5E600 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7339CB3C1EBB120000E5E600 /* Security.framework */; };
-		7339CB4F1EBC542100E5E600 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7339CB451EBC542100E5E600 /* libWeChatSDK.a */; };
-		7339CB501EBC542100E5E600 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7339CB461EBC542100E5E600 /* README.txt */; };
-		7339CB511EBC542100E5E600 /* FWResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7339CB4A1EBC542100E5E600 /* FWResource.bundle */; };
-		7339CB521EBC542100E5E600 /* libFWSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7339CB4E1EBC542100E5E600 /* libFWSdk.a */; };
 		7339CBB01EC2FEBA00E5E600 /* MianZeViewController02.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CBAE1EC2FEBA00E5E600 /* MianZeViewController02.m */; };
 		7339CBB11EC2FEBA00E5E600 /* MianZeViewController02.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7339CBAF1EC2FEBA00E5E600 /* MianZeViewController02.xib */; };
 		7339CBB51EC42F8D00E5E600 /* GuanYuUSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CBB31EC42F8D00E5E600 /* GuanYuUSViewController.m */; };
@@ -252,6 +250,7 @@
 		73EB3FCC1E6FDEE400CA8B5D /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 73EB3F681E6FDEE400CA8B5D /* page.png */; };
 		73EB3FCD1E6FDEE400CA8B5D /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 73EB3F691E6FDEE400CA8B5D /* placeholder.png */; };
 		73EB3FCE1E6FDEE400CA8B5D /* UIView+MJAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB3F6C1E6FDEE400CA8B5D /* UIView+MJAlertView.m */; };
+		73EB3FCF1E6FDEE400CA8B5D /* libPaymentControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EB3F721E6FDEE400CA8B5D /* libPaymentControl.a */; };
 		73EB3FD01E6FDEE400CA8B5D /* NavTopCommonImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB3F761E6FDEE400CA8B5D /* NavTopCommonImage.m */; };
 		73EB3FD21E6FDEE400CA8B5D /* PulldownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB3F7D1E6FDEE400CA8B5D /* PulldownMenu.m */; };
 		73EB3FD31E6FDEE400CA8B5D /* ZhengZePanDuan.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EB3F801E6FDEE400CA8B5D /* ZhengZePanDuan.m */; };
@@ -339,6 +338,10 @@
 		730D38841E79244C00EE4692 /* VIPChongZhiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VIPChongZhiView.m; path = MiYouProject/FourController/Controller/VIPChongZhiView.m; sourceTree = SOURCE_ROOT; };
 		730D38861E79246400EE4692 /* UBChongZhiView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UBChongZhiView.xib; path = MiYouProject/FourController/Controller/UBChongZhiView.xib; sourceTree = SOURCE_ROOT; };
 		730D38881E79247E00EE4692 /* VIPChongZhiView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VIPChongZhiView.xib; path = MiYouProject/FourController/Controller/VIPChongZhiView.xib; sourceTree = SOURCE_ROOT; };
+		730F974A1ECC33B600B7A109 /* ZbFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZbFirstViewController.h; sourceTree = "<group>"; };
+		730F974B1ECC33B600B7A109 /* ZbFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZbFirstViewController.m; sourceTree = "<group>"; };
+		730F974E1ECC355600B7A109 /* UIViewController+ZLBase2ViewControllerCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZLBase2ViewControllerCategory.h"; sourceTree = "<group>"; };
+		730F974F1ECC355600B7A109 /* UIViewController+ZLBase2ViewControllerCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZLBase2ViewControllerCategory.m"; sourceTree = "<group>"; };
 		732BC8651E6FD17400B8B1BD /* MiYouProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiYouProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		732BC8691E6FD17400B8B1BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		732BC86B1E6FD17400B8B1BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -390,15 +393,6 @@
 		7339CB231EBABAA400E5E600 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		7339CB251EBABABF00E5E600 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		7339CB3C1EBB120000E5E600 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		7339CB451EBC542100E5E600 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
-		7339CB461EBC542100E5E600 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		7339CB471EBC542100E5E600 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
-		7339CB481EBC542100E5E600 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
-		7339CB491EBC542100E5E600 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
-		7339CB4A1EBC542100E5E600 /* FWResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FWResource.bundle; sourceTree = "<group>"; };
-		7339CB4C1EBC542100E5E600 /* FWInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWInterface.h; sourceTree = "<group>"; };
-		7339CB4D1EBC542100E5E600 /* FWParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWParam.h; sourceTree = "<group>"; };
-		7339CB4E1EBC542100E5E600 /* libFWSdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFWSdk.a; sourceTree = "<group>"; };
 		7339CBAD1EC2FEBA00E5E600 /* MianZeViewController02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MianZeViewController02.h; sourceTree = "<group>"; };
 		7339CBAE1EC2FEBA00E5E600 /* MianZeViewController02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MianZeViewController02.m; sourceTree = "<group>"; };
 		7339CBAF1EC2FEBA00E5E600 /* MianZeViewController02.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MianZeViewController02.xib; sourceTree = "<group>"; };
@@ -417,8 +411,6 @@
 		73485C401E9CB07A00A6691A /* OrderZLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderZLModel.h; sourceTree = "<group>"; };
 		73485C411E9CB07A00A6691A /* OrderZLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderZLModel.m; sourceTree = "<group>"; };
 		73485C471E9CCDC900A6691A /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
-		73485C491E9CD37D00A6691A /* BmobPaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BmobPaySDK.framework; path = MiYouProject/Myframework/ZhiFuFrame/BmobPaySDK.framework; sourceTree = "<group>"; };
-		73485C4E1E9CD74C00A6691A /* BmobPaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BmobPaySDK.framework; sourceTree = "<group>"; };
 		73485C591E9E0AAC00A6691A /* BanBenUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BanBenUIView.h; sourceTree = "<group>"; };
 		73485C5A1E9E0AAC00A6691A /* BanBenUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BanBenUIView.m; sourceTree = "<group>"; };
 		73485C5C1E9E0ABD00A6691A /* BanBenUIView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BanBenUIView.xib; sourceTree = "<group>"; };
@@ -695,6 +687,8 @@
 		73EB3F691E6FDEE400CA8B5D /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		73EB3F6B1E6FDEE400CA8B5D /* UIView+MJAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJAlertView.h"; sourceTree = "<group>"; };
 		73EB3F6C1E6FDEE400CA8B5D /* UIView+MJAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJAlertView.m"; sourceTree = "<group>"; };
+		73EB3F701E6FDEE400CA8B5D /* UPPaymentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPPaymentControl.h; sourceTree = "<group>"; };
+		73EB3F721E6FDEE400CA8B5D /* libPaymentControl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPaymentControl.a; sourceTree = "<group>"; };
 		73EB3F731E6FDEE400CA8B5D /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		73EB3F751E6FDEE400CA8B5D /* NavTopCommonImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavTopCommonImage.h; sourceTree = "<group>"; };
 		73EB3F761E6FDEE400CA8B5D /* NavTopCommonImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavTopCommonImage.m; sourceTree = "<group>"; };
@@ -755,14 +749,13 @@
 				73485C331E9CAD5600A6691A /* CoreTelephony.framework in Frameworks */,
 				73485C311E9CAD4B00A6691A /* SystemConfiguration.framework in Frameworks */,
 				73485C2F1E9CAD3F00A6691A /* libz.tbd in Frameworks */,
-				7339CB521EBC542100E5E600 /* libFWSdk.a in Frameworks */,
 				73485C2D1E9CAD3600A6691A /* libc++.tbd in Frameworks */,
 				73A3B6081E8A7B5600407957 /* AVKit.framework in Frameworks */,
 				73A3B6061E8A789F00407957 /* CoreMedia.framework in Frameworks */,
 				73E7DA4E1E7A6C3A00371E33 /* Foundation.framework in Frameworks */,
 				73E7DA4C1E7A6C3000371E33 /* AVFoundation.framework in Frameworks */,
 				73E7DA4A1E7A6C2700371E33 /* MobileCoreServices.framework in Frameworks */,
-				7339CB4F1EBC542100E5E600 /* libWeChatSDK.a in Frameworks */,
+				73EB3FCF1E6FDEE400CA8B5D /* libPaymentControl.a in Frameworks */,
 				73EB3E9B1E6FD48200CA8B5D /* libsqlite3.tbd in Frameworks */,
 				73EB3E991E6FD47600CA8B5D /* libsqlite3.0.tbd in Frameworks */,
 				09154F20FBB06ABB3AFF2AB2 /* libPods-MiYouProject.a in Frameworks */,
@@ -826,12 +819,9 @@
 		1D3354C620478839F6FED82A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7339CB421EBC542100E5E600 /* 对接包 */,
 				7339CB3C1EBB120000E5E600 /* Security.framework */,
 				7339CB251EBABABF00E5E600 /* UserNotifications.framework */,
 				7339CB211EBABAA400E5E600 /* UMessage_Sdk_1.5.0a */,
-				73485C4E1E9CD74C00A6691A /* BmobPaySDK.framework */,
-				73485C491E9CD37D00A6691A /* BmobPaySDK.framework */,
 				73485C471E9CCDC900A6691A /* libz.1.2.5.tbd */,
 				73485C3E1E9CADAB00A6691A /* CoreMotion.framework */,
 				73485C3C1E9CAD9C00A6691A /* CFNetwork.framework */,
@@ -870,6 +860,48 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		730F97451ECC338500B7A109 /* ZHUBOALLFile */ = {
+			isa = PBXGroup;
+			children = (
+				730F97461ECC338500B7A109 /* ZbFirstViewController */,
+			);
+			name = ZHUBOALLFile;
+			path = ThirdController/ZHUBOALLFile;
+			sourceTree = "<group>";
+		};
+		730F97461ECC338500B7A109 /* ZbFirstViewController */ = {
+			isa = PBXGroup;
+			children = (
+				730F97471ECC338500B7A109 /* Controller */,
+				730F97481ECC338500B7A109 /* Model */,
+				730F97491ECC338500B7A109 /* View */,
+			);
+			path = ZbFirstViewController;
+			sourceTree = "<group>";
+		};
+		730F97471ECC338500B7A109 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				730F974A1ECC33B600B7A109 /* ZbFirstViewController.h */,
+				730F974B1ECC33B600B7A109 /* ZbFirstViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		730F97481ECC338500B7A109 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		730F97491ECC338500B7A109 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		732BC85C1E6FD17400B8B1BD = {
 			isa = PBXGroup;
 			children = (
@@ -902,6 +934,7 @@
 				73EB3EB31E6FD7DB00CA8B5D /* Myframework */,
 				73EB3EC61E6FD7DB00CA8B5D /* SecondController */,
 				73EB3ECC1E6FD7DB00CA8B5D /* ThirdController */,
+				730F97451ECC338500B7A109 /* ZHUBOALLFile */,
 				732BC86B1E6FD17400B8B1BD /* AppDelegate.h */,
 				732BC86C1E6FD17400B8B1BD /* AppDelegate.m */,
 				732BC86E1E6FD17400B8B1BD /* ViewController.h */,
@@ -1036,46 +1069,6 @@
 				7339CB231EBABAA400E5E600 /* UMessage.h */,
 			);
 			path = UMessage_Sdk_1.5.0a;
-			sourceTree = "<group>";
-		};
-		7339CB421EBC542100E5E600 /* 对接包 */ = {
-			isa = PBXGroup;
-			children = (
-				7339CB431EBC542100E5E600 /* FWDepends */,
-				7339CB4A1EBC542100E5E600 /* FWResource.bundle */,
-				7339CB4B1EBC542100E5E600 /* lib */,
-			);
-			path = "对接包";
-			sourceTree = "<group>";
-		};
-		7339CB431EBC542100E5E600 /* FWDepends */ = {
-			isa = PBXGroup;
-			children = (
-				7339CB441EBC542100E5E600 /* wx */,
-			);
-			path = FWDepends;
-			sourceTree = "<group>";
-		};
-		7339CB441EBC542100E5E600 /* wx */ = {
-			isa = PBXGroup;
-			children = (
-				7339CB451EBC542100E5E600 /* libWeChatSDK.a */,
-				7339CB461EBC542100E5E600 /* README.txt */,
-				7339CB471EBC542100E5E600 /* WechatAuthSDK.h */,
-				7339CB481EBC542100E5E600 /* WXApi.h */,
-				7339CB491EBC542100E5E600 /* WXApiObject.h */,
-			);
-			path = wx;
-			sourceTree = "<group>";
-		};
-		7339CB4B1EBC542100E5E600 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				7339CB4C1EBC542100E5E600 /* FWInterface.h */,
-				7339CB4D1EBC542100E5E600 /* FWParam.h */,
-				7339CB4E1EBC542100E5E600 /* libFWSdk.a */,
-			);
-			path = lib;
 			sourceTree = "<group>";
 		};
 		73A3B5F71E89F78C00407957 /* Model02 */ = {
@@ -1437,6 +1430,8 @@
 				73EB3EBB1E6FD7DB00CA8B5D /* KSNavigationController.m */,
 				73EB3EBC1E6FD7DB00CA8B5D /* ZL+FMDB */,
 				73EB3EBF1E6FD7DB00CA8B5D /* ZLAFNetworking */,
+				730F974E1ECC355600B7A109 /* UIViewController+ZLBase2ViewControllerCategory.h */,
+				730F974F1ECC355600B7A109 /* UIViewController+ZLBase2ViewControllerCategory.m */,
 			);
 			path = Myframework;
 			sourceTree = "<group>";
@@ -1633,6 +1628,7 @@
 				73EB3F641E6FDEE400CA8B5D /* iCarousel */,
 				73EB3F6A1E6FDEE400CA8B5D /* MJAlertView */,
 				73EB3F6D1E6FDEE400CA8B5D /* MJRefresh */,
+				73EB3F6E1E6FDEE400CA8B5D /* paymentcontrol */,
 				73EB3F731E6FDEE400CA8B5D /* PrefixHeader.pch */,
 				73EB3F741E6FDEE400CA8B5D /* TopNavBackground */,
 				73EB3F771E6FDEE400CA8B5D /* UIButton+Badge */,
@@ -1784,6 +1780,31 @@
 			children = (
 			);
 			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		73EB3F6E1E6FDEE400CA8B5D /* paymentcontrol */ = {
+			isa = PBXGroup;
+			children = (
+				73EB3F6F1E6FDEE400CA8B5D /* inc */,
+				73EB3F711E6FDEE400CA8B5D /* libs */,
+			);
+			path = paymentcontrol;
+			sourceTree = "<group>";
+		};
+		73EB3F6F1E6FDEE400CA8B5D /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				73EB3F701E6FDEE400CA8B5D /* UPPaymentControl.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		73EB3F711E6FDEE400CA8B5D /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				73EB3F721E6FDEE400CA8B5D /* libPaymentControl.a */,
+			);
+			path = libs;
 			sourceTree = "<group>";
 		};
 		73EB3F741E6FDEE400CA8B5D /* TopNavBackground */ = {
@@ -2018,7 +2039,6 @@
 				73E7DA6C1E7BE08D00371E33 /* PlayerZLViewController.xib in Resources */,
 				730D38701E78C4F000EE4692 /* PersonTableViewCell.xib in Resources */,
 				73E7DA931E80BF7C00371E33 /* PlayVideoTableViewCell.xib in Resources */,
-				7339CB511EBC542100E5E600 /* FWResource.bundle in Resources */,
 				73E7DA601E7B6F2200371E33 /* HuanCunFooterView.xib in Resources */,
 				73EB3FCC1E6FDEE400CA8B5D /* page.png in Resources */,
 				73EB3FBA1E6FDEE400CA8B5D /* MLAnimationViewController.xib in Resources */,
@@ -2048,7 +2068,6 @@
 				730D384D1E7697A600EE4692 /* PersonHederTableViewCell.xib in Resources */,
 				73E7DA581E7A7C7F00371E33 /* HuanCunZLTableViewCell.xib in Resources */,
 				73EB43211E727E6F00CA8B5D /* FirstSubViewViewController.xib in Resources */,
-				7339CB501EBC542100E5E600 /* README.txt in Resources */,
 				730D38891E79247E00EE4692 /* VIPChongZhiView.xib in Resources */,
 				73A3B6241E8CA9DD00407957 /* SiFangCollectionViewCell.xib in Resources */,
 				73EB3FB61E6FDEE400CA8B5D /* Loading007.png in Resources */,
@@ -2279,6 +2298,7 @@
 				73A3B6471E8E455C00407957 /* VIPViewCollectionViewCell.m in Sources */,
 				73EB3F891E6FDEE400CA8B5D /* UIColor+HeinQi.m in Sources */,
 				73C347301E84E96600BBBDBE /* MSSAutoresizeLabelFlow.m in Sources */,
+				730F974C1ECC33B600B7A109 /* ZbFirstViewController.m in Sources */,
 				73EB3ED91E6FD7DB00CA8B5D /* FMDB+ZL.m in Sources */,
 				73A3B61D1E8BE14600407957 /* ZhiFuButtonVIew.m in Sources */,
 				73A3B6231E8CA9DD00407957 /* SiFangCollectionViewCell.m in Sources */,
@@ -2340,6 +2360,7 @@
 				730D38601E77D8FF00EE4692 /* SettingTableViewCell.m in Sources */,
 				73C3473C1E85196E00BBBDBE /* TypeListModel.m in Sources */,
 				1838C8AA1E9A599700C443F1 /* XuanJiCollectionViewCell.m in Sources */,
+				730F97501ECC355600B7A109 /* UIViewController+ZLBase2ViewControllerCategory.m in Sources */,
 				730D38741E78D8B800EE4692 /* XiaoXiTableViewCell.m in Sources */,
 				73EB3ED41E6FD7DB00CA8B5D /* FirstViewController.m in Sources */,
 				73E7DA721E7F743300371E33 /* WHC_DownloadObject.m in Sources */,
@@ -2624,7 +2645,7 @@
 					"\"WebP\"",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = miyou.com.MiYouProject;
+				PRODUCT_BUNDLE_IDENTIFIER = miyou.com.ZHUBO2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
@@ -2727,7 +2748,7 @@
 					"\"WebP\"",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = miyou.com.MiYouProject;
+				PRODUCT_BUNDLE_IDENTIFIER = miyou.com.ZHUBO2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};

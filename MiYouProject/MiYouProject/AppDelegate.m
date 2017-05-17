@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "UMMobClick/MobClick.h"
 #import <Bugly/Bugly.h>
-#import "FWInterface.h"
+//#import "FWInterface.h"
 //#import <AlipaySDK/AlipaySDK.h>
 //#import <BmobPaySDK/Bmob.h>
 
@@ -78,7 +78,7 @@
     KSNavigationController * rootVC = [storyboard instantiateViewControllerWithIdentifier:@"RootNavID"];
     
     //判断是否需要显示：（内部已经考虑版本及本地版本缓存）
-    BOOL canShow = [CoreNewFeatureVC canShowNewFeature];
+    BOOL canShow = NO;[CoreNewFeatureVC canShowNewFeature];
     
     //测试代码，正式版本应该删除
     //canShow = YES;
@@ -159,7 +159,7 @@
     //聚宝云 支付介入
     // 必须
     // FW code start //测试  35656972  //正式 29660012
-    [FWInterface init:@"29660012" useAPI:NO withWXAppId:nil]; // 35656972是appId
+    //[FWInterface init:@"29660012" useAPI:NO withWXAppId:nil]; // 35656972是appId
     // FW code end
     
     return YES;
@@ -168,7 +168,7 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application{
     // 必须
     // FW code start
-    [FWInterface applicationWillEnterForeground:application];
+    //[FWInterface applicationWillEnterForeground:application];
     // FW code end
 
 }

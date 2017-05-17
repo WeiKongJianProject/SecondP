@@ -16,7 +16,7 @@
 #import "OrderZLModel.h"
 //#import <BmobPaySDK/Bmob.h>
 #import "VIPPriceMTLModel.h"
-#import "FWInterface.h"
+//#import "FWInterface.h"
 
 
 typedef NS_ENUM(NSUInteger,UBorVIP) {
@@ -24,7 +24,7 @@ typedef NS_ENUM(NSUInteger,UBorVIP) {
     VIP_ChongZhi
 };
 
-@interface ChongZhiViewController : UIViewController<DZNSegmentedControlDelegate,UIScrollViewDelegate,FWInterfaceDelegate>
+@interface ChongZhiViewController : UIViewController<DZNSegmentedControlDelegate,UIScrollViewDelegate>
 
 
 @property (nonatomic, strong) DZNSegmentedControl *control;
