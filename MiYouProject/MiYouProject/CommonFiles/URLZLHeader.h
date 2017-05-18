@@ -23,7 +23,7 @@
 #define ALIPAY_APP_ID_ZL @"2015110400687059"
 
 
-#define URL_Common_ios @"http://api4.cn360du.com:88/index.php?m=api-ios"
+#define URL_Common_ios @"http://www.miyoutv.cc:8080/ios"//@"http://api4.cn360du.com:88/index.php?m=api-ios"
 #define NewBanBen_URL  @"http://www.baidu.com"
 #define XinBanBenImage @"http://img.miyouad.com:8088/html/img/iosupdate.jpg"
 

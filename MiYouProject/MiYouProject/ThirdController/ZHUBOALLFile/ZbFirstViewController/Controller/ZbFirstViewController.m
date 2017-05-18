@@ -121,8 +121,8 @@
     
     [MBManager showLoadingInView:self.view];
     __weak typeof(self) weakSelf = self;
-    NSString * url = [NSString stringWithFormat:@"%@&action=index&cate=%d&page=%d",URL_Common_ios,currenID,currentPage];
-    
+    NSString * url = [NSString stringWithFormat:@"%@&action=index&channel=%@&page=%d",URL_Common_ios,CHANNEL_ID,currentPage];
+    NSLog(@"首页APP————URL：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         
         [MBManager hideAlert];
@@ -134,21 +134,21 @@
         //        NSDictionary * memberDic = [dic objectForKey:@"member"];
         NSArray * listARR = [dic objectForKey:@"list"];
         NSString * result = [dic objectForKey:@"result"];
-        //NSLog(@"数据加载：%@++++++%@++++",result,dic);
+        NSLog(@"首页数据加载：%@++++++%@++++",result,dic);
         if ([result isEqualToString:@"success"]) {
             //            NSArray * arr1 = [MTLJSONAdapter modelsOfClass:[CateListMTLModel class] fromJSONArray:cateListARR error:nil];
             //            //self.itemsTitlesARR = arr1;
             //            [weakSelf.itemsTitlesARR removeAllObjects];
             //            [weakSelf.itemsTitlesARR addObjectsFromArray:arr1];
             if (_currentPage == 1) {
-                NSArray * arr2 = [MTLJSONAdapter modelsOfClass:[HOmeBannerMTLModel class] fromJSONArray:bannerARR error:nil];
+                NSArray * arr2 = [MTLJSONAdapter modelsOfClass:[ZBHomeBannerModel class] fromJSONArray:bannerARR error:nil];
                 [weakSelf.lunXianImageARR removeAllObjects];
                 [weakSelf.lunXianImageARR addObjectsFromArray:arr2];
             }
             
             
             
-            NSArray * arr3 = [MTLJSONAdapter modelsOfClass:[VideoListMTLModel class] fromJSONArray:listARR error:nil];
+            NSArray * arr3 = [MTLJSONAdapter modelsOfClass:[ZBHomeModel class] fromJSONArray:listARR error:nil];
             NSLog(@"加载电影列表的个数：%ld",arr3.count);
             //[weakSelf.dianYingCollectionARR removeAllObjects];
             [weakSelf.dianYingCollectionARR addObjectsFromArray:arr3];
@@ -209,7 +209,7 @@
         //        if ([urlStr hasSuffix:@"webp"]) {
         //            [imageview setZLWebPImageWithURLStr:urlStr withPlaceHolderImage:PLACEHOLDER_IMAGE];
         //        } else {
-        HOmeBannerMTLModel * bannerModel = self.lunXianImageARR[i];
+        ZBHomeBannerModel * bannerModel = self.lunXianImageARR[i];
         //[imageview sd_setImageWithURL:[NSURL URLWithString:bannerModel.pic] placeholderImage:[UIImage imageNamed:@"icon_default2"]];
         
         //检测缓存中是否存在图片
@@ -275,13 +275,13 @@
         [imageview addSubview:backview];
         UILabel * nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, imageScrollViewHeight-30, 250, 16)];
         nameLabel.textColor = [UIColor whiteColor];
-        nameLabel.text = bannerModel.name;
+        nameLabel.text = bannerModel.title;
         nameLabel.font = [UIFont systemFontOfSize:13.0];
         [imageview addSubview:nameLabel];
         UILabel * subnameLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, imageScrollViewHeight-19, 250, 14)];
         subnameLabel.textColor = [UIColor whiteColor];
         //subnameLabel.text = bannerModel.subname;
-        subnameLabel.text = @"ddddddd林俊杰";
+        subnameLabel.text = @"";
         subnameLabel.font = [UIFont systemFontOfSize:10.0];
         //[imageview addSubview:subnameLabel];
     }
@@ -294,16 +294,25 @@
 }
 - (void)photoTapped:(UITapGestureRecognizer *)sender{
     NSLog(@"点击了第几张:%ld",sender.view.tag);
-    HOmeBannerMTLModel * bannerModel = self.lunXianImageARR[sender.view.tag];
-    NSString * isVIPLevel = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_VIP_LEVEL];
-    NSString * bannerVIP = [NSString stringWithFormat:@"%d",[bannerModel.vip intValue]];
+    ZBHomeBannerModel * bannerModel = self.lunXianImageARR[sender.view.tag];
     
-    if ([isVIPLevel intValue] < [bannerModel.vip intValue] ) {
-
-    }
-    else{
-
-    }
+    WMPlayZLViewController  * vc = [[WMPlayZLViewController alloc]init];
+    //vc.URLString = @"http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4";
+    vc.videoTitleLabel.text = @"测试";//name;
+    //NSLog(@"电影标题为：%@",name);
+    vc.id = @"12345";//key;
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    
+//    NSString * isVIPLevel = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_VIP_LEVEL];
+//    NSString * bannerVIP = [NSString stringWithFormat:@"%d",[bannerModel.vip intValue]];
+//    
+//    if ([isVIPLevel intValue] < [bannerModel.vip intValue] ) {
+//
+//    }
+//    else{
+//
+//    }
     
     //    if ([bannerVIP isEqualToString:@"1"]) {
     //        if ([isVIP isEqualToString:@"1"]) {
@@ -417,8 +426,8 @@
      cell.delegate = self;
      //    cell.backgroundColor = arcColor;
      */
-    VideoListMTLModel * vModel = [self.dianYingCollectionARR objectAtIndex:indexPath.row];
-    cell.dianYingNameLabel.text = vModel.name;
+    ZBHomeModel * vModel = [self.dianYingCollectionARR objectAtIndex:indexPath.row];
+    cell.dianYingNameLabel.text = vModel.nickname;
     /*
      时间戳转化
      */
@@ -428,13 +437,13 @@
     //    [formatter setDateFormat:@"HHMMss"];//@"yyyy-MM-dd-HHMMss"
     //    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[vModel.duration intValue]];
     //    NSString* dateString = [formatter stringFromDate:date];
-    int zongTime = [vModel.duration intValue];
-    int m,s;
-    m = zongTime/60;
-    s = zongTime-60;
-    
-    NSString * timeString = [NSString stringWithFormat:@"%d:%d",m,s];
-    cell.timeLabel.text = timeString;
+//    int zongTime = [vModel.duration intValue];
+//    int m,s;
+//    m = zongTime/60;
+//    s = zongTime-60;
+//    
+//    NSString * timeString = [NSString stringWithFormat:@"%d:%d",m,s];
+//    cell.timeLabel.text = timeString;
     
     //https://www.baidu.com/img/bdlogo.png
     //vModel.pic
@@ -471,7 +480,7 @@
     //    }];
     
     //检测缓存中是否存在图片
-    UIImage *myCachedImage = [[SDImageCache sharedImageCache] imageFromCacheForKey:vModel.pic];
+    UIImage *myCachedImage = [[SDImageCache sharedImageCache] imageFromCacheForKey:vModel.thumb];
     /*
      SDWebImageManager *manager = [SDWebImageManager sharedManager];
      // 取消正在下载的操作
@@ -485,7 +494,7 @@
      */
     if (myCachedImage) {
         //NSLog(@"缓存中有图片");
-        [cell.minImageView sd_setImageWithURL:[NSURL URLWithString:vModel.pic] placeholderImage:[UIImage imageNamed:@"icon_default2"] options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        [cell.minImageView sd_setImageWithURL:[NSURL URLWithString:vModel.thumb] placeholderImage:[UIImage imageNamed:@"icon_default2"] options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             
         } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             
@@ -493,7 +502,7 @@
     }
     else{
         //NSLog(@"缓存中没有图片时执行方法");
-        [[SDWebImageManager sharedManager].imageDownloader downloadImageWithURL:[NSURL URLWithString:vModel.pic] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        [[SDWebImageManager sharedManager].imageDownloader downloadImageWithURL:[NSURL URLWithString:vModel.thumb] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             //NSLog(@"处理下载进度");
         } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
             if (error) {
@@ -508,7 +517,7 @@
                 });
                 
                 
-                [[SDImageCache sharedImageCache] storeImage:image forKey:vModel.pic toDisk:NO completion:^{
+                [[SDImageCache sharedImageCache] storeImage:image forKey:vModel.thumb toDisk:NO completion:^{
                     //NSLog(@"保存到磁盘中。。。。。。");
                 }];
                 //图片下载完成  在这里进行相关操作，如加到数组里 或者显示在imageView上
@@ -581,18 +590,25 @@
 #pragma mark  点击CollectionView触发事件
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    __weak typeof(self) weakSelf = self;
+//    __weak typeof(self) weakSelf = self;
+//    
+//    VideoListMTLModel * model = [self.dianYingCollectionARR objectAtIndex:indexPath.row];
+//    NSString * modelVIP = [NSString stringWithFormat:@"%d",[model.vip intValue]];
+//    //NSString * isMemberVIP = [[NSUserDefaults standardUserDefaults] objectForKey:IS_MEMBER_VIP];
+//    NSDictionary * memVIPDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
+//    int vipLevel = [[[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_VIP_LEVEL] intValue];
+//    if (vipLevel < [modelVIP intValue]) {
+//        
+//        
+//        
+//    }
     
-    VideoListMTLModel * model = [self.dianYingCollectionARR objectAtIndex:indexPath.row];
-    NSString * modelVIP = [NSString stringWithFormat:@"%d",[model.vip intValue]];
-    //NSString * isMemberVIP = [[NSUserDefaults standardUserDefaults] objectForKey:IS_MEMBER_VIP];
-    NSDictionary * memVIPDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
-    int vipLevel = [[[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_VIP_LEVEL] intValue];
-    if (vipLevel < [modelVIP intValue]) {
-        
-        
-        
-    }
+    WMPlayZLViewController  * vc = [[WMPlayZLViewController alloc]init];
+    //vc.URLString = @"http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4";
+    vc.videoTitleLabel.text = @"测试";//name;
+    //NSLog(@"电影标题为：%@",name);
+    vc.id = @"12345";//key;
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 
