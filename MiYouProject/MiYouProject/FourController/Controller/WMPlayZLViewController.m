@@ -119,7 +119,7 @@ static int _currentPage;
         
         
     } failure:^(NSError *error) {
-        
+        [MBManager showBriefAlert:@"评论失败"];
     }];
     
     
