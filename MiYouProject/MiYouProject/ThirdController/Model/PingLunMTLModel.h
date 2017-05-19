@@ -10,8 +10,11 @@
 
 @interface PingLunMTLModel : MTLModel<MTLJSONSerializing>
 
-@property (strong, nonatomic) NSString * member;
+@property (strong, nonatomic) NSString * cid;
 @property (strong, nonatomic) NSString * content;
-@property (strong, nonatomic) NSNumber * time;
-@property (strong, nonatomic) NSString * avator;
+@property (strong, nonatomic) NSString * zid;
+@property (strong, nonatomic) NSString * mid;
+@property (strong, nonatomic) NSString * mname;
+@property (strong, nonatomic) NSString * addtime;
+
 @end

@@ -35,7 +35,7 @@
                             <constraint firstAttribute="width" constant="20" id="VX8-jO-97H"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="huiyuanbiaoqian" translatesAutoresizingMaskIntoConstraints="NO" id="Fhp-1c-Z3q">
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="huiyuanbiaoqian" translatesAutoresizingMaskIntoConstraints="NO" id="Fhp-1c-Z3q">
                         <rect key="frame" x="239" y="84.5" width="50" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="2Lp-eI-5UR"/>

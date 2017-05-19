@@ -324,22 +324,22 @@ static int _currentPage;
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     PingLunMTLModel * model = self.tableViewARR[indexPath.row];
-    [cell.headImageVIew sd_setImageWithURL:[NSURL URLWithString:model.avator] placeholderImage:PLACEHOLDER_IMAGE];
-    cell.nameLabel.text = model.member;
-    cell.contentLabel.text = model.content;
+    //[cell.headImageVIew sd_setImageWithURL:[NSURL URLWithString:model.avator] placeholderImage:PLACEHOLDER_IMAGE];
+    //cell.nameLabel.text = model.member;
+    //cell.contentLabel.text = model.content;
     
     //时间 时间戳设置
-    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[model.time intValue]];
-    //NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[confromTimesp timeIntervalSince1970]];
-    //NSDate *date = [NSDate date];
-    //创建一个时间格式化对象
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    //按照什么样的格式来格式化时间
-    //formatter.dateFormat = @"yyyy年MM月dd日 HH时mm分ss秒 Z";
-    formatter.dateFormat = @"yyyy/MM/dd HH:mm:ss";
-    //formatter.dateFormat = @"MM-dd-yyyy HH-mm-ss";
-    NSString *res = [formatter stringFromDate:confromTimesp];
-    cell.timeLabel.text = res;
+//    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[model.time intValue]];
+//    //NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[confromTimesp timeIntervalSince1970]];
+//    //NSDate *date = [NSDate date];
+//    //创建一个时间格式化对象
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    //按照什么样的格式来格式化时间
+//    //formatter.dateFormat = @"yyyy年MM月dd日 HH时mm分ss秒 Z";
+//    formatter.dateFormat = @"yyyy/MM/dd HH:mm:ss";
+//    //formatter.dateFormat = @"MM-dd-yyyy HH-mm-ss";
+//    NSString *res = [formatter stringFromDate:confromTimesp];
+//    cell.timeLabel.text = res;
     
     return cell;
 }

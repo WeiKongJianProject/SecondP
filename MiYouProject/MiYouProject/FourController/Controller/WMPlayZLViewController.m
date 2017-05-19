@@ -67,6 +67,8 @@ static int _currentPage;
 
 - (void)tiJiaoButtonAction:(UIButton *)sender{
     
+    [self.textFieldView resignFirstResponder];
+    /*
     AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
     
     alert.titleName = @"观看完整版才可以评论";
@@ -85,6 +87,41 @@ static int _currentPage;
         [self.textFieldView resignFirstResponder];
     }];
     [self.view addSubview:alert];
+    */
+    
+    [self startFaBuAFNetWorkingWithid:[self.id intValue]];
+    
+}
+
+- (void)startFaBuAFNetWorkingWithid:(NSInteger )ids{
+    
+    __weak typeof(self) weakSelf = self;
+    
+    NSDictionary * memInfo = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
+    NSString * mid = [memInfo objectForKey:@"id"];
+    
+    NSString * url = [NSString stringWithFormat:@"%@&action=zhubo&zid=%ld&mid=%d&content=%@&behavior=comment",URL_Common_ios,ids,1,self.textFieldView.text];
+    //NSString * url02 = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    //NSLog(@"发布评论的链接为：%@",url02);
+    NSString * codeString = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSLog(@"发布评论的链接为：%@",codeString);
+    [[ZLSecondAFNetworking sharedInstance] getWithURLString:codeString parameters:nil success:^(id responseObject) {
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        if ([dic[@"result"] isEqualToString:@"success"]) {
+            
+            [MBManager showBriefAlert:dic[@"message"]];
+            weakSelf.textFieldView.text = @"";
+            
+        }
+        else{
+            [MBManager showBriefAlert:dic[@"message"]];
+        }
+        
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
     
 }
 
@@ -105,14 +142,14 @@ static int _currentPage;
     NSString * userID = userInfoDic[@"id"];
     __weak typeof(self) weakSelf = self;
     //play
-    NSString * urlstr = [NSString stringWithFormat:@"%@&action=play&id=%@&mid=%@",URL_Common_ios,keyID,userID];
+    NSString * urlstr = [NSString stringWithFormat:@"%@&action=zhubo&zid=%@",URL_Common_ios,keyID];
     NSLog(@"播放页请求的链接为：%@",urlstr);
     [[ZLSecondAFNetworking sharedInstance]getWithURLString:urlstr parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         //[MTLJSONAdapter modelOfClass:[PlayVideoMTLModel class] fromJSONDictionary:dic error:nil];
         if ([dic[@"result"] isEqualToString:@"success"]) {
-            weakSelf.playModel = (PlayVideoMTLModel *)[MTLJSONAdapter modelOfClass:[PlayVideoMTLModel class] fromJSONDictionary:dic[@"video"] error:nil];
-            weakSelf.playMemberModel = [MTLJSONAdapter modelOfClass:[PlayMemberMTLModel class] fromJSONDictionary:dic[@"member"] error:nil];
+            weakSelf.currentZBModel = (ZBMeiNvMTLModel *)[MTLJSONAdapter modelOfClass:[ZBMeiNvMTLModel class] fromJSONDictionary:dic[@"zhubo"] error:nil];
+            //weakSelf.playMemberModel = [MTLJSONAdapter modelOfClass:[PlayMemberMTLModel class] fromJSONDictionary:dic[@"member"] error:nil];
             //NSString * str = [dic objectForKey:@"actor"];
             //NSLog(@"播放页请求的结果为：%@++++全部结果为：%@",weakSelf.playModel.pic,dic);
             //[weakSelf settingPlayer];//加载播放器
@@ -133,10 +170,10 @@ static int _currentPage;
 
 - (void)PlayBoFangVideo{
     
-    self.boFangNumLabel.text = [NSString stringWithFormat:@"%d",[self.playModel.hit intValue]];
+    self.boFangNumLabel.text = [NSString stringWithFormat:@"%d",[self.currentZBModel.hot intValue]];
     
-    self.videoTitleLabel.text = self.playModel.name;
-    self.wmPlayer.URLString = self.playModel.trial;
+    self.videoTitleLabel.text = self.currentZBModel.nickname;
+    self.wmPlayer.URLString = self.currentZBModel.thumb;
     //@"http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4";//self.playModel.trial;
     [self.wmPlayer play];
 }
@@ -149,15 +186,15 @@ static int _currentPage;
     NSString * userID = userInfoDic[@"id"];
     __weak typeof(self) weakSelf = self;
     //play
-    NSString * urlstr = [NSString stringWithFormat:@"%@&action=comment&id=%@&page=%d",URL_Common_ios,keyID,page];
+    NSString * urlstr = [NSString stringWithFormat:@"%@&action=zhubo&zid=%@&page=%d",URL_Common_ios,keyID,page];
     NSLog(@"评论的链接为：%@",urlstr);
     [[ZLSecondAFNetworking sharedInstance]getWithURLString:urlstr parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         //[MTLJSONAdapter modelOfClass:[PlayVideoMTLModel class] fromJSONDictionary:dic error:nil];
         if ([dic[@"result"] isEqualToString:@"success"]) {
-            NSArray * arr01 = dic[@"list"];
+            NSArray * arr01 = dic[@"comment"];
             if (!zlArrayIsEmpty(arr01)) {
-                [self.tableViewARR addObjectsFromArray:[MTLJSONAdapter modelsOfClass:[PingLunMTLModel class] fromJSONArray:dic[@"list"] error:nil]];
+                [self.tableViewARR addObjectsFromArray:[MTLJSONAdapter modelsOfClass:[PingLunMTLModel class] fromJSONArray:dic[@"comment"] error:nil]];
                 [weakSelf.pingLunTableVIew reloadData];
             }
             [MBManager hideAlert];
@@ -197,23 +234,24 @@ static int _currentPage;
     PingLunMTLModel * model = self.tableViewARR[indexPath.row];
     
     
-    [cell.headImageVIew sd_setImageWithURL:[NSURL URLWithString:model.avator] placeholderImage:PLACEHOLDER_IMAGE];
-    cell.nameLabel.text = model.member;
+    //[cell.headImageVIew sd_setImageWithURL:[NSURL URLWithString:model.avator] placeholderImage:PLACEHOLDER_IMAGE];
+    [cell.headImageVIew setImage:[UIImage imageNamed:@"icon_default2"]];
+    cell.nameLabel.text = model.mname;
     cell.contentLabel.text = model.content;
     
     //时间 时间戳设置
-    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[model.time intValue]];
-    //NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[confromTimesp timeIntervalSince1970]];
-    //NSDate *date = [NSDate date];
-    //创建一个时间格式化对象
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    //按照什么样的格式来格式化时间
-    //formatter.dateFormat = @"yyyy年MM月dd日 HH时mm分ss秒 Z";
-    formatter.dateFormat = @"yyyy/MM/dd HH:mm:ss";
-    //formatter.dateFormat = @"MM-dd-yyyy HH-mm-ss";
-    NSString *res = [formatter stringFromDate:confromTimesp];
-    cell.timeLabel.text = res;
-    NSLog(@"评论的时间为：%@",res);
+//    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[model.time intValue]];
+//    //NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[confromTimesp timeIntervalSince1970]];
+//    //NSDate *date = [NSDate date];
+//    //创建一个时间格式化对象
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    //按照什么样的格式来格式化时间
+//    //formatter.dateFormat = @"yyyy年MM月dd日 HH时mm分ss秒 Z";
+//    formatter.dateFormat = @"yyyy/MM/dd HH:mm:ss";
+//    //formatter.dateFormat = @"MM-dd-yyyy HH-mm-ss";
+//    NSString *res = [formatter stringFromDate:confromTimesp];
+    cell.timeLabel.text = model.addtime;
+    //NSLog(@"评论的时间为：%@",res);
     return cell;
     
     

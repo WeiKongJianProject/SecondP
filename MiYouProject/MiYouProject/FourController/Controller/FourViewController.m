@@ -29,7 +29,7 @@ static int jd;
     [self setTabBarImageAndTextColor];//设置Tabbar 文字和颜色
 
     NSDictionary * memDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
-    self.userInfoModel = [MTLJSONAdapter modelOfClass:[UserInfoMTLModel class] fromJSONDictionary:memDic error:nil];
+    //self.userInfoModel = [MTLJSONAdapter modelOfClass:[UserInfoMTLModel class] fromJSONDictionary:memDic error:nil];
     
     _index_0_height = SIZE_WIDTH*(295.0/675.0);
     _index_1_height = SIZE_WIDTH*(50.0/325.0);
@@ -60,14 +60,14 @@ static int jd;
      }
      */
     __weak typeof(self) weakSelf = self;
-    NSString * urlstring = [NSString stringWithFormat:@"%@&action=memberCenter&id=%@",URL_Common_ios,self.userInfoModel.id];
+    NSString * urlstring = [NSString stringWithFormat:@"%@&action=memberCenter&id=1",URL_Common_ios ];//,self.userInfoModel.id];
     NSLog(@"用户中心请求的链接为：%@",urlstring);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:urlstring parameters:nil success:^(id responseObject) {
         NSDictionary *  dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"用户中心请求的数据为：%@",dic);
         if ([dic[@"result"] isEqualToString:@"success"]) {
-            weakSelf.userMessageModel = [MTLJSONAdapter modelOfClass:[UserMessageMTLModel class] fromJSONDictionary:dic error:nil];
-            [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"points"] forKey:MEMBER_POINTS_NUM];
+            weakSelf.currentZBMemberModel = [MTLJSONAdapter modelOfClass:[ZBMemberMTLModel class] fromJSONDictionary:dic error:nil];
+            [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"amount"] forKey:MEMBER_POINTS_NUM];
             [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"vip"] forKey:MEMBER_VIP_LEVEL];
         }
         
@@ -130,9 +130,9 @@ static int jd;
         if (!hcell) {
             hcell = (PersonHederTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"PersonHederTableViewCell" owner:self options:nil][0];
         }
-        hcell.userNameLabel.text = self.userInfoModel.nickname;
-        
-        int vipNum = [self.userMessageModel.vip intValue];
+        hcell.userNameLabel.text = self.currentZBMemberModel.name;
+        hcell.huiYuanDengJiLabel.hidden = YES;
+        int vipNum = [self.currentZBMemberModel.vip intValue];
         switch (vipNum) {
             case 1:
                 hcell.huiYuanDengJiLabel.text = @"青铜会员";
@@ -159,7 +159,7 @@ static int jd;
                 hcell.huiYuanDengJiLabel.text = @"普通会员";
                 break;
         }
-        hcell.UBiNumLabel.text = [NSString stringWithFormat:@"%d",[self.userMessageModel.points intValue]];
+        hcell.UBiNumLabel.text = [NSString stringWithFormat:@"%d",[self.currentZBMemberModel.amount intValue]];
         UIImage * image = [self readHeadImageFromUserDefault];
         if (!zlObjectIsEmpty(image)) {
             [hcell.headerImageVIew setImage:image];
@@ -182,8 +182,8 @@ static int jd;
         [fcell.firstButtonControl addTarget:self action:@selector(firstButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [fcell.secondButtonCOntrol addTarget:self action:@selector(secondButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [fcell.thirdButtonControl addTarget:self action:@selector(thirdButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        if ([self.userMessageModel.messageNum intValue] > 0) {
-            NSString * value = [NSString stringWithFormat:@"%d",[self.userMessageModel.messageNum intValue]];
+        if ([self.currentZBMemberModel.messageNum intValue] > 0) {
+            NSString * value = [NSString stringWithFormat:@"%d",[self.currentZBMemberModel.messageNum intValue]];
             [fcell.xiaoXiImageVIew showBadgeValue:value];
         }
         
@@ -199,7 +199,7 @@ static int jd;
         for (UIButton * btn in fcell.VIPButtonARR) {
             btn.hidden = YES;
         }
-        NSArray * vipListARR = [self.userMessageModel.viplist mutableCopy];
+        NSArray * vipListARR = @[];//self.userMessageModel.viplist mutableCopy];
         //NSLog(@"请求的用户VIP特权为：%ld,cell.ButtonARR的个数为：%ld",vipListARR.count,fcell.VIPButtonARR.count);
         NSInteger zonButNum;
         if (vipListARR.count > fcell.VIPButtonARR.count) {
@@ -322,8 +322,8 @@ static int jd;
     if (indexPath.row == 3) {
         MyYuEViewController * yuEVC = [[MyYuEViewController alloc]init];
         //yuEVC.yuELabel.text = [NSString stringWithFormat:@"%d",[self.userMessageModel.points intValue]];
-        yuEVC.userModel = self.userMessageModel;
-        [self.navigationController pushViewController:yuEVC animated:YES];
+        //yuEVC.userModel = self.userMessageModel;
+        //[self.navigationController pushViewController:yuEVC animated:YES];
     }
     if (indexPath.row == 0) {
         PersonInfoViewController * vc = [[PersonInfoViewController alloc]init];

@@ -42,6 +42,7 @@
 		730F974C1ECC33B600B7A109 /* ZbFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730F974B1ECC33B600B7A109 /* ZbFirstViewController.m */; };
 		730F97501ECC355600B7A109 /* UIViewController+ZLBase2ViewControllerCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 730F974F1ECC355600B7A109 /* UIViewController+ZLBase2ViewControllerCategory.m */; };
 		730F97531ECD9C3500B7A109 /* ZBHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 730F97521ECD9C3500B7A109 /* ZBHomeModel.m */; };
+		730F97591ECE875800B7A109 /* ZBMemberMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 730F97581ECE875800B7A109 /* ZBMemberMTLModel.m */; };
 		732BC86A1E6FD17400B8B1BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC8691E6FD17400B8B1BD /* main.m */; };
 		732BC86D1E6FD17400B8B1BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC86C1E6FD17400B8B1BD /* AppDelegate.m */; };
 		732BC8701E6FD17400B8B1BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC86F1E6FD17400B8B1BD /* ViewController.m */; };
@@ -345,6 +346,8 @@
 		730F974F1ECC355600B7A109 /* UIViewController+ZLBase2ViewControllerCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZLBase2ViewControllerCategory.m"; sourceTree = "<group>"; };
 		730F97511ECD9C3500B7A109 /* ZBHomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBHomeModel.h; sourceTree = "<group>"; };
 		730F97521ECD9C3500B7A109 /* ZBHomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBHomeModel.m; sourceTree = "<group>"; };
+		730F97571ECE875800B7A109 /* ZBMemberMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBMemberMTLModel.h; sourceTree = "<group>"; };
+		730F97581ECE875800B7A109 /* ZBMemberMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBMemberMTLModel.m; sourceTree = "<group>"; };
 		732BC8651E6FD17400B8B1BD /* MiYouProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiYouProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		732BC8691E6FD17400B8B1BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		732BC86B1E6FD17400B8B1BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1097,6 +1100,8 @@
 				73485C411E9CB07A00A6691A /* OrderZLModel.m */,
 				732D90861EA057D900FA49A4 /* VIPPriceMTLModel.h */,
 				732D90871EA057D900FA49A4 /* VIPPriceMTLModel.m */,
+				730F97571ECE875800B7A109 /* ZBMemberMTLModel.h */,
+				730F97581ECE875800B7A109 /* ZBMemberMTLModel.m */,
 			);
 			path = Model02;
 			sourceTree = "<group>";
@@ -2298,6 +2303,7 @@
 				730D385B1E77CDCB00EE4692 /* MyYuEViewController.m in Sources */,
 				73A3B62D1E8CF2BD00407957 /* SiFangPlayController.m in Sources */,
 				73EB3FDF1E70000F00CA8B5D /* ViewPagerController.m in Sources */,
+				730F97591ECE875800B7A109 /* ZBMemberMTLModel.m in Sources */,
 				73A3B6161E8A86A600407957 /* YiJianViewController.m in Sources */,
 				73EB3FBD1E6FDEE400CA8B5D /* UIApplication+Extend.m in Sources */,
 				73A3B6471E8E455C00407957 /* VIPViewCollectionViewCell.m in Sources */,

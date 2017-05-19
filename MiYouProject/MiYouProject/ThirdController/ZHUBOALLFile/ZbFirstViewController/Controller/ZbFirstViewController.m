@@ -607,7 +607,7 @@
     //vc.URLString = @"http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4";
     vc.videoTitleLabel.text = @"测试";//name;
     //NSLog(@"电影标题为：%@",name);
-    vc.id = @"12345";//key;
+    vc.id = @"1";//key;
     [self.navigationController pushViewController:vc animated:YES];
     
 }

@@ -36,3 +36,20 @@
 }
 
 @end
+
+@implementation ZBMeiNvMTLModel
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey{
+    return @{
+             @"room":@"room",
+             @"nickname":@"nickname",
+             @"avator":@"avator",
+             @"thumb":@"thumb",
+             @"hot":@"hot",
+             @"video":@"video"
+             };
+
+}
+
+@end
+

@@ -9,11 +9,12 @@
 #import "BaseViewController.h"
 #import "WMPlayer.h"
 #import "ZLSecondAFNetworking.h"
-#import "PlayVideoMTLModel.h"
-#import "PlayMemberMTLModel.h"
+//#import "PlayVideoMTLModel.h"
+//#import "PlayMemberMTLModel.h"
 #import "PingLunTableViewCell.h"
 #import "PingLunMTLModel.h"
 #import "ChongZhiViewController.h"
+#import "ZBHomeModel.h"
 
 @interface WMPlayZLViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
@@ -33,8 +34,9 @@
 
 @property (strong, nonatomic) NSMutableArray * tableViewARR;
 
-@property (strong, nonatomic) PlayVideoMTLModel * playModel;
-@property (strong, nonatomic) PlayMemberMTLModel * playMemberModel;
+//@property (strong, nonatomic) PlayVideoMTLModel * playModel;
+//@property (strong, nonatomic) PlayMemberMTLModel * playMemberModel;
+@property (strong, nonatomic) ZBMeiNvMTLModel * currentZBModel;
 @property (strong, nonatomic) NSString * id;//影片ID
 
 
