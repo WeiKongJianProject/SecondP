@@ -22,6 +22,10 @@
 
 #import "ZBMemberMTLModel.h"
 
+#import "JASidePanelController.h"
+
+#import "UIViewController+JASidePanel.h"
+
 @interface FourViewController : ZLBaseViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView * tableView;

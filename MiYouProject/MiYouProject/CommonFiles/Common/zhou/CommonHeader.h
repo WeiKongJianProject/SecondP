@@ -72,7 +72,7 @@
 #define Main_BackgroundColor @"f9bf34"
 #define Main_BackgroundGreen_Color @"1cd39b"
 //bab6b7  e6e6e6   f0eff5
-#define Main_grayBackgroundColor @"f6f6f6"
+#define Main_grayBackgroundColor @"a09993"
 //浅灰
 #define Main_lightGrayBackgroundColor @"999999"
 //深灰

@@ -13,6 +13,9 @@
 //#import <AlipaySDK/AlipaySDK.h>
 //#import <BmobPaySDK/Bmob.h>
 
+#import "ZBUserViewController.h"
+#import "JASidePanelController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -76,6 +79,13 @@
     //创建RootViewController
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     KSNavigationController * rootVC = [storyboard instantiateViewControllerWithIdentifier:@"RootNavID"];
+    
+    //添加侧滑 控制器
+//    JASidePanelController * ceHuaVC = [[JASidePanelController alloc]init];
+//    ceHuaVC.shouldDelegateAutorotateToVisiblePanel = NO;
+//    ceHuaVC.leftPanel = [[ZBUserViewController alloc]init];
+//    ceHuaVC.centerPanel = rootVC;
+    
     
     //判断是否需要显示：（内部已经考虑版本及本地版本缓存）
     BOOL canShow = NO;[CoreNewFeatureVC canShowNewFeature];

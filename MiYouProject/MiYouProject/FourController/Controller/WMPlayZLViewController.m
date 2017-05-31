@@ -351,7 +351,7 @@ static int _currentPage;
     //        self.wmPlayer.isFullscreen = YES;
     //        self.enablePanGesture = NO;
     //    }
-    [self alertViewShow];
+    //[self alertViewShow];
 }
 //操作栏隐藏或者显示都会调用此方法
 -(void)wmplayer:(WMPlayer *)wmplayer isHiddenTopAndBottomView:(BOOL)isHidden{
@@ -555,6 +555,66 @@ static int _currentPage;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
+
+#pragma mark 进入直播间
+- (IBAction)jinruZhiBoAction:(UIButton *)sender {
+    
+    
+    [self alertZhiFuViewWithType:0];
+}
+
+
+
+#pragma end 
+#pragma mark 加主播微信
+- (IBAction)addWeiXinButtonAction:(UIButton *)sender {
+    
+    [self alertZhiFuViewWithType:1];
+    
+    
+}
+
+- (void)alertZhiFuViewWithType:(NSInteger)type{
+    if (type == 0) {
+        __weak typeof(self) weakSelf = self;
+        
+
+        ZhuBoBuyVIPAlertView * alertView = [[ZhuBoBuyVIPAlertView alloc]init];
+        alertView.currentPayType = ZHIFUBAOPAY_TYPE;
+        [alertView showCustomAlertView];
+        [alertView setPlayActionTypeBlockAction:^(BOOL success, NSInteger Paytype, NSInteger CommodityType) {
+            //paytype  支付方式  commodityType  商品类型
+            
+        }];
+        
+        [self.view addSubview:alertView];
+    }
+    else{
+    
+        __weak typeof(self) weakSelf = self;
+        
+        AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
+        
+        alert.titleName = @"观看完整版,需要开通VIP";
+        alert.cancelBtnTitle = @"取消";
+        alert.okBtnTitle = @"开通";
+        [alert showCustomAlertView];
+        [alert cancelBlockAction:^(BOOL success) {
+            //_isKuaiJinAction = 0;
+            [alert hideCustomeAlertView];
+        }];
+        [alert okButtonBlockAction:^(BOOL success) {
+            //_isKuaiJinAction = 0;
+            [alert hideCustomeAlertView];
+            [weakSelf.navigationController popViewControllerAnimated:NO];
+            [weakSelf xw_postNotificationWithName:KAITONG_VIP_NOTIFICATION userInfo:nil];
+        }];
+        [self.view addSubview:alert];
+        
+    }
+}
+
+#pragma end
 
 
 /*

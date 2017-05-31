@@ -43,6 +43,10 @@
 		730F97501ECC355600B7A109 /* UIViewController+ZLBase2ViewControllerCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 730F974F1ECC355600B7A109 /* UIViewController+ZLBase2ViewControllerCategory.m */; };
 		730F97531ECD9C3500B7A109 /* ZBHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 730F97521ECD9C3500B7A109 /* ZBHomeModel.m */; };
 		730F97591ECE875800B7A109 /* ZBMemberMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 730F97581ECE875800B7A109 /* ZBMemberMTLModel.m */; };
+		7315766C1ED2843800AFB9E3 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731576691ED2843800AFB9E3 /* JASidePanelController.m */; };
+		7315766D1ED2843800AFB9E3 /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7315766B1ED2843800AFB9E3 /* UIViewController+JASidePanel.m */; };
+		731576751ED289D500AFB9E3 /* ZBUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731576731ED289D500AFB9E3 /* ZBUserViewController.m */; };
+		731576761ED289D500AFB9E3 /* ZBUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 731576741ED289D500AFB9E3 /* ZBUserViewController.xib */; };
 		732BC86A1E6FD17400B8B1BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC8691E6FD17400B8B1BD /* main.m */; };
 		732BC86D1E6FD17400B8B1BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC86C1E6FD17400B8B1BD /* AppDelegate.m */; };
 		732BC8701E6FD17400B8B1BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732BC86F1E6FD17400B8B1BD /* ViewController.m */; };
@@ -132,6 +136,9 @@
 		73A3B6501E8F442600407957 /* VIPShaiXuanVCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73A3B64E1E8F442600407957 /* VIPShaiXuanVCViewController.xib */; };
 		73A3B6561E8F4F4800407957 /* VIP03VideoMTLModel03.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B6551E8F4F4800407957 /* VIP03VideoMTLModel03.m */; };
 		73A3B6591E8F50D700407957 /* VIPFilterListMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B6581E8F50D700407957 /* VIPFilterListMTLModel.m */; };
+		73AF7AB21ED9169500794211 /* ZLAlertVIew02.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AF7AB11ED9169500794211 /* ZLAlertVIew02.m */; };
+		73AF7AB41ED916A900794211 /* ZLAlertView02.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73AF7AB31ED916A900794211 /* ZLAlertView02.xib */; };
+		73AF7AB71ED94E4500794211 /* ZhuBoBuyVIPAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AF7AB61ED94E4500794211 /* ZhuBoBuyVIPAlertView.m */; };
 		73C347091E80FCF800BBBDBE /* MBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C347081E80FCF700BBBDBE /* MBManager.m */; };
 		73C3470C1E8125A800BBBDBE /* UIAlertViewZL.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3470B1E8125A800BBBDBE /* UIAlertViewZL.m */; };
 		73C3470E1E8125B900BBBDBE /* UIAlertVIewZL.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73C3470D1E8125B900BBBDBE /* UIAlertVIewZL.xib */; };
@@ -348,6 +355,13 @@
 		730F97521ECD9C3500B7A109 /* ZBHomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBHomeModel.m; sourceTree = "<group>"; };
 		730F97571ECE875800B7A109 /* ZBMemberMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBMemberMTLModel.h; sourceTree = "<group>"; };
 		730F97581ECE875800B7A109 /* ZBMemberMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBMemberMTLModel.m; sourceTree = "<group>"; };
+		731576681ED2843800AFB9E3 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
+		731576691ED2843800AFB9E3 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
+		7315766A1ED2843800AFB9E3 /* UIViewController+JASidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JASidePanel.h"; sourceTree = "<group>"; };
+		7315766B1ED2843800AFB9E3 /* UIViewController+JASidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JASidePanel.m"; sourceTree = "<group>"; };
+		731576721ED289D500AFB9E3 /* ZBUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBUserViewController.h; sourceTree = "<group>"; };
+		731576731ED289D500AFB9E3 /* ZBUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBUserViewController.m; sourceTree = "<group>"; };
+		731576741ED289D500AFB9E3 /* ZBUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBUserViewController.xib; sourceTree = "<group>"; };
 		732BC8651E6FD17400B8B1BD /* MiYouProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiYouProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		732BC8691E6FD17400B8B1BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		732BC86B1E6FD17400B8B1BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -486,6 +500,11 @@
 		73A3B6551E8F4F4800407957 /* VIP03VideoMTLModel03.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VIP03VideoMTLModel03.m; path = MiYouProject/SecondController/Controller/VIP03VideoMTLModel03.m; sourceTree = SOURCE_ROOT; };
 		73A3B6571E8F50D700407957 /* VIPFilterListMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VIPFilterListMTLModel.h; path = MiYouProject/SecondController/Controller/VIPFilterListMTLModel.h; sourceTree = SOURCE_ROOT; };
 		73A3B6581E8F50D700407957 /* VIPFilterListMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VIPFilterListMTLModel.m; path = MiYouProject/SecondController/Controller/VIPFilterListMTLModel.m; sourceTree = SOURCE_ROOT; };
+		73AF7AB01ED9169500794211 /* ZLAlertVIew02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLAlertVIew02.h; sourceTree = "<group>"; };
+		73AF7AB11ED9169500794211 /* ZLAlertVIew02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLAlertVIew02.m; sourceTree = "<group>"; };
+		73AF7AB31ED916A900794211 /* ZLAlertView02.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZLAlertView02.xib; sourceTree = "<group>"; };
+		73AF7AB51ED94E4500794211 /* ZhuBoBuyVIPAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhuBoBuyVIPAlertView.h; sourceTree = "<group>"; };
+		73AF7AB61ED94E4500794211 /* ZhuBoBuyVIPAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhuBoBuyVIPAlertView.m; sourceTree = "<group>"; };
 		73C347071E80FCF700BBBDBE /* MBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBManager.h; sourceTree = "<group>"; };
 		73C347081E80FCF700BBBDBE /* MBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBManager.m; sourceTree = "<group>"; };
 		73C3470A1E8125A800BBBDBE /* UIAlertViewZL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewZL.h; sourceTree = "<group>"; };
@@ -869,6 +888,7 @@
 		730F97451ECC338500B7A109 /* ZHUBOALLFile */ = {
 			isa = PBXGroup;
 			children = (
+				7315766E1ED289A900AFB9E3 /* ZBUserViewController */,
 				730F97461ECC338500B7A109 /* ZbFirstViewController */,
 			);
 			name = ZHUBOALLFile;
@@ -910,6 +930,51 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		731576671ED2843800AFB9E3 /* CeHua */ = {
+			isa = PBXGroup;
+			children = (
+				731576681ED2843800AFB9E3 /* JASidePanelController.h */,
+				731576691ED2843800AFB9E3 /* JASidePanelController.m */,
+				7315766A1ED2843800AFB9E3 /* UIViewController+JASidePanel.h */,
+				7315766B1ED2843800AFB9E3 /* UIViewController+JASidePanel.m */,
+			);
+			path = CeHua;
+			sourceTree = "<group>";
+		};
+		7315766E1ED289A900AFB9E3 /* ZBUserViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7315766F1ED289A900AFB9E3 /* COntroller */,
+				731576701ED289A900AFB9E3 /* Model */,
+				731576711ED289A900AFB9E3 /* View */,
+			);
+			path = ZBUserViewController;
+			sourceTree = "<group>";
+		};
+		7315766F1ED289A900AFB9E3 /* COntroller */ = {
+			isa = PBXGroup;
+			children = (
+				731576721ED289D500AFB9E3 /* ZBUserViewController.h */,
+				731576731ED289D500AFB9E3 /* ZBUserViewController.m */,
+				731576741ED289D500AFB9E3 /* ZBUserViewController.xib */,
+			);
+			path = COntroller;
+			sourceTree = "<group>";
+		};
+		731576701ED289A900AFB9E3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		731576711ED289A900AFB9E3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		732BC85C1E6FD17400B8B1BD = {
 			isa = PBXGroup;
 			children = (
@@ -935,6 +1000,7 @@
 		732BC8671E6FD17400B8B1BD /* MiYouProject */ = {
 			isa = PBXGroup;
 			children = (
+				73AF7AAC1ED9166F00794211 /* ThisCommonFile */,
 				73EB3E9D1E6FD7DB00CA8B5D /* CommonFiles */,
 				73EB3EA31E6FD7DB00CA8B5D /* FirstController */,
 				73EB3EAB1E6FD7DB00CA8B5D /* FiveController */,
@@ -1191,6 +1257,42 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		73AF7AAC1ED9166F00794211 /* ThisCommonFile */ = {
+			isa = PBXGroup;
+			children = (
+				73AF7AAD1ED9166F00794211 /* Controller */,
+				73AF7AAE1ED9166F00794211 /* Model */,
+				73AF7AAF1ED9166F00794211 /* View */,
+			);
+			path = ThisCommonFile;
+			sourceTree = "<group>";
+		};
+		73AF7AAD1ED9166F00794211 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		73AF7AAE1ED9166F00794211 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		73AF7AAF1ED9166F00794211 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				73AF7AB01ED9169500794211 /* ZLAlertVIew02.h */,
+				73AF7AB11ED9169500794211 /* ZLAlertVIew02.m */,
+				73AF7AB31ED916A900794211 /* ZLAlertView02.xib */,
+				73AF7AB51ED94E4500794211 /* ZhuBoBuyVIPAlertView.h */,
+				73AF7AB61ED94E4500794211 /* ZhuBoBuyVIPAlertView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		73C347061E80FCF700BBBDBE /* MBProgressHUDZL */ = {
 			isa = PBXGroup;
 			children = (
@@ -1429,6 +1531,7 @@
 		73EB3EB31E6FD7DB00CA8B5D /* Myframework */ = {
 			isa = PBXGroup;
 			children = (
+				731576671ED2843800AFB9E3 /* CeHua */,
 				73C347241E84E96600BBBDBE /* AutoFitLabel */,
 				73E7DA611E7B787E00371E33 /* ZLNSFileManager */,
 				18AEC44F1E7593FA004BD503 /* ZLCollectionViewGird */,
@@ -2035,6 +2138,7 @@
 				73E7DA531E7A78A200371E33 /* HuanCunCenterViewController.xib in Resources */,
 				73EB3FA81E6FDEE400CA8B5D /* Loading0012.png in Resources */,
 				73EB3FB51E6FDEE400CA8B5D /* Loading006.png in Resources */,
+				73AF7AB41ED916A900794211 /* ZLAlertView02.xib in Resources */,
 				73EB3FA61E6FDEE400CA8B5D /* Loading0010.png in Resources */,
 				73EB3FAE1E6FDEE400CA8B5D /* Loading0018.png in Resources */,
 				73EB3FAF1E6FDEE400CA8B5D /* Loading0019.png in Resources */,
@@ -2065,6 +2169,7 @@
 				73EB3FAD1E6FDEE400CA8B5D /* Loading0017.png in Resources */,
 				730D38521E7787EE00EE4692 /* ButtonsTableViewCell.xib in Resources */,
 				73EB3FA91E6FDEE400CA8B5D /* Loading0013.png in Resources */,
+				731576761ED289D500AFB9E3 /* ZBUserViewController.xib in Resources */,
 				732BC8731E6FD17400B8B1BD /* Main.storyboard in Resources */,
 				73EB3FAA1E6FDEE400CA8B5D /* Loading0014.png in Resources */,
 				73EB3FCD1E6FDEE400CA8B5D /* placeholder.png in Resources */,
@@ -2293,6 +2398,7 @@
 				73EB43091E71313100CA8B5D /* ZLLabelCustom.m in Sources */,
 				73EB43201E727E6F00CA8B5D /* FirstSubViewViewController.m in Sources */,
 				73EB3FCB1E6FDEE400CA8B5D /* iCarousel.m in Sources */,
+				73AF7AB21ED9169500794211 /* ZLAlertVIew02.m in Sources */,
 				73E7DA7E1E7F778900371E33 /* UIView+WHC_Toast.m in Sources */,
 				73E7DA571E7A7C7F00371E33 /* HuanCunZLTableViewCell.m in Sources */,
 				73EB3ED51E6FD7DB00CA8B5D /* SearchHistoryModel.m in Sources */,
@@ -2315,6 +2421,7 @@
 				73A3B6231E8CA9DD00407957 /* SiFangCollectionViewCell.m in Sources */,
 				73EB3FD21E6FDEE400CA8B5D /* PulldownMenu.m in Sources */,
 				73A3B6111E8A857200407957 /* AboutUSViewController.m in Sources */,
+				7315766D1ED2843800AFB9E3 /* UIViewController+JASidePanel.m in Sources */,
 				73E7DA521E7A78A200371E33 /* HuanCunCenterViewController.m in Sources */,
 				732DFC701E94BCD100D024F8 /* BaseViewController.m in Sources */,
 				73C347311E84E96600BBBDBE /* MSSAutoresizeLabelFlowCell.m in Sources */,
@@ -2328,6 +2435,7 @@
 				73EB3F881E6FDEE400CA8B5D /* UIButton+HeinQi.m in Sources */,
 				73A3B6291E8CD7D200407957 /* SiFangMTLModel.m in Sources */,
 				739118701EC4410D00A30F51 /* KYBaseViewController.m in Sources */,
+				73AF7AB71ED94E4500794211 /* ZhuBoBuyVIPAlertView.m in Sources */,
 				732DFC7B1E94BCD100D024F8 /* WMPlayer.m in Sources */,
 				732DFC791E94BCD100D024F8 /* WMLightView.m in Sources */,
 				73EB3ED61E6FD7DB00CA8B5D /* UIColor+KSString.m in Sources */,
@@ -2337,6 +2445,7 @@
 				730D387E1E790F1C00EE4692 /* ChongZhiViewController.m in Sources */,
 				73EB3FB91E6FDEE400CA8B5D /* MLAnimationViewController.m in Sources */,
 				73EB3FD31E6FDEE400CA8B5D /* ZhengZePanDuan.m in Sources */,
+				7315766C1ED2843800AFB9E3 /* JASidePanelController.m in Sources */,
 				73EB3F981E6FDEE400CA8B5D /* UIImageView+ZLWebPsetImage.m in Sources */,
 				73EB3F901E6FDEE400CA8B5D /* HFSApplicationContext.m in Sources */,
 				73EB3FC91E6FDEE400CA8B5D /* GCDTimer.m in Sources */,
@@ -2386,6 +2495,7 @@
 				73EB3F971E6FDEE400CA8B5D /* UIButton+ZLWebPSetImage.m in Sources */,
 				73EB3FD41E6FDEE400CA8B5D /* ZLPageControl.m in Sources */,
 				73EB3FA31E6FDEE400CA8B5D /* RSAEncryptor.m in Sources */,
+				731576751ED289D500AFB9E3 /* ZBUserViewController.m in Sources */,
 				73EB43121E7240EE00CA8B5D /* NSObject+XWAdd.m in Sources */,
 				732DFC7F1E94BF9100D024F8 /* WMPlayZLViewController.m in Sources */,
 				73A3B6561E8F4F4800407957 /* VIP03VideoMTLModel03.m in Sources */,

@@ -42,7 +42,7 @@
     //self.dianYingCollectionARR = [[NSMutableArray alloc]init];
     //[self.dianYingCollectionARR addObjectsFromArray:@[@"01",@"02",@"03",@"04",@"05",@"06",@"07",@"08"]];
     //设置背景  ScrollView
-    self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 60, SIZE_WIDTH, SIZE_HEIGHT-49.0-60) style:UITableViewStylePlain];
+    self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 68, SIZE_WIDTH, SIZE_HEIGHT-49.0-60) style:UITableViewStylePlain];
     self.tableview.delegate = self;
     self.tableview.dataSource = self;
     self.tableview.showsVerticalScrollIndicator = NO;
@@ -58,8 +58,6 @@
     
     //上拉刷新
     self.tableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(shangLaShuaXin)];
-    //[self.lunXianImageARR addObjectsFromArray:@[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489137038151&di=f8359be9591004374d8585189541c241&imgtype=0&src=http%3A%2F%2Fpic.365j.com%2Farticle%2Fimage%2F201702%2F23%2F6084932905.jpg",@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489137038151&di=a486e7d292f3ea0fbd1d6039e2c337c6&imgtype=0&src=http%3A%2F%2Fimg3.cache.netease.com%2Fent%2F2014%2F7%2F22%2F201407221029266b582.jpg",@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489137038151&di=4c58da342c002a67215c2824e2e0ecfb&imgtype=0&src=http%3A%2F%2Fwww.qulishi.com%2Fuploads%2Fnews%2F201603%2F1456823338865420.png"]];
-    //[self loadTopLunXianView];
     [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(handleSchedule) userInfo:nil repeats:YES];
     //[self loadRemenView];
     //[self loadDianYingCollectionView];
@@ -665,7 +663,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 3;
+    return 1;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -682,7 +680,7 @@
         
         height =  (Collection_item_Height+10) * ((self.dianYingCollectionARR.count+1) / 2);
     }
-    return height;
+    return (Collection_item_Height+10) * ((self.dianYingCollectionARR.count+1) / 2);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
@@ -702,7 +700,7 @@
     cell.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
     
     switch (indexPath.row) {
-        case 0:
+        case 2:
             [self loadTopLunXianView];
             [cell addSubview:self.lunXianBackgroundView];
             break;
@@ -724,7 +722,7 @@
             }];
         }
             break;
-        case 2:
+        case 0:
             
             [self loadDianYingCollectionView];
             [cell addSubview:self.dianYingCollectionView];

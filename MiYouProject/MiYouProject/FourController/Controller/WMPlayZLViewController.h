@@ -15,6 +15,8 @@
 #import "PingLunMTLModel.h"
 #import "ChongZhiViewController.h"
 #import "ZBHomeModel.h"
+#import "ZhuBoBuyVIPAlertView.h"
+
 
 @interface WMPlayZLViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
@@ -38,6 +40,13 @@
 //@property (strong, nonatomic) PlayMemberMTLModel * playMemberModel;
 @property (strong, nonatomic) ZBMeiNvMTLModel * currentZBModel;
 @property (strong, nonatomic) NSString * id;//影片ID
+
+@property (strong, nonatomic) IBOutlet UILabel *subTitleLabel;
+@property (strong, nonatomic) IBOutlet UIButton *zhiBoButton;
+@property (strong, nonatomic) IBOutlet UIButton *weiXinButton;
+
+
+
 
 
 @end

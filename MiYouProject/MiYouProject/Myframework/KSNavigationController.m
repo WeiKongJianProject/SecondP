@@ -30,11 +30,11 @@
 {
     UINavigationBar *appearance = [UINavigationBar appearance];
     //统一设置导航栏颜色，如果单个界面需要设置，可以在viewWillAppear里面设置，在viewWillDisappear设置回统一格式。
-    [appearance setBarTintColor:[UIColor getColor:@"ffffff"]];
+    [appearance setBarTintColor:[UIColor getColor:Main_BackgroundColor]];
     
     //导航栏title格式
     NSMutableDictionary *textAttribute = [NSMutableDictionary dictionary];
-    textAttribute[NSForegroundColorAttributeName] = [UIColor colorWithRed:26.0/255.0 green:211.0/255.0 blue:154.0/255.0 alpha:1.0];
+    textAttribute[NSForegroundColorAttributeName] = [UIColor whiteColor];//[UIColor colorWithRed:26.0/255.0 green:211.0/255.0 blue:154.0/255.0 alpha:1.0];
     textAttribute[NSFontAttributeName] = [UIFont systemFontOfSize:15];
     [appearance setTitleTextAttributes:textAttribute];
 }
