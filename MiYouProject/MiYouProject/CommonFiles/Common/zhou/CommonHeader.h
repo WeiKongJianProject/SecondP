@@ -71,12 +71,13 @@
 //ae835d
 #define Main_BackgroundColor @"f9bf34"
 #define Main_BackgroundGreen_Color @"1cd39b"
-//bab6b7  e6e6e6   f0eff5
-#define Main_grayBackgroundColor @"a09993"
+//bab6b7  e6e6e6   f0eff5  a09993
+#define Main_grayBackgroundColor @"ffffff"
+
 //浅灰
 #define Main_lightGrayBackgroundColor @"999999"
 //深灰
-#define Main_darkGrayBackgroundColor @"625046"
+#define Main_darkGrayBackgroundColor @"a09993"
 //普色
 #define Main_textNormalBackgroundColor @"260e00"
 //重要文字

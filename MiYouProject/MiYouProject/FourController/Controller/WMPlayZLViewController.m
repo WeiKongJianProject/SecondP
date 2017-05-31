@@ -577,40 +577,83 @@ static int _currentPage;
 - (void)alertZhiFuViewWithType:(NSInteger)type{
     if (type == 0) {
         __weak typeof(self) weakSelf = self;
-        
-
         ZhuBoBuyVIPAlertView * alertView = [[ZhuBoBuyVIPAlertView alloc]init];
         alertView.currentPayType = ZHIFUBAOPAY_TYPE;
         [alertView showCustomAlertView];
+        __weak typeof(alertView) weakAlertView = alertView;
         [alertView setPlayActionTypeBlockAction:^(BOOL success, NSInteger Paytype, NSInteger CommodityType) {
             //paytype  支付方式  commodityType  商品类型
-            
+            [weakAlertView hideCustomeAlertView];
+            if (Paytype == 0) {
+                if (CommodityType == 1) {
+                    NSLog(@"成为VIP微信支付");
+                }
+                else{
+                     NSLog(@"加主播微信微信支付");
+                }
+            }
+            else{
+                if (CommodityType == 1) {
+                     NSLog(@"成为VIP支付宝支付");
+                }
+                else{
+                    NSLog(@"加主播微信支付宝支付");
+                }
+            }
         }];
-        
         [self.view addSubview:alertView];
     }
     else{
     
         __weak typeof(self) weakSelf = self;
         
-        AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
-        
-        alert.titleName = @"观看完整版,需要开通VIP";
-        alert.cancelBtnTitle = @"取消";
-        alert.okBtnTitle = @"开通";
-        [alert showCustomAlertView];
-        [alert cancelBlockAction:^(BOOL success) {
-            //_isKuaiJinAction = 0;
-            [alert hideCustomeAlertView];
+        ZhuBoBuyVIPAlertView * alertView = [[ZhuBoBuyVIPAlertView alloc]init];
+        alertView.currentPayType = WEIXINPAY_TYPE;
+        [alertView showCustomAlertView];
+       __weak typeof(alertView) weakAlertView = alertView;
+        [alertView setPlayActionTypeBlockAction:^(BOOL success, NSInteger Paytype, NSInteger CommodityType) {
+            //paytype  支付方式  commodityType  商品类型
+            
+            [weakAlertView hideCustomeAlertView];
+            if (Paytype == 0) {
+                if (CommodityType == 1) {
+                    NSLog(@"成为VIP微信支付");
+                }
+                else{
+                    NSLog(@"加主播微信微信支付");
+                }
+            }
+            else{
+                if (CommodityType == 1) {
+                    NSLog(@"成为VIP支付宝支付");
+                }
+                else{
+                    NSLog(@"加主播微信支付宝支付");
+                    
+                }
+            }
         }];
-        [alert okButtonBlockAction:^(BOOL success) {
-            //_isKuaiJinAction = 0;
-            [alert hideCustomeAlertView];
-            [weakSelf.navigationController popViewControllerAnimated:NO];
-            [weakSelf xw_postNotificationWithName:KAITONG_VIP_NOTIFICATION userInfo:nil];
-        }];
-        [self.view addSubview:alert];
         
+        [self.view addSubview:alertView];
+        
+        
+//        __weak typeof(self) weakSelf = self;
+//        AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
+//        alert.titleName = @"观看完整版,需要开通VIP";
+//        alert.cancelBtnTitle = @"取消";
+//        alert.okBtnTitle = @"开通";
+//        [alert showCustomAlertView];
+//        [alert cancelBlockAction:^(BOOL success) {
+//            //_isKuaiJinAction = 0;
+//            [alert hideCustomeAlertView];
+//        }];
+//        [alert okButtonBlockAction:^(BOOL success) {
+//            //_isKuaiJinAction = 0;
+//            [alert hideCustomeAlertView];
+//            [weakSelf.navigationController popViewControllerAnimated:NO];
+//            [weakSelf xw_postNotificationWithName:KAITONG_VIP_NOTIFICATION userInfo:nil];
+//        }];
+//        [self.view addSubview:alert];
     }
 }
 

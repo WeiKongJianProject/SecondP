@@ -18,7 +18,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithhex16stringToColor:@"eeeeee"];
     
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SIZE_WIDTH, 340) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SIZE_WIDTH, 226.0) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     //self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -36,7 +36,7 @@
 
 #pragma mark TableViewDelegate代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return 3;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     CGFloat height = 0.0f;
@@ -77,7 +77,6 @@
             //将多余的部分切掉
             cell.touXiangImageView.layer.masksToBounds = YES;
             
-            //[cell.touXiangImageView sd_setImageWithURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489550112931&di=aaf8556b5dc99730709ee5341c1178ce&imgtype=0&src=http%3A%2F%2Fstar.yule.com.cn%2Fuploadfile%2F2014%2Fcng%2Fyintao%2Fyule0117.jpg"]];
             
             UIImage * image = [self readHeadImageFromUserDefault];
             if (!zlObjectIsEmpty(image)) {
@@ -98,21 +97,9 @@
             }
             break;
         case 2:
-            cell.leftLabel.text = @"性别";
+            cell.leftLabel.text = @"邮箱";
             if (!zlDictIsEmpty(userDic)) {
                 cell.rightNameLabel.text = userDic[@"sex"];
-            }
-            break;
-        case 3:
-            cell.leftLabel.text = @"账号";
-            if (!zlDictIsEmpty(userDic)) {
-                cell.rightNameLabel.text = userDic[@"name"];
-            }
-            break;
-        case 4:
-            cell.leftLabel.text = @"密码";
-            if (!zlDictIsEmpty(userDic)) {
-                cell.rightNameLabel.text = userDic[@"password"];
             }
             break;
         default:
@@ -132,7 +119,12 @@
             [self updataImage:image];
         } showIn:self AndActionTitle:@"选择照片"];
     }
-
+    if (indexPath.row == 1) {
+        
+    }
+    if (indexPath.row == 2) {
+        
+    }
 }
 
 #pragma end mark

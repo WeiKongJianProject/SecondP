@@ -14,5 +14,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *UBiNumLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *huiYuanDengJiImageView;
 @property (strong, nonatomic) IBOutlet UILabel *huiYuanDengJiLabel;
+@property (strong, nonatomic) IBOutlet UIButton *kaiTongVIPButton;
 
 @end

@@ -26,6 +26,11 @@
 
 #import "UIViewController+JASidePanel.h"
 
+#import "ZBFourTableViewCell.h"
+#import "GuanYuUSViewController.h"
+#import "AboutUSViewController.h"
+#import "YiJianViewController.h"
+
 @interface FourViewController : ZLBaseViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView * tableView;

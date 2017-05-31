@@ -102,6 +102,10 @@
 		739118701EC4410D00A30F51 /* KYBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7391186B1EC4410D00A30F51 /* KYBaseViewController.m */; };
 		739118711EC4410D00A30F51 /* KYLocalVideoPlayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7391186D1EC4410D00A30F51 /* KYLocalVideoPlayVC.m */; };
 		739118721EC4410D00A30F51 /* KYVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7391186F1EC4410D00A30F51 /* KYVideo.m */; };
+		7393C66E1EDE5DC000C24C65 /* ZBQianYueViewControdller.m in Sources */ = {isa = PBXBuildFile; fileRef = 7393C66D1EDE5DC000C24C65 /* ZBQianYueViewControdller.m */; };
+		7393C6711EDE5DDD00C24C65 /* ZBVIPsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7393C6701EDE5DDD00C24C65 /* ZBVIPsViewController.m */; };
+		7393C6791EDEA7C900C24C65 /* ZBFourTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7393C6771EDEA7C900C24C65 /* ZBFourTableViewCell.m */; };
+		7393C67A1EDEA7C900C24C65 /* ZBFourTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7393C6781EDEA7C900C24C65 /* ZBFourTableViewCell.xib */; };
 		73A3B5FB1E89F7A900407957 /* UserInfoMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B5FA1E89F7A900407957 /* UserInfoMTLModel.m */; };
 		73A3B5FE1E89FA0E00407957 /* UserMessageMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B5FD1E89FA0E00407957 /* UserMessageMTLModel.m */; };
 		73A3B6031E8A2D8400407957 /* RenZhengViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B6011E8A2D8400407957 /* RenZhengViewController.m */; };
@@ -446,6 +450,13 @@
 		7391186D1EC4410D00A30F51 /* KYLocalVideoPlayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYLocalVideoPlayVC.m; sourceTree = "<group>"; };
 		7391186E1EC4410D00A30F51 /* KYVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYVideo.h; sourceTree = "<group>"; };
 		7391186F1EC4410D00A30F51 /* KYVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYVideo.m; sourceTree = "<group>"; };
+		7393C66C1EDE5DC000C24C65 /* ZBQianYueViewControdller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBQianYueViewControdller.h; sourceTree = "<group>"; };
+		7393C66D1EDE5DC000C24C65 /* ZBQianYueViewControdller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBQianYueViewControdller.m; sourceTree = "<group>"; };
+		7393C66F1EDE5DDD00C24C65 /* ZBVIPsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBVIPsViewController.h; sourceTree = "<group>"; };
+		7393C6701EDE5DDD00C24C65 /* ZBVIPsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBVIPsViewController.m; sourceTree = "<group>"; };
+		7393C6761EDEA7C900C24C65 /* ZBFourTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBFourTableViewCell.h; sourceTree = "<group>"; };
+		7393C6771EDEA7C900C24C65 /* ZBFourTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBFourTableViewCell.m; sourceTree = "<group>"; };
+		7393C6781EDEA7C900C24C65 /* ZBFourTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBFourTableViewCell.xib; sourceTree = "<group>"; };
 		73A3B5F91E89F7A900407957 /* UserInfoMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoMTLModel.h; sourceTree = "<group>"; };
 		73A3B5FA1E89F7A900407957 /* UserInfoMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoMTLModel.m; sourceTree = "<group>"; };
 		73A3B5FC1E89FA0E00407957 /* UserMessageMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMessageMTLModel.h; sourceTree = "<group>"; };
@@ -888,6 +899,8 @@
 		730F97451ECC338500B7A109 /* ZHUBOALLFile */ = {
 			isa = PBXGroup;
 			children = (
+				7393C6641EDE5D9900C24C65 /* ZBQianYueViewController */,
+				7393C6681EDE5D9900C24C65 /* ZBVIPViewController */,
 				7315766E1ED289A900AFB9E3 /* ZBUserViewController */,
 				730F97461ECC338500B7A109 /* ZbFirstViewController */,
 			);
@@ -1145,6 +1158,72 @@
 			path = UMessage_Sdk_1.5.0a;
 			sourceTree = "<group>";
 		};
+		7393C6641EDE5D9900C24C65 /* ZBQianYueViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7393C6651EDE5D9900C24C65 /* Contronller */,
+				7393C6661EDE5D9900C24C65 /* Model */,
+				7393C6671EDE5D9900C24C65 /* View */,
+			);
+			path = ZBQianYueViewController;
+			sourceTree = "<group>";
+		};
+		7393C6651EDE5D9900C24C65 /* Contronller */ = {
+			isa = PBXGroup;
+			children = (
+				7393C66C1EDE5DC000C24C65 /* ZBQianYueViewControdller.h */,
+				7393C66D1EDE5DC000C24C65 /* ZBQianYueViewControdller.m */,
+			);
+			path = Contronller;
+			sourceTree = "<group>";
+		};
+		7393C6661EDE5D9900C24C65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7393C6671EDE5D9900C24C65 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7393C6681EDE5D9900C24C65 /* ZBVIPViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7393C6691EDE5D9900C24C65 /* Contronller */,
+				7393C66A1EDE5D9900C24C65 /* Model */,
+				7393C66B1EDE5D9900C24C65 /* View */,
+			);
+			path = ZBVIPViewController;
+			sourceTree = "<group>";
+		};
+		7393C6691EDE5D9900C24C65 /* Contronller */ = {
+			isa = PBXGroup;
+			children = (
+				7393C66F1EDE5DDD00C24C65 /* ZBVIPsViewController.h */,
+				7393C6701EDE5DDD00C24C65 /* ZBVIPsViewController.m */,
+			);
+			path = Contronller;
+			sourceTree = "<group>";
+		};
+		7393C66A1EDE5D9900C24C65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7393C66B1EDE5D9900C24C65 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		73A3B5F71E89F78C00407957 /* Model02 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1211,6 +1290,9 @@
 				73A3B61B1E8BE14600407957 /* ZhiFuButtonVIew.h */,
 				73A3B61C1E8BE14600407957 /* ZhiFuButtonVIew.m */,
 				73A3B61E1E8BE15600407957 /* ZhiFuButtonView.xib */,
+				7393C6761EDEA7C900C24C65 /* ZBFourTableViewCell.h */,
+				7393C6771EDEA7C900C24C65 /* ZBFourTableViewCell.m */,
+				7393C6781EDEA7C900C24C65 /* ZBFourTableViewCell.xib */,
 			);
 			path = View02;
 			sourceTree = "<group>";
@@ -2138,6 +2220,7 @@
 				73E7DA531E7A78A200371E33 /* HuanCunCenterViewController.xib in Resources */,
 				73EB3FA81E6FDEE400CA8B5D /* Loading0012.png in Resources */,
 				73EB3FB51E6FDEE400CA8B5D /* Loading006.png in Resources */,
+				7393C67A1EDEA7C900C24C65 /* ZBFourTableViewCell.xib in Resources */,
 				73AF7AB41ED916A900794211 /* ZLAlertView02.xib in Resources */,
 				73EB3FA61E6FDEE400CA8B5D /* Loading0010.png in Resources */,
 				73EB3FAE1E6FDEE400CA8B5D /* Loading0018.png in Resources */,
@@ -2411,6 +2494,7 @@
 				73EB3FDF1E70000F00CA8B5D /* ViewPagerController.m in Sources */,
 				730F97591ECE875800B7A109 /* ZBMemberMTLModel.m in Sources */,
 				73A3B6161E8A86A600407957 /* YiJianViewController.m in Sources */,
+				7393C66E1EDE5DC000C24C65 /* ZBQianYueViewControdller.m in Sources */,
 				73EB3FBD1E6FDEE400CA8B5D /* UIApplication+Extend.m in Sources */,
 				73A3B6471E8E455C00407957 /* VIPViewCollectionViewCell.m in Sources */,
 				73EB3F891E6FDEE400CA8B5D /* UIColor+HeinQi.m in Sources */,
@@ -2491,6 +2575,7 @@
 				73E7DA671E7BAFF400371E33 /* VideoModelZL.m in Sources */,
 				73EB3F8C1E6FDEE400CA8B5D /* UIView+BlankPage.m in Sources */,
 				73C347171E8245E200BBBDBE /* HOmeBannerMTLModel.m in Sources */,
+				7393C6791EDEA7C900C24C65 /* ZBFourTableViewCell.m in Sources */,
 				73EB3F8B1E6FDEE400CA8B5D /* UILabel+HeinQi.m in Sources */,
 				73EB3F971E6FDEE400CA8B5D /* UIButton+ZLWebPSetImage.m in Sources */,
 				73EB3FD41E6FDEE400CA8B5D /* ZLPageControl.m in Sources */,
@@ -2499,6 +2584,7 @@
 				73EB43121E7240EE00CA8B5D /* NSObject+XWAdd.m in Sources */,
 				732DFC7F1E94BF9100D024F8 /* WMPlayZLViewController.m in Sources */,
 				73A3B6561E8F4F4800407957 /* VIP03VideoMTLModel03.m in Sources */,
+				7393C6711EDE5DDD00C24C65 /* ZBVIPsViewController.m in Sources */,
 				730D38851E79244C00EE4692 /* VIPChongZhiView.m in Sources */,
 				73E7DA881E7FBD2700371E33 /* DianYingSubTableViewCell.m in Sources */,
 				732BC86A1E6FD17400B8B1BD /* main.m in Sources */,

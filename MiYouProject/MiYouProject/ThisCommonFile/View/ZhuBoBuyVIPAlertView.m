@@ -89,9 +89,10 @@
         [self.demoview.weiXinLabelImage setImage:[UIImage imageNamed:@"+zhuboweix"]];
         
         [self.demoview.vipLeftImage setImage:[UIImage imageNamed:@"chengweiVIPbuliang"]];
-        self.demoview.titleLabel.textColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
-        self.demoview.subTitleLabel.textColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
-        self.demoview.rightLabel.textColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
+        self.demoview.titleLabel.textColor = [UIColor colorWithhex16stringToColor:Main_darkGrayBackgroundColor];
+        self.demoview.subTitleLabel.textColor = [UIColor colorWithhex16stringToColor:Main_darkGrayBackgroundColor];
+        self.demoview.rightLabel.textColor = [UIColor colorWithhex16stringToColor:Main_darkGrayBackgroundColor];
+        _currentCtype = 2;
     }
     else{
         [self.demoview.vipLeftImage setImage:[UIImage imageNamed:@"jinluzhibojian"]];
@@ -100,11 +101,12 @@
         self.demoview.rightLabel.textColor = [UIColor colorWithhex16stringToColor:Main_BackgroundColor];
         
         
-        self.demoview.weiXinTitleLabel.textColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
-        self.demoview.weiXinSubTitleLabel.textColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
-        self.demoview.weiXinRightLabel.textColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
+        self.demoview.weiXinTitleLabel.textColor = [UIColor colorWithhex16stringToColor:Main_darkGrayBackgroundColor];
+        self.demoview.weiXinSubTitleLabel.textColor = [UIColor colorWithhex16stringToColor:Main_darkGrayBackgroundColor];
+        self.demoview.weiXinRightLabel.textColor = [UIColor colorWithhex16stringToColor:Main_darkGrayBackgroundColor];
         [self.demoview.weiXinLabelImage setImage:[UIImage imageNamed:@"jiazhuboweixbuliang"]];
         
+        _currentCtype = 1;
     }
     
     
@@ -127,9 +129,9 @@
         [self.demoview.weiXinLabelImage setImage:[UIImage imageNamed:@"+zhuboweix"]];
         
         [self.demoview.vipLeftImage setImage:[UIImage imageNamed:@"chengweiVIPbuliang"]];
-        self.demoview.titleLabel.textColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
-        self.demoview.subTitleLabel.textColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
-        self.demoview.rightLabel.textColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
+        self.demoview.titleLabel.textColor = [UIColor colorWithhex16stringToColor:Main_darkGrayBackgroundColor];
+        self.demoview.subTitleLabel.textColor = [UIColor colorWithhex16stringToColor:Main_darkGrayBackgroundColor];
+        self.demoview.rightLabel.textColor = [UIColor colorWithhex16stringToColor:Main_darkGrayBackgroundColor];
         
         
         _currentCtype = 2;
@@ -151,9 +153,9 @@
         self.demoview.rightLabel.textColor = [UIColor colorWithhex16stringToColor:Main_BackgroundColor];
         
         
-        self.demoview.weiXinTitleLabel.textColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
-        self.demoview.weiXinSubTitleLabel.textColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
-        self.demoview.weiXinRightLabel.textColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
+        self.demoview.weiXinTitleLabel.textColor = [UIColor colorWithhex16stringToColor:Main_darkGrayBackgroundColor];
+        self.demoview.weiXinSubTitleLabel.textColor = [UIColor colorWithhex16stringToColor:Main_darkGrayBackgroundColor];
+        self.demoview.weiXinRightLabel.textColor = [UIColor colorWithhex16stringToColor:Main_darkGrayBackgroundColor];
         [self.demoview.weiXinLabelImage setImage:[UIImage imageNamed:@"jiazhuboweixbuliang"]];
         
         _currentCtype = 1;

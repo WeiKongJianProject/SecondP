@@ -36,7 +36,8 @@
     _index_0_height = 315.0/560.0*SIZE_WIDTH;
     _index_1_height = 40.0f;
     
-    self.view.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
+    //self.view.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view from its nib.
     //self.lunXianImageARR = [[NSMutableArray alloc]init];
     //self.dianYingCollectionARR = [[NSMutableArray alloc]init];
@@ -143,9 +144,7 @@
                 [weakSelf.lunXianImageARR removeAllObjects];
                 [weakSelf.lunXianImageARR addObjectsFromArray:arr2];
             }
-            
-            
-            
+
             NSArray * arr3 = [MTLJSONAdapter modelsOfClass:[ZBHomeModel class] fromJSONArray:listARR error:nil];
             NSLog(@"加载电影列表的个数：%ld",arr3.count);
             //[weakSelf.dianYingCollectionARR removeAllObjects];
