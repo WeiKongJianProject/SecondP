@@ -95,6 +95,26 @@
 		73485C511E9CD87E00A6691A /* ChongZhiViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 730D387B1E790F1C00EE4692 /* ChongZhiViewController.h */; };
 		73485C5B1E9E0AAC00A6691A /* BanBenUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73485C5A1E9E0AAC00A6691A /* BanBenUIView.m */; };
 		73485C5D1E9E0ABD00A6691A /* BanBenUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73485C5C1E9E0ABD00A6691A /* BanBenUIView.xib */; };
+		735338221EDFA8DC00A2E0A6 /* ZBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 735338201EDFA8DC00A2E0A6 /* ZBLoginViewController.m */; };
+		735338231EDFA8DC00A2E0A6 /* ZBLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735338211EDFA8DC00A2E0A6 /* ZBLoginViewController.xib */; };
+		7353384C1EDFB74800A2E0A6 /* NSArray+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 735338281EDFB74800A2E0A6 /* NSArray+WT.m */; };
+		7353384D1EDFB74800A2E0A6 /* NSDate+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 7353382A1EDFB74800A2E0A6 /* NSDate+WT.m */; };
+		7353384E1EDFB74800A2E0A6 /* NSString+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 7353382C1EDFB74800A2E0A6 /* NSString+WT.m */; };
+		7353384F1EDFB74800A2E0A6 /* NSTimer+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 7353382E1EDFB74800A2E0A6 /* NSTimer+WT.m */; };
+		735338501EDFB74800A2E0A6 /* CALayer+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 735338311EDFB74800A2E0A6 /* CALayer+WT.m */; };
+		735338511EDFB74800A2E0A6 /* Checkmark_failure_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 735338321EDFB74800A2E0A6 /* Checkmark_failure_white@2x.png */; };
+		735338521EDFB74800A2E0A6 /* Checkmark_success_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 735338331EDFB74800A2E0A6 /* Checkmark_success_white@2x.png */; };
+		735338531EDFB74800A2E0A6 /* UIBarButtonItem+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 735338351EDFB74800A2E0A6 /* UIBarButtonItem+WT.m */; };
+		735338541EDFB74800A2E0A6 /* UIButton+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 735338371EDFB74800A2E0A6 /* UIButton+WT.m */; };
+		735338551EDFB74800A2E0A6 /* UIImage+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 735338391EDFB74800A2E0A6 /* UIImage+WT.m */; };
+		735338561EDFB74800A2E0A6 /* UILabel+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 7353383B1EDFB74800A2E0A6 /* UILabel+WT.m */; };
+		735338571EDFB74800A2E0A6 /* UITextView+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 7353383D1EDFB74800A2E0A6 /* UITextView+WT.m */; };
+		735338581EDFB74800A2E0A6 /* UIView+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 7353383F1EDFB74800A2E0A6 /* UIView+WT.m */; };
+		735338591EDFB74800A2E0A6 /* UIViewController+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 735338411EDFB74800A2E0A6 /* UIViewController+WT.m */; };
+		7353385A1EDFB74800A2E0A6 /* WTUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 735338461EDFB74800A2E0A6 /* WTUtility.m */; };
+		7353385B1EDFB74800A2E0A6 /* WTTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 735338491EDFB74800A2E0A6 /* WTTextField.m */; };
+		7353385C1EDFB74800A2E0A6 /* WTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7353384B1EDFB74800A2E0A6 /* WTTextView.m */; };
+		735338611EE004FB00A2E0A6 /* ZBALLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 735338601EE004FB00A2E0A6 /* ZBALLModel.m */; };
 		736557361E728F5800284C11 /* ReMenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557351E728F5800284C11 /* ReMenView.xib */; };
 		7365573A1E729C4B00284C11 /* DianYingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */; };
 		7365573B1E729C4B00284C11 /* DianYingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */; };
@@ -438,6 +458,45 @@
 		73485C591E9E0AAC00A6691A /* BanBenUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BanBenUIView.h; sourceTree = "<group>"; };
 		73485C5A1E9E0AAC00A6691A /* BanBenUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BanBenUIView.m; sourceTree = "<group>"; };
 		73485C5C1E9E0ABD00A6691A /* BanBenUIView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BanBenUIView.xib; sourceTree = "<group>"; };
+		7353381F1EDFA8DC00A2E0A6 /* ZBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBLoginViewController.h; sourceTree = "<group>"; };
+		735338201EDFA8DC00A2E0A6 /* ZBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBLoginViewController.m; sourceTree = "<group>"; };
+		735338211EDFA8DC00A2E0A6 /* ZBLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBLoginViewController.xib; sourceTree = "<group>"; };
+		735338271EDFB74800A2E0A6 /* NSArray+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+WT.h"; sourceTree = "<group>"; };
+		735338281EDFB74800A2E0A6 /* NSArray+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+WT.m"; sourceTree = "<group>"; };
+		735338291EDFB74800A2E0A6 /* NSDate+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WT.h"; sourceTree = "<group>"; };
+		7353382A1EDFB74800A2E0A6 /* NSDate+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WT.m"; sourceTree = "<group>"; };
+		7353382B1EDFB74800A2E0A6 /* NSString+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WT.h"; sourceTree = "<group>"; };
+		7353382C1EDFB74800A2E0A6 /* NSString+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WT.m"; sourceTree = "<group>"; };
+		7353382D1EDFB74800A2E0A6 /* NSTimer+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+WT.h"; sourceTree = "<group>"; };
+		7353382E1EDFB74800A2E0A6 /* NSTimer+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+WT.m"; sourceTree = "<group>"; };
+		735338301EDFB74800A2E0A6 /* CALayer+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+WT.h"; sourceTree = "<group>"; };
+		735338311EDFB74800A2E0A6 /* CALayer+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+WT.m"; sourceTree = "<group>"; };
+		735338321EDFB74800A2E0A6 /* Checkmark_failure_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkmark_failure_white@2x.png"; sourceTree = "<group>"; };
+		735338331EDFB74800A2E0A6 /* Checkmark_success_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkmark_success_white@2x.png"; sourceTree = "<group>"; };
+		735338341EDFB74800A2E0A6 /* UIBarButtonItem+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WT.h"; sourceTree = "<group>"; };
+		735338351EDFB74800A2E0A6 /* UIBarButtonItem+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+WT.m"; sourceTree = "<group>"; };
+		735338361EDFB74800A2E0A6 /* UIButton+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WT.h"; sourceTree = "<group>"; };
+		735338371EDFB74800A2E0A6 /* UIButton+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WT.m"; sourceTree = "<group>"; };
+		735338381EDFB74800A2E0A6 /* UIImage+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WT.h"; sourceTree = "<group>"; };
+		735338391EDFB74800A2E0A6 /* UIImage+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WT.m"; sourceTree = "<group>"; };
+		7353383A1EDFB74800A2E0A6 /* UILabel+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+WT.h"; sourceTree = "<group>"; };
+		7353383B1EDFB74800A2E0A6 /* UILabel+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+WT.m"; sourceTree = "<group>"; };
+		7353383C1EDFB74800A2E0A6 /* UITextView+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+WT.h"; sourceTree = "<group>"; };
+		7353383D1EDFB74800A2E0A6 /* UITextView+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+WT.m"; sourceTree = "<group>"; };
+		7353383E1EDFB74800A2E0A6 /* UIView+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WT.h"; sourceTree = "<group>"; };
+		7353383F1EDFB74800A2E0A6 /* UIView+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WT.m"; sourceTree = "<group>"; };
+		735338401EDFB74800A2E0A6 /* UIViewController+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WT.h"; sourceTree = "<group>"; };
+		735338411EDFB74800A2E0A6 /* UIViewController+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WT.m"; sourceTree = "<group>"; };
+		735338431EDFB74800A2E0A6 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		735338441EDFB74800A2E0A6 /* WTConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTConst.h; sourceTree = "<group>"; };
+		735338451EDFB74800A2E0A6 /* WTUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTUtility.h; sourceTree = "<group>"; };
+		735338461EDFB74800A2E0A6 /* WTUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTUtility.m; sourceTree = "<group>"; };
+		735338481EDFB74800A2E0A6 /* WTTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTextField.h; sourceTree = "<group>"; };
+		735338491EDFB74800A2E0A6 /* WTTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTextField.m; sourceTree = "<group>"; };
+		7353384A1EDFB74800A2E0A6 /* WTTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTextView.h; sourceTree = "<group>"; };
+		7353384B1EDFB74800A2E0A6 /* WTTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTextView.m; sourceTree = "<group>"; };
+		7353385F1EE004FB00A2E0A6 /* ZBALLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBALLModel.h; sourceTree = "<group>"; };
+		735338601EE004FB00A2E0A6 /* ZBALLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBALLModel.m; sourceTree = "<group>"; };
 		736557351E728F5800284C11 /* ReMenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReMenView.xib; sourceTree = "<group>"; };
 		736557371E729C4B00284C11 /* DianYingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianYingCollectionViewCell.h; sourceTree = "<group>"; };
 		736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianYingCollectionViewCell.m; sourceTree = "<group>"; };
@@ -899,6 +958,7 @@
 		730F97451ECC338500B7A109 /* ZHUBOALLFile */ = {
 			isa = PBXGroup;
 			children = (
+				7353381B1EDFA85700A2E0A6 /* ZBLoginViewController */,
 				7393C6641EDE5D9900C24C65 /* ZBQianYueViewController */,
 				7393C6681EDE5D9900C24C65 /* ZBVIPViewController */,
 				7315766E1ED289A900AFB9E3 /* ZBUserViewController */,
@@ -1158,6 +1218,137 @@
 			path = UMessage_Sdk_1.5.0a;
 			sourceTree = "<group>";
 		};
+		7353381B1EDFA85700A2E0A6 /* ZBLoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7353381C1EDFA85700A2E0A6 /* Controller */,
+				7353381D1EDFA85700A2E0A6 /* Model */,
+				7353381E1EDFA85700A2E0A6 /* View */,
+			);
+			path = ZBLoginViewController;
+			sourceTree = "<group>";
+		};
+		7353381C1EDFA85700A2E0A6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7353381F1EDFA8DC00A2E0A6 /* ZBLoginViewController.h */,
+				735338201EDFA8DC00A2E0A6 /* ZBLoginViewController.m */,
+				735338211EDFA8DC00A2E0A6 /* ZBLoginViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7353381D1EDFA85700A2E0A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7353381E1EDFA85700A2E0A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		735338241EDFB74800A2E0A6 /* WTSDK */ = {
+			isa = PBXGroup;
+			children = (
+				735338251EDFB74800A2E0A6 /* Category */,
+				735338421EDFB74800A2E0A6 /* Tool */,
+				735338471EDFB74800A2E0A6 /* View */,
+			);
+			path = WTSDK;
+			sourceTree = "<group>";
+		};
+		735338251EDFB74800A2E0A6 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				735338261EDFB74800A2E0A6 /* NS */,
+				7353382F1EDFB74800A2E0A6 /* UI */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		735338261EDFB74800A2E0A6 /* NS */ = {
+			isa = PBXGroup;
+			children = (
+				735338271EDFB74800A2E0A6 /* NSArray+WT.h */,
+				735338281EDFB74800A2E0A6 /* NSArray+WT.m */,
+				735338291EDFB74800A2E0A6 /* NSDate+WT.h */,
+				7353382A1EDFB74800A2E0A6 /* NSDate+WT.m */,
+				7353382B1EDFB74800A2E0A6 /* NSString+WT.h */,
+				7353382C1EDFB74800A2E0A6 /* NSString+WT.m */,
+				7353382D1EDFB74800A2E0A6 /* NSTimer+WT.h */,
+				7353382E1EDFB74800A2E0A6 /* NSTimer+WT.m */,
+			);
+			path = NS;
+			sourceTree = "<group>";
+		};
+		7353382F1EDFB74800A2E0A6 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				735338301EDFB74800A2E0A6 /* CALayer+WT.h */,
+				735338311EDFB74800A2E0A6 /* CALayer+WT.m */,
+				735338321EDFB74800A2E0A6 /* Checkmark_failure_white@2x.png */,
+				735338331EDFB74800A2E0A6 /* Checkmark_success_white@2x.png */,
+				735338341EDFB74800A2E0A6 /* UIBarButtonItem+WT.h */,
+				735338351EDFB74800A2E0A6 /* UIBarButtonItem+WT.m */,
+				735338361EDFB74800A2E0A6 /* UIButton+WT.h */,
+				735338371EDFB74800A2E0A6 /* UIButton+WT.m */,
+				735338381EDFB74800A2E0A6 /* UIImage+WT.h */,
+				735338391EDFB74800A2E0A6 /* UIImage+WT.m */,
+				7353383A1EDFB74800A2E0A6 /* UILabel+WT.h */,
+				7353383B1EDFB74800A2E0A6 /* UILabel+WT.m */,
+				7353383C1EDFB74800A2E0A6 /* UITextView+WT.h */,
+				7353383D1EDFB74800A2E0A6 /* UITextView+WT.m */,
+				7353383E1EDFB74800A2E0A6 /* UIView+WT.h */,
+				7353383F1EDFB74800A2E0A6 /* UIView+WT.m */,
+				735338401EDFB74800A2E0A6 /* UIViewController+WT.h */,
+				735338411EDFB74800A2E0A6 /* UIViewController+WT.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		735338421EDFB74800A2E0A6 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				735338431EDFB74800A2E0A6 /* Singleton.h */,
+				735338441EDFB74800A2E0A6 /* WTConst.h */,
+				735338451EDFB74800A2E0A6 /* WTUtility.h */,
+				735338461EDFB74800A2E0A6 /* WTUtility.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		735338471EDFB74800A2E0A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				735338481EDFB74800A2E0A6 /* WTTextField.h */,
+				735338491EDFB74800A2E0A6 /* WTTextField.m */,
+				7353384A1EDFB74800A2E0A6 /* WTTextView.h */,
+				7353384B1EDFB74800A2E0A6 /* WTTextView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7353385D1EE004CE00A2E0A6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7353385E1EE004CE00A2E0A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7353385F1EE004FB00A2E0A6 /* ZBALLModel.h */,
+				735338601EE004FB00A2E0A6 /* ZBALLModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7393C6641EDE5D9900C24C65 /* ZBQianYueViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1342,25 +1533,11 @@
 		73AF7AAC1ED9166F00794211 /* ThisCommonFile */ = {
 			isa = PBXGroup;
 			children = (
-				73AF7AAD1ED9166F00794211 /* Controller */,
-				73AF7AAE1ED9166F00794211 /* Model */,
+				7353385D1EE004CE00A2E0A6 /* Controller */,
+				7353385E1EE004CE00A2E0A6 /* Model */,
 				73AF7AAF1ED9166F00794211 /* View */,
 			);
 			path = ThisCommonFile;
-			sourceTree = "<group>";
-		};
-		73AF7AAD1ED9166F00794211 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		73AF7AAE1ED9166F00794211 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		73AF7AAF1ED9166F00794211 /* View */ = {
@@ -1429,6 +1606,7 @@
 		73EB3E9D1E6FD7DB00CA8B5D /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				735338241EDFB74800A2E0A6 /* WTSDK */,
 				732DFC531E94BBF200D024F8 /* ZLWMPlayerVC */,
 				73E7DA731E7F778900371E33 /* UIUnitCore */,
 				73EB3EE21E6FDEE400CA8B5D /* Common */,
@@ -2232,6 +2410,7 @@
 				73EB3FCA1E6FDEE400CA8B5D /* background.png in Resources */,
 				732BC87B1E6FD17400B8B1BD /* LaunchScreen.storyboard in Resources */,
 				73EB3FB31E6FDEE400CA8B5D /* Loading004.png in Resources */,
+				735338521EDFB74800A2E0A6 /* Checkmark_success_white@2x.png in Resources */,
 				73EB430E1E713D5A00CA8B5D /* SearchViewController.xib in Resources */,
 				73E7DA6C1E7BE08D00371E33 /* PlayerZLViewController.xib in Resources */,
 				730D38701E78C4F000EE4692 /* PersonTableViewCell.xib in Resources */,
@@ -2278,6 +2457,8 @@
 				73A3B6431E8E440600407957 /* SecondVC02.xib in Resources */,
 				73EB3FB11E6FDEE400CA8B5D /* Loading0020.png in Resources */,
 				73C3470E1E8125B900BBBDBE /* UIAlertVIewZL.xib in Resources */,
+				735338511EDFB74800A2E0A6 /* Checkmark_failure_white@2x.png in Resources */,
+				735338231EDFA8DC00A2E0A6 /* ZBLoginViewController.xib in Resources */,
 				730D38571E7795FA00EE4692 /* ThirdTeQuanTableViewCell.xib in Resources */,
 				73E7DA8E1E7FBEC100371E33 /* DianYingSubCollectionViewCell.xib in Resources */,
 				73E7DA891E7FBD2700371E33 /* DianYingSubTableViewCell.xib in Resources */,
@@ -2490,6 +2671,7 @@
 				73A3B5FB1E89F7A900407957 /* UserInfoMTLModel.m in Sources */,
 				73EB3FA21E6FDEE400CA8B5D /* RSA.m in Sources */,
 				730D385B1E77CDCB00EE4692 /* MyYuEViewController.m in Sources */,
+				7353384F1EDFB74800A2E0A6 /* NSTimer+WT.m in Sources */,
 				73A3B62D1E8CF2BD00407957 /* SiFangPlayController.m in Sources */,
 				73EB3FDF1E70000F00CA8B5D /* ViewPagerController.m in Sources */,
 				730F97591ECE875800B7A109 /* ZBMemberMTLModel.m in Sources */,
@@ -2507,13 +2689,17 @@
 				73A3B6111E8A857200407957 /* AboutUSViewController.m in Sources */,
 				7315766D1ED2843800AFB9E3 /* UIViewController+JASidePanel.m in Sources */,
 				73E7DA521E7A78A200371E33 /* HuanCunCenterViewController.m in Sources */,
+				735338531EDFB74800A2E0A6 /* UIBarButtonItem+WT.m in Sources */,
 				732DFC701E94BCD100D024F8 /* BaseViewController.m in Sources */,
 				73C347311E84E96600BBBDBE /* MSSAutoresizeLabelFlowCell.m in Sources */,
 				732DFC711E94BCD100D024F8 /* DetailViewController.m in Sources */,
+				7353384D1EDFB74800A2E0A6 /* NSDate+WT.m in Sources */,
+				735338551EDFB74800A2E0A6 /* UIImage+WT.m in Sources */,
 				73EB3F851E6FDEE400CA8B5D /* NSValueTransformer+HeinQi.m in Sources */,
 				73A3B5FE1E89FA0E00407957 /* UserMessageMTLModel.m in Sources */,
 				732DFC731E94BCD100D024F8 /* SidModel.m in Sources */,
 				730D38651E77DC2D00EE4692 /* SettingViewController.m in Sources */,
+				7353385A1EDFB74800A2E0A6 /* WTUtility.m in Sources */,
 				732BC8701E6FD17400B8B1BD /* ViewController.m in Sources */,
 				730D38511E7787EE00EE4692 /* ButtonsTableViewCell.m in Sources */,
 				73EB3F881E6FDEE400CA8B5D /* UIButton+HeinQi.m in Sources */,
@@ -2526,9 +2712,11 @@
 				73E7DA7D1E7F778900371E33 /* UIView+WHC_Loading.m in Sources */,
 				73C347391E84FC5A00BBBDBE /* SearchResultModel.m in Sources */,
 				73A3B63E1E8DF77F00407957 /* PingLunMTLModel.m in Sources */,
+				735338561EDFB74800A2E0A6 /* UILabel+WT.m in Sources */,
 				730D387E1E790F1C00EE4692 /* ChongZhiViewController.m in Sources */,
 				73EB3FB91E6FDEE400CA8B5D /* MLAnimationViewController.m in Sources */,
 				73EB3FD31E6FDEE400CA8B5D /* ZhengZePanDuan.m in Sources */,
+				735338591EDFB74800A2E0A6 /* UIViewController+WT.m in Sources */,
 				7315766C1ED2843800AFB9E3 /* JASidePanelController.m in Sources */,
 				73EB3F981E6FDEE400CA8B5D /* UIImageView+ZLWebPsetImage.m in Sources */,
 				73EB3F901E6FDEE400CA8B5D /* HFSApplicationContext.m in Sources */,
@@ -2546,10 +2734,12 @@
 				730D386A1E77E1FD00EE4692 /* PersonInfoViewController.m in Sources */,
 				73EB3FC11E6FDEE400CA8B5D /* NewFeatureImageV.m in Sources */,
 				73EB3FC71E6FDEE400CA8B5D /* GCDQueue.m in Sources */,
+				7353385B1EDFB74800A2E0A6 /* WTTextField.m in Sources */,
 				730D38561E7795FA00EE4692 /* ThirdTeQuanTableViewCell.m in Sources */,
 				73C347231E84C34500BBBDBE /* ReMenView.m in Sources */,
 				73EB3FBE1E6FDEE400CA8B5D /* UIView+NFLayout.m in Sources */,
 				73EB3F8A1E6FDEE400CA8B5D /* UIImage+HeinQi.m in Sources */,
+				735338571EDFB74800A2E0A6 /* UITextView+WT.m in Sources */,
 				732BC86D1E6FD17400B8B1BD /* AppDelegate.m in Sources */,
 				730D38821E79243A00EE4692 /* UBChongZhiView.m in Sources */,
 				73485C421E9CB07A00A6691A /* OrderZLModel.m in Sources */,
@@ -2568,18 +2758,26 @@
 				730F97501ECC355600B7A109 /* UIViewController+ZLBase2ViewControllerCategory.m in Sources */,
 				730D38741E78D8B800EE4692 /* XiaoXiTableViewCell.m in Sources */,
 				73EB3ED41E6FD7DB00CA8B5D /* FirstViewController.m in Sources */,
+				735338501EDFB74800A2E0A6 /* CALayer+WT.m in Sources */,
 				73E7DA721E7F743300371E33 /* WHC_DownloadObject.m in Sources */,
+				735338221EDFA8DC00A2E0A6 /* ZBLoginViewController.m in Sources */,
 				73EB3FC81E6FDEE400CA8B5D /* GCDSemaphore.m in Sources */,
 				739118711EC4410D00A30F51 /* KYLocalVideoPlayVC.m in Sources */,
 				739118721EC4410D00A30F51 /* KYVideo.m in Sources */,
+				7353384E1EDFB74800A2E0A6 /* NSString+WT.m in Sources */,
 				73E7DA671E7BAFF400371E33 /* VideoModelZL.m in Sources */,
+				735338581EDFB74800A2E0A6 /* UIView+WT.m in Sources */,
+				735338541EDFB74800A2E0A6 /* UIButton+WT.m in Sources */,
 				73EB3F8C1E6FDEE400CA8B5D /* UIView+BlankPage.m in Sources */,
 				73C347171E8245E200BBBDBE /* HOmeBannerMTLModel.m in Sources */,
 				7393C6791EDEA7C900C24C65 /* ZBFourTableViewCell.m in Sources */,
+				7353384C1EDFB74800A2E0A6 /* NSArray+WT.m in Sources */,
 				73EB3F8B1E6FDEE400CA8B5D /* UILabel+HeinQi.m in Sources */,
+				735338611EE004FB00A2E0A6 /* ZBALLModel.m in Sources */,
 				73EB3F971E6FDEE400CA8B5D /* UIButton+ZLWebPSetImage.m in Sources */,
 				73EB3FD41E6FDEE400CA8B5D /* ZLPageControl.m in Sources */,
 				73EB3FA31E6FDEE400CA8B5D /* RSAEncryptor.m in Sources */,
+				7353385C1EDFB74800A2E0A6 /* WTTextView.m in Sources */,
 				731576751ED289D500AFB9E3 /* ZBUserViewController.m in Sources */,
 				73EB43121E7240EE00CA8B5D /* NSObject+XWAdd.m in Sources */,
 				732DFC7F1E94BF9100D024F8 /* WMPlayZLViewController.m in Sources */,

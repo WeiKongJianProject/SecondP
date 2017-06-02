@@ -18,6 +18,10 @@
 #define KAITONG_VIP_NOTIFICATION @"kaitong_vip_notification"
 #define CHANNEL_ID @"66"
 
+#define ZB_USER_NAME @"zb_user_name"
+#define ZB_USER_PHONE @"zb_user_phone"
+#define ZB_USER_IS_VIP @"zb_user_is_vip"
+
 //友盟APPID 58db47df07fe657cca0001b1
 #define YOUMENG_APP_ID_ZL @"58db47df07fe657cca0001b1"
 #define ALIPAY_APP_ID_ZL @"2015110400687059"

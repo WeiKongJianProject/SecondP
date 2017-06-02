@@ -17,20 +17,56 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTabBarImageAndTextColor];
-    // Do any additional setup after loading the view.
+    
+    self.backView.layer.cornerRadius = 5.0f;
+    self.backView.layer.masksToBounds = YES;
+    self.backView.layer.borderWidth = 1.0f;
+    self.backView.layer.borderColor = [UIColor colorWithhex16stringToColor:Main_BackgroundColor].CGColor;
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+    self.navigationController.navigationBar.topItem.title=@"VIP";
 }
 
 - (IBAction)weiXinButtonAction:(UIButton *)sender {
+    if ([ZBALLModel isLogined]) {
+        if (![ZBALLModel isZBVIP]) {
+            
+            
+            
+        }
+    }
+    else{
+        
+        [ZBALLModel pushToLoginViewControllerFromVC:self];
+    
+    }
+    
 }
 
 
 - (IBAction)zhiFuBaoButtonAction:(UIButton *)sender {
+    if ([ZBALLModel isLogined]) {
+        if (![ZBALLModel isZBVIP]) {
+            
+            
+            
+        }
+    }
+    else{
+        
+        [ZBALLModel pushToLoginViewControllerFromVC:self];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     [self setTabBarImageAndTextColor];//设置Tabbar 文字和颜色
-    // Dispose of any resources that can be recreated.
+
 }
 
 /*

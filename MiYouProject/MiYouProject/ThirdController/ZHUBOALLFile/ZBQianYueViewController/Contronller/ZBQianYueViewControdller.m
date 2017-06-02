@@ -25,6 +25,13 @@
     [self.womanButton setImage:[UIImage imageNamed:@"renzhengnannvtubiao"] forState:UIControlStateSelected];
     // Do any additional setup after loading the view.
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+    self.navigationController.navigationBar.topItem.title=@"签约";
+}
+
 - (IBAction)manButtonAction:(UIButton *)sender {
     _isMan = YES;
     self.manButton.selected = YES;
@@ -42,10 +49,16 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)finishedButtonAction:(id)sender {
-    [MBManager showBriefAlert:@"提交成功！"];
-    self.nameTextField.text = @"";
-    self.ageTextField.text = @"";
-    self.weixinTextField.text = @"";
+
+    if ([ZBALLModel isLogined]) {
+        [MBManager showBriefAlert:@"提交成功！"];
+        self.nameTextField.text = @"";
+        self.ageTextField.text = @"";
+        self.weixinTextField.text = @"";
+    }
+    else{
+        [ZBALLModel pushToLoginViewControllerFromVC:self];
+    }
 }
 
 /*

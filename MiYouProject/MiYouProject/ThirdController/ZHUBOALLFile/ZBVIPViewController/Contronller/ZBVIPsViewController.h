@@ -9,5 +9,6 @@
 #import "ZLBaseViewController.h"
 
 @interface ZBVIPsViewController : ZLBaseViewController
+@property (strong, nonatomic) IBOutlet UIView *backView;
 
 @end

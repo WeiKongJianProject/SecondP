@@ -65,6 +65,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
     self.navigationController.navigationBar.topItem.title=@"直播";
     //[self.navigationController.navigationBar setBarTintColor:[UIColor colorWithHexString:Main_BackgroundGreen_Color]];
