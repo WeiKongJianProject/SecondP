@@ -41,7 +41,8 @@ static ZBALLModel * _instance = nil;
 + (BOOL)isLogined{
     
     NSString * isLogin = [[NSUserDefaults standardUserDefaults]objectForKey:ZB_USER_NAME];
-    if (![isLogin isEqualToString:@""] && isLogin != nil) {
+    NSString * isID = [[NSUserDefaults standardUserDefaults] objectForKey:ZB_USER_MID];
+    if (![isLogin isEqualToString:@""] && isLogin != nil && ![isID isEqualToString:@""] && isID != nil) {
         return YES;
     }
     else{

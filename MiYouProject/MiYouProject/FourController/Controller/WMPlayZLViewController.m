@@ -13,6 +13,14 @@
     //WMPlayer  *wmPlayer;
     CGRect     playerFrame;
     BOOL isHiddenStatusBar;//记录状态的隐藏显示
+    BOOL _isHaveWeiXin;
+    BOOL _isCanToRoom;
+    NSString * _zbWeiXin;
+    
+    NSString * _weixinPrice;
+    NSString * _vipPrice;
+    NSString * _vipLevel;
+    
 }
 
 @end
@@ -58,8 +66,7 @@ static int _currentPage;
     }];
     
     
-    [self startAFNetworkingWithID:self.id];
-    [self startPingLunAFNetworkingWithID:self.id withPage:_currentPage];
+
     
     [self.XiaZaiButton addTarget:self action:@selector(alertXiaZaiButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.tiJiaoButton addTarget:self action:@selector(tiJiaoButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -100,7 +107,7 @@ static int _currentPage;
     NSDictionary * memInfo = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
     NSString * mid = [memInfo objectForKey:@"id"];
     
-    NSString * url = [NSString stringWithFormat:@"%@&action=zhubo&zid=%ld&mid=%d&content=%@&behavior=comment",URL_Common_ios,ids,1,self.textFieldView.text];
+    NSString * url = [NSString stringWithFormat:@"%@?action=zhubo&zid=%ld&mid=%d&content=%@&behavior=comment",URL_Common_ios,ids,1,self.textFieldView.text];
     //NSString * url02 = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     //NSLog(@"发布评论的链接为：%@",url02);
     NSString * codeString = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
@@ -137,18 +144,30 @@ static int _currentPage;
 //播放页请求 视频数据
 - (void)startAFNetworkingWithID:(NSString *)keyID{
     [MBManager showLoadingInView:self.view];
-    
-    NSDictionary * userInfoDic = [[NSUserDefaults standardUserDefaults]objectForKey:MEMBER_INFO_DIC];
-    NSString * userID = userInfoDic[@"id"];
+    NSString * urlstr = nil;
+
+    if ([ZBALLModel isLogined]) {
+        NSString * midStr = [kUserDefaults objectForKey:ZB_USER_MID];
+        urlstr = [NSString stringWithFormat:@"%@?action=zhubo&zid=%@&mid=%@",URL_Common_ios,keyID,midStr];
+    }
+    else{
+        urlstr = [NSString stringWithFormat:@"%@?action=zhubo&zid=%@",URL_Common_ios,keyID];
+    }
     __weak typeof(self) weakSelf = self;
     //play
-    NSString * urlstr = [NSString stringWithFormat:@"%@&action=zhubo&zid=%@",URL_Common_ios,keyID];
+    
     NSLog(@"播放页请求的链接为：%@",urlstr);
     [[ZLSecondAFNetworking sharedInstance]getWithURLString:urlstr parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         //[MTLJSONAdapter modelOfClass:[PlayVideoMTLModel class] fromJSONDictionary:dic error:nil];
         if ([dic[@"result"] isEqualToString:@"success"]) {
             weakSelf.currentZBModel = (ZBMeiNvMTLModel *)[MTLJSONAdapter modelOfClass:[ZBMeiNvMTLModel class] fromJSONDictionary:dic[@"zhubo"] error:nil];
+            _isHaveWeiXin = [dic[@"showWeixin"] boolValue];
+            _isCanToRoom = [dic[@"showRoom"] boolValue];
+            _zbWeiXin = dic[@"zhubo"][@"weixin"];
+            _weixinPrice = dic[@"zhubo"][@"price"];
+            _vipPrice = dic[@"vip"][@"price"];
+            _vipLevel = [NSString stringWithFormat:@"%d",[dic[@"vip"][@"level"] intValue]];
             //weakSelf.playMemberModel = [MTLJSONAdapter modelOfClass:[PlayMemberMTLModel class] fromJSONDictionary:dic[@"member"] error:nil];
             //NSString * str = [dic objectForKey:@"actor"];
             //NSLog(@"播放页请求的结果为：%@++++全部结果为：%@",weakSelf.playModel.pic,dic);
@@ -351,7 +370,13 @@ static int _currentPage;
     //        self.wmPlayer.isFullscreen = YES;
     //        self.enablePanGesture = NO;
     //    }
-    //[self alertViewShow];
+    if (![ZBALLModel isLogined]) {
+        [ZBALLModel pushToLoginViewControllerFromVC:self];
+    }
+    else if(![ZBALLModel isZBVIP]){
+        [self alertViewShow];
+    }
+
 }
 //操作栏隐藏或者显示都会调用此方法
 -(void)wmplayer:(WMPlayer *)wmplayer isHiddenTopAndBottomView:(BOOL)isHidden{
@@ -454,6 +479,9 @@ static int _currentPage;
                                                object:nil
      ];
     self.navigationController.navigationBarHidden = YES;
+    
+    [self startAFNetworkingWithID:self.id];
+    [self startPingLunAFNetworkingWithID:self.id withPage:_currentPage];
 }
 -(void)viewDidDisappear:(BOOL)animated{
     self.navigationController.navigationBarHidden = NO;
@@ -530,7 +558,7 @@ static int _currentPage;
     
     AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
     
-    alert.titleName = @"观看完整版,需要开通VIP";
+    alert.titleName = @"开通VIP进入直播间";
     alert.cancelBtnTitle = @"取消";
     alert.okBtnTitle = @"开通";
     [alert showCustomAlertView];
@@ -541,8 +569,10 @@ static int _currentPage;
     [alert okButtonBlockAction:^(BOOL success) {
         //_isKuaiJinAction = 0;
         [alert hideCustomeAlertView];
-        [weakSelf.navigationController popViewControllerAnimated:NO];
-        [weakSelf xw_postNotificationWithName:KAITONG_VIP_NOTIFICATION userInfo:nil];
+
+        [self alertZhiFuViewWithType:0];
+        
+        
     }];
     [self.view addSubview:alert];
 }
@@ -559,8 +589,18 @@ static int _currentPage;
 #pragma mark 进入直播间
 - (IBAction)jinruZhiBoAction:(UIButton *)sender {
     
+    if ([ZBALLModel isLogined]) {
+        if (_isCanToRoom == YES) {
+            NSLog(@"进入直播间");
+        }
+        else{
+            [self alertZhiFuViewWithType:0];
+        }
+    }
+    else{
+        [ZBALLModel pushToLoginViewControllerFromVC:self];
+    }
     
-    [self alertZhiFuViewWithType:0];
 }
 
 
@@ -569,9 +609,34 @@ static int _currentPage;
 #pragma mark 加主播微信
 - (IBAction)addWeiXinButtonAction:(UIButton *)sender {
     
-    [self alertZhiFuViewWithType:1];
-    
-    
+    if ([ZBALLModel isLogined]) {
+        if (_isHaveWeiXin == YES) {
+            NSLog(@"加主播微信");
+            AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
+            
+            alert.titleName = _zbWeiXin;
+            alert.cancelBtnTitle = @"取消";
+            alert.okBtnTitle = @"开通";
+            [alert showCustomAlertView];
+            [alert cancelBlockAction:^(BOOL success) {
+                //_isKuaiJinAction = 0;
+                [alert hideCustomeAlertView];
+            }];
+            [alert okButtonBlockAction:^(BOOL success) {
+                //_isKuaiJinAction = 0;
+                [alert hideCustomeAlertView];
+
+            }];
+            [self.view addSubview:alert];
+        }
+        else{
+            [self alertZhiFuViewWithType:1];
+        }
+    }
+    else{
+        [ZBALLModel pushToLoginViewControllerFromVC:self];
+    }
+
 }
 
 - (void)alertZhiFuViewWithType:(NSInteger)type{
@@ -580,6 +645,11 @@ static int _currentPage;
         ZhuBoBuyVIPAlertView * alertView = [[ZhuBoBuyVIPAlertView alloc]init];
         alertView.currentPayType = ZHIFUBAOPAY_TYPE;
         [alertView showCustomAlertView];
+        
+        alertView.demoview.rightLabel.text = [NSString stringWithFormat:@"￥%@",_vipPrice];
+        alertView.demoview.weiXinRightLabel.text = [NSString stringWithFormat:@"￥%@",_weixinPrice];
+        [alertView.demoview.headerImageView setImageWithURL:[NSURL URLWithString:self.currentZBModel.thumb] placeholder:[UIImage imageNamed:@"icon_default2"]];
+        
         __weak typeof(alertView) weakAlertView = alertView;
         [alertView setPlayActionTypeBlockAction:^(BOOL success, NSInteger Paytype, NSInteger CommodityType) {
             //paytype  支付方式  commodityType  商品类型
@@ -587,17 +657,23 @@ static int _currentPage;
             if (Paytype == 0) {
                 if (CommodityType == 1) {
                     NSLog(@"成为VIP微信支付");
+                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM];
+                    
                 }
                 else{
                      NSLog(@"加主播微信微信支付");
+                     [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:self.id withVIPorWeiXin:WEIXIN_TYPE_ENUM];
                 }
             }
             else{
                 if (CommodityType == 1) {
                      NSLog(@"成为VIP支付宝支付");
+                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM];
+                    
                 }
                 else{
                     NSLog(@"加主播微信支付宝支付");
+                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:self.id  withVIPorWeiXin:WEIXIN_TYPE_ENUM];
                 }
             }
         }];
@@ -610,6 +686,10 @@ static int _currentPage;
         ZhuBoBuyVIPAlertView * alertView = [[ZhuBoBuyVIPAlertView alloc]init];
         alertView.currentPayType = WEIXINPAY_TYPE;
         [alertView showCustomAlertView];
+        alertView.demoview.rightLabel.text = [NSString stringWithFormat:@"￥%@",_vipPrice];
+        alertView.demoview.weiXinRightLabel.text = [NSString stringWithFormat:@"￥%@",_weixinPrice];
+        [alertView.demoview.headerImageView setImageWithURL:[NSURL URLWithString:self.currentZBModel.thumb] placeholder:[UIImage imageNamed:@"icon_default2"]];
+        
        __weak typeof(alertView) weakAlertView = alertView;
         [alertView setPlayActionTypeBlockAction:^(BOOL success, NSInteger Paytype, NSInteger CommodityType) {
             //paytype  支付方式  commodityType  商品类型
@@ -618,17 +698,21 @@ static int _currentPage;
             if (Paytype == 0) {
                 if (CommodityType == 1) {
                     NSLog(@"成为VIP微信支付");
+                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM];
                 }
                 else{
                     NSLog(@"加主播微信微信支付");
+                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:nil withVIPorWeiXin:WEIXIN_TYPE_ENUM];
                 }
             }
             else{
                 if (CommodityType == 1) {
                     NSLog(@"成为VIP支付宝支付");
+                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM];
                 }
                 else{
                     NSLog(@"加主播微信支付宝支付");
+                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:self.id  withVIPorWeiXin:WEIXIN_TYPE_ENUM];
                     
                 }
             }

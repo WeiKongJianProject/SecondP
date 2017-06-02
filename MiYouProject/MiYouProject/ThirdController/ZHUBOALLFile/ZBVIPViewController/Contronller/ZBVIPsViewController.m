@@ -35,7 +35,7 @@
     if ([ZBALLModel isLogined]) {
         if (![ZBALLModel isZBVIP]) {
             
-            
+            [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM];
             
         }
     }
@@ -52,7 +52,7 @@
     if ([ZBALLModel isLogined]) {
         if (![ZBALLModel isZBVIP]) {
             
-            
+             [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM];
             
         }
     }

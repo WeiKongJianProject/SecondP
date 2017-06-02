@@ -44,8 +44,14 @@ static int jd;
     jd = 1;//加载会员图片 时判断
     [super viewDidAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
-    [self startAFNetworking];
     
+    if ([ZBALLModel isLogined]) {
+        [self startAFNetworking];
+    }
+    else{
+        
+    }
+
 }
 
 - (void)startAFNetworking{
@@ -60,15 +66,18 @@ static int jd;
      }
      */
     __weak typeof(self) weakSelf = self;
-    NSString * urlstring = [NSString stringWithFormat:@"%@&action=memberCenter&id=1",URL_Common_ios ];//,self.userInfoModel.id];
+    NSString * urlstring = [NSString stringWithFormat:@"%@?action=memberCenter&id=%@",URL_Common_ios,[kUserDefaults objectForKey:ZB_USER_MID]];//,self.userInfoModel.id];
     NSLog(@"用户中心请求的链接为：%@",urlstring);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:urlstring parameters:nil success:^(id responseObject) {
         NSDictionary *  dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"用户中心请求的数据为：%@",dic);
         if ([dic[@"result"] isEqualToString:@"success"]) {
             weakSelf.currentZBMemberModel = [MTLJSONAdapter modelOfClass:[ZBMemberMTLModel class] fromJSONDictionary:dic error:nil];
-            [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"amount"] forKey:MEMBER_POINTS_NUM];
-            [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"vip"] forKey:MEMBER_VIP_LEVEL];
+//            [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"amount"] forKey:MEMBER_POINTS_NUM];
+//            [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"vip"] forKey:MEMBER_VIP_LEVEL];
+            if (!zlObjectIsEmpty(dic[@"vip"])) {
+                [kUserDefaults setObject:dic[@"vip"] forKey:ZB_USER_IS_VIP];
+            }    
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -162,19 +171,33 @@ static int jd;
             if (!hcell) {
                 hcell = (PersonHederTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"PersonHederTableViewCell" owner:self options:nil][0];
             }
-            hcell.userNameLabel.text = self.currentZBMemberModel.name;
-            
-            hcell.UBiNumLabel.text = [NSString stringWithFormat:@"%d",[self.currentZBMemberModel.amount intValue]];
-            UIImage * image = [self readHeadImageFromUserDefault];
-            if (!zlObjectIsEmpty(image)) {
-                [hcell.headerImageVIew setImage:image];
+            if ([ZBALLModel isLogined]) {
+                hcell.userNameLabel.text = self.currentZBMemberModel.name;
+                UIImage * image = [self readHeadImageFromUserDefault];
+                if (!zlObjectIsEmpty(image)) {
+                    [hcell.headerImageVIew setImage:image];
+                }
             }
+            else{
+                hcell.userNameLabel.text = @"登录";
+            }
+            
+            //hcell.UBiNumLabel.text = [NSString stringWithFormat:@"%d",[self.currentZBMemberModel.amount intValue]];
+
             
             //        //设置圆角
             //        cellhead.headerImageVIew.layer.cornerRadius = cellhead.imageView.frame.size.width / 2;
             //        //将多余的部分切掉
             //        cellhead.headerImageVIew.layer.masksToBounds = YES;
             self.headImageView = hcell.headerImageVIew;
+            
+            if ([ZBALLModel isLogined] && [ZBALLModel isZBVIP]) {
+                hcell.kaiTongVIPButton.hidden = YES;
+            }
+
+            
+            [hcell.kaiTongVIPButton addTarget:self action:@selector(kaitongVIPButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+            
             cell = hcell;
         }
         else if (indexPath.row == 1){
@@ -289,8 +312,14 @@ static int jd;
             [self clearTmpPics];
         }
         if (indexPath.row == 0) {
-            PersonInfoViewController * vc = [[PersonInfoViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
+            if (![ZBALLModel isLogined]) {
+                [ZBALLModel pushToLoginViewControllerFromVC:self];
+            }
+            else{
+                PersonInfoViewController * vc = [[PersonInfoViewController alloc]init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+
         }
         if (indexPath.row == 4) {
             GuanYuUSViewController * vc = [[GuanYuUSViewController alloc]init];
@@ -350,11 +379,15 @@ static int jd;
     [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
         NSLog(@"硬盘清理成功");
     }];
-    
+    [self.tableView reloadData];
     [MBManager showBriefAlert:@"清除成功！"];
 
 }
-
+//开通VIP
+- (void)kaitongVIPButtonAction:(UIButton *)sender{
+    
+    [self.tabBarController setSelectedIndex:1];
+}
 
 /*
 #pragma mark - Navigation

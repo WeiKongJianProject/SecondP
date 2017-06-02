@@ -21,6 +21,8 @@
 #define ZB_USER_NAME @"zb_user_name"
 #define ZB_USER_PHONE @"zb_user_phone"
 #define ZB_USER_IS_VIP @"zb_user_is_vip"
+#define ZB_USER_MID @"zb_user_mid"
+
 
 //友盟APPID 58db47df07fe657cca0001b1
 #define YOUMENG_APP_ID_ZL @"58db47df07fe657cca0001b1"

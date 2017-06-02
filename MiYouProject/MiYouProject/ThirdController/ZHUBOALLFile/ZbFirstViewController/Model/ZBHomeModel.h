@@ -28,13 +28,14 @@
 
 @interface ZBMeiNvMTLModel : MTLModel<MTLJSONSerializing>
 
-@property (strong, nonatomic) NSString * room;
+@property (strong, nonatomic) NSString * weixin;
 @property (strong, nonatomic) NSString * nickname;
 @property (strong, nonatomic) NSString * avator;
 @property (strong, nonatomic) NSString * thumb;
 @property (strong, nonatomic) NSString * hot;
 @property (strong, nonatomic) NSString * video;
-
+@property (strong, nonatomic) NSString * zid;
+@property (strong, nonatomic) NSString * price;
 
 
 @end

@@ -78,7 +78,12 @@
             [kUserDefaults setObject:dic[@"name"] forKey:ZB_USER_NAME];
             NSString * phoneStr = [weakSelf.phoneTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
             [kUserDefaults setObject:phoneStr forKey:ZB_USER_PHONE];
+            [kUserDefaults setObject:dic[@"mid"] forKey:ZB_USER_MID];
+            //kUserDefaults setObject:di forKey:<#(nonnull NSString *)#>
+            
             [weakSelf.navigationController popViewControllerAnimated:YES];
+            
+            
         }
         [MBManager hideAlert];
     } failure:^(NSError *error) {

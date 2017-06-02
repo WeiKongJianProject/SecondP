@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"关于我们";
     self.view.backgroundColor = [UIColor whiteColor];
     [self startAFnetWorking];
     

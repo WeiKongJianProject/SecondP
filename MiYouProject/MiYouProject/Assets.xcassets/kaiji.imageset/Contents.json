@@ -6,11 +6,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "kaiji02@2x.png",
+      "filename" : "kaijizl@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "kaijizl@3x.png",
       "scale" : "3x"
     }
   ],

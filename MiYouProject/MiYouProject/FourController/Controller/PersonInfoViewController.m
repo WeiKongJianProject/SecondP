@@ -93,13 +93,14 @@
             cell.leftLabel.text = @"昵称";
             
             if (!zlDictIsEmpty(userDic)) {
-                cell.rightNameLabel.text = userDic[@"nickname"];
+                cell.rightNameLabel.text = [kUserDefaults objectForKey:ZB_USER_MID];
             }
             break;
         case 2:
             cell.leftLabel.text = @"邮箱";
             if (!zlDictIsEmpty(userDic)) {
-                cell.rightNameLabel.text = userDic[@"sex"];
+                cell.rightNameLabel.text = @"绑定";
+                //cell.rightNameLabel.text = userDic[@"sex"];
             }
             break;
         default:

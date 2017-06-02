@@ -16,7 +16,7 @@
 #import "ChongZhiViewController.h"
 #import "ZBHomeModel.h"
 #import "ZhuBoBuyVIPAlertView.h"
-
+#import "ZBBuyVIPModel.h"
 
 @interface WMPlayZLViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 

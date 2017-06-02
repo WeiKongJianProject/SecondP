@@ -7,7 +7,7 @@
 //
 
 #import "ZLBaseViewController.h"
-
+#import "ZBBuyVIPModel.h"
 @interface ZBVIPsViewController : ZLBaseViewController
 @property (strong, nonatomic) IBOutlet UIView *backView;
 

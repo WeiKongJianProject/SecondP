@@ -15,13 +15,13 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="219.5"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="219"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="218.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topHeaderBack" translatesAutoresizingMaskIntoConstraints="NO" id="E6O-5N-fyA">
-                        <rect key="frame" x="0.0" y="-0.5" width="375" height="220"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="219"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gerentouxiang" translatesAutoresizingMaskIntoConstraints="NO" id="pI1-F8-8iI">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touxiang" translatesAutoresizingMaskIntoConstraints="NO" id="pI1-F8-8iI">
                         <rect key="frame" x="50" y="80" width="60" height="60"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="Pem-44-GcR"/>
@@ -70,8 +70,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="gerentouxiang" width="66" height="66"/>
         <image name="kaitongvip-2" width="93" height="33"/>
-        <image name="topHeaderBack" width="375" height="144"/>
+        <image name="topHeaderBack" width="621" height="250"/>
+        <image name="touxiang" width="75" height="75"/>
     </resources>
 </document>

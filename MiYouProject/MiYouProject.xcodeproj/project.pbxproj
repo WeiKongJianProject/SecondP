@@ -115,6 +115,7 @@
 		7353385B1EDFB74800A2E0A6 /* WTTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 735338491EDFB74800A2E0A6 /* WTTextField.m */; };
 		7353385C1EDFB74800A2E0A6 /* WTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7353384B1EDFB74800A2E0A6 /* WTTextView.m */; };
 		735338611EE004FB00A2E0A6 /* ZBALLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 735338601EE004FB00A2E0A6 /* ZBALLModel.m */; };
+		735338641EE14DC800A2E0A6 /* ZBBuyVIPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 735338631EE14DC800A2E0A6 /* ZBBuyVIPModel.m */; };
 		736557361E728F5800284C11 /* ReMenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557351E728F5800284C11 /* ReMenView.xib */; };
 		7365573A1E729C4B00284C11 /* DianYingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */; };
 		7365573B1E729C4B00284C11 /* DianYingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */; };
@@ -497,6 +498,8 @@
 		7353384B1EDFB74800A2E0A6 /* WTTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTextView.m; sourceTree = "<group>"; };
 		7353385F1EE004FB00A2E0A6 /* ZBALLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBALLModel.h; sourceTree = "<group>"; };
 		735338601EE004FB00A2E0A6 /* ZBALLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBALLModel.m; sourceTree = "<group>"; };
+		735338621EE14DC800A2E0A6 /* ZBBuyVIPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBBuyVIPModel.h; sourceTree = "<group>"; };
+		735338631EE14DC800A2E0A6 /* ZBBuyVIPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBBuyVIPModel.m; sourceTree = "<group>"; };
 		736557351E728F5800284C11 /* ReMenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReMenView.xib; sourceTree = "<group>"; };
 		736557371E729C4B00284C11 /* DianYingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianYingCollectionViewCell.h; sourceTree = "<group>"; };
 		736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianYingCollectionViewCell.m; sourceTree = "<group>"; };
@@ -1438,6 +1441,8 @@
 				732D90871EA057D900FA49A4 /* VIPPriceMTLModel.m */,
 				730F97571ECE875800B7A109 /* ZBMemberMTLModel.h */,
 				730F97581ECE875800B7A109 /* ZBMemberMTLModel.m */,
+				735338621EE14DC800A2E0A6 /* ZBBuyVIPModel.h */,
+				735338631EE14DC800A2E0A6 /* ZBBuyVIPModel.m */,
 			);
 			path = Model02;
 			sourceTree = "<group>";
@@ -2697,6 +2702,7 @@
 				735338551EDFB74800A2E0A6 /* UIImage+WT.m in Sources */,
 				73EB3F851E6FDEE400CA8B5D /* NSValueTransformer+HeinQi.m in Sources */,
 				73A3B5FE1E89FA0E00407957 /* UserMessageMTLModel.m in Sources */,
+				735338641EE14DC800A2E0A6 /* ZBBuyVIPModel.m in Sources */,
 				732DFC731E94BCD100D024F8 /* SidModel.m in Sources */,
 				730D38651E77DC2D00EE4692 /* SettingViewController.m in Sources */,
 				7353385A1EDFB74800A2E0A6 /* WTUtility.m in Sources */,

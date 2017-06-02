@@ -41,12 +41,14 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey{
     return @{
-             @"room":@"room",
+             @"weixin":@"weixin",
              @"nickname":@"nickname",
              @"avator":@"avator",
              @"thumb":@"thumb",
              @"hot":@"hot",
-             @"video":@"video"
+             @"video":@"video",
+             @"zid":@"zid",
+             @"price":@"price"
              };
 
 }
