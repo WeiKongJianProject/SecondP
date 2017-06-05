@@ -67,10 +67,10 @@ static BOOL _isCanPlay;
     //
     NSString * url = nil;
     if (urlID == nil) {
-        url = [NSString stringWithFormat:@"%@&action=vipList&source=%@&type=%@&mid=%@",URL_Common_ios,sourceId,type,memID];
+        url = [NSString stringWithFormat:@"%@?action=vipList&source=%@&type=%@&mid=%@",URL_Common_ios,sourceId,type,memID];
     }
     else{
-        url = [NSString stringWithFormat:@"%@&action=vipList&source=%@&url=%@&type=%@&mid=%@",URL_Common_ios,sourceId,urlID,type,memID];
+        url = [NSString stringWithFormat:@"%@?action=vipList&source=%@&url=%@&type=%@&mid=%@",URL_Common_ios,sourceId,urlID,type,memID];
     }
     NSLog(@"VIP筛选列表请求链接：%@",url);
     NSString * codeString = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];//去掉特殊字符
@@ -466,10 +466,10 @@ static BOOL _isCanPlay;
     //http://api4.cn360du.com:88/index.php?m=api-ios&action=lists&cate=999
     NSString * url = nil;
     if ([type isEqualToString:@"1"]) {
-        url = [NSString stringWithFormat:@"%@&action=vipPlay&type=%@&url=%@&mid=%@&source=%@",URL_Common_ios,type,idURL,memID,source];
+        url = [NSString stringWithFormat:@"%@?action=vipPlay&type=%@&url=%@&mid=%@&source=%@",URL_Common_ios,type,idURL,memID,source];
     }
     else{
-        url = [NSString stringWithFormat:@"%@&action=vipPlay&type=%@&url=%@&mid=%@&source=%@",URL_Common_ios,type,idURL,memID,source];
+        url = [NSString stringWithFormat:@"%@?action=vipPlay&type=%@&url=%@&mid=%@&source=%@",URL_Common_ios,type,idURL,memID,source];
     }
     NSLog(@"VIP播放页请求：%@",url);
     NSString * codeString = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];//去掉特殊字符

@@ -61,7 +61,7 @@ static int _isFirstOpen;
     
         
         //http://api4.cn360du.com:88/index.php?m=api-ios&action=lists&cate=999
-        NSString * url = [NSString stringWithFormat:@"%@&action=lists&cate=%d&page=%d&juqing=%@&year=%@&type=%@&order=%@",URL_Common_ios,keyId,page,story,year,type,orderType];
+        NSString * url = [NSString stringWithFormat:@"%@?action=lists&cate=%d&page=%d&juqing=%@&year=%@&type=%@&order=%@",URL_Common_ios,keyId,page,story,year,type,orderType];
         NSLog(@"筛选列表请求链接：%@",url);
         NSString * codeString = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];//去掉特殊字符
         [[ZLSecondAFNetworking sharedInstance] getWithURLString:codeString parameters:nil success:^(id responseObject) {

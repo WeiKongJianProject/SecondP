@@ -276,7 +276,7 @@ typedef NS_ENUM(NSInteger,PAYJIEKOU_Type) {
 - (void)startAFNetworkingUB{
     [MBManager showLoadingInView:self.view];
     __weak typeof(self) weakSelf = self;
-    NSString * url = [NSString stringWithFormat:@"%@&action=recharge&id=%@",URL_Common_ios,self.memMTLModel.id];
+    NSString * url = [NSString stringWithFormat:@"%@?action=recharge&id=%@",URL_Common_ios,self.memMTLModel.id];
     NSLog(@"UB充值页面链接：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
@@ -336,7 +336,7 @@ typedef NS_ENUM(NSInteger,PAYJIEKOU_Type) {
 - (void)startAFNetworkingVIP{
     
     __weak typeof(self) weakSelf = self;
-    NSString * url = [NSString stringWithFormat:@"%@&action=buyVip&id=%@",URL_Common_ios,self.memMTLModel.id];
+    NSString * url = [NSString stringWithFormat:@"%@?action=buyVip&id=%@",URL_Common_ios,self.memMTLModel.id];
     NSLog(@"充值VIP页面链接：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
@@ -652,10 +652,10 @@ typedef NS_ENUM(NSInteger,PAYJIEKOU_Type) {
     NSString * url = nil;
     if (self.UB_or_VIP == UB_ChongZhi) {
         //wechat
-        url = [NSString stringWithFormat:@"%@&action=doRecharge&id=%@&money=%d&type=%@&channel=%@",URL_Common_ios,UID,_currentJINE,type,CHANNEL_ID];
+        url = [NSString stringWithFormat:@"%@?action=doRecharge&id=%@&money=%d&type=%@&channel=%@",URL_Common_ios,UID,_currentJINE,type,CHANNEL_ID];
     }
     else{
-        url = [NSString stringWithFormat:@"%@&action=doBuyVip&id=%@&vip=%d&type=%@&channel=%@",URL_Common_ios,UID,[self.currentPriceModel.id intValue],type,CHANNEL_ID];
+        url = [NSString stringWithFormat:@"%@?action=doBuyVip&id=%@&vip=%d&type=%@&channel=%@",URL_Common_ios,UID,[self.currentPriceModel.id intValue],type,CHANNEL_ID];
     }
     
     
@@ -842,10 +842,10 @@ typedef NS_ENUM(NSInteger,PAYJIEKOU_Type) {
     
     if ([type isEqualToString:@"VIP"]) {
         
-        url = [NSString stringWithFormat:@"%@&action=doBuyVip&orderNo=%@",URL_Common_ios,_currentOrderNUM];
+        url = [NSString stringWithFormat:@"%@?action=doBuyVip&orderNo=%@",URL_Common_ios,_currentOrderNUM];
     }else{
         
-        url = [NSString stringWithFormat:@"%@&action=doRecharge&orderNo=%@",URL_Common_ios,_currentOrderNUM];
+        url = [NSString stringWithFormat:@"%@?action=doRecharge&orderNo=%@",URL_Common_ios,_currentOrderNUM];
     }
     
     
@@ -1013,7 +1013,7 @@ typedef NS_ENUM(NSInteger,PAYJIEKOU_Type) {
      }
      */
     //__weak typeof(self) weakSelf = self;
-    NSString * urlstring = [NSString stringWithFormat:@"%@&action=memberCenter&id=%@",URL_Common_ios,self.memMTLModel.id];
+    NSString * urlstring = [NSString stringWithFormat:@"%@?action=memberCenter&id=%@",URL_Common_ios,self.memMTLModel.id];
     NSLog(@"用户中心请求的链接为：%@",urlstring);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:urlstring parameters:nil success:^(id responseObject) {
         NSDictionary *  dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];

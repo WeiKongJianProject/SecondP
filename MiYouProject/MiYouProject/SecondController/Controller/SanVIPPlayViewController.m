@@ -38,7 +38,7 @@
 - (void)startWatchPlayWithID:(NSString *)ids withMID:(NSString *)mids{
     __weak typeof(self) weakSelf = self;
     
-    NSString * url = [NSString stringWithFormat:@"%@&action=watch&mid=%@&id=%@",URL_Common_ios,mids,ids];
+    NSString * url = [NSString stringWithFormat:@"%@?action=watch&mid=%@&id=%@",URL_Common_ios,mids,ids];
     NSLog(@"私房视频链接为：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
@@ -294,10 +294,10 @@
     //http://api4.cn360du.com:88/index.php?m=api-ios&action=lists&cate=999
     NSString * url = nil;
     if ([type isEqualToString:@"1"]) {
-        url = [NSString stringWithFormat:@"%@&action=vipPlay&type=%@&url=%@&mid=%@&source=%@",URL_Common_ios,type,idURL,memID,source];
+        url = [NSString stringWithFormat:@"%@?action=vipPlay&type=%@&url=%@&mid=%@&source=%@",URL_Common_ios,type,idURL,memID,source];
     }
     else{
-        url = [NSString stringWithFormat:@"%@&action=vipPlay&type=%@&url=%@&mid=%@&source=%@&vid=%@",URL_Common_ios,type,idURL,memID,source,vid];
+        url = [NSString stringWithFormat:@"%@?action=vipPlay&type=%@&url=%@&mid=%@&source=%@&vid=%@",URL_Common_ios,type,idURL,memID,source,vid];
     }
     NSLog(@"VIP播放页请求：%@",url);
     NSString * codeString = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];//去掉特殊字符

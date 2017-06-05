@@ -43,7 +43,7 @@ static ZBBuyVIPModel * _instance = nil;
     }
     else{
         self.currentTypeEnum = WEIXIN_TYPE_ENUM;
-        url = [NSString stringWithFormat:@"%@&action=buyweixin&mid=%@&zid=%@&type=%@&channel=%@",URL_Common_ios,UID,zid,type,CHANNEL_ID];
+        url = [NSString stringWithFormat:@"%@?action=buyweixin&mid=%@&zid=%@&type=%@&channel=%@",URL_Common_ios,UID,zid,type,CHANNEL_ID];
     }
     
     
@@ -218,10 +218,10 @@ static ZBBuyVIPModel * _instance = nil;
     
     if ([type isEqualToString:@"VIP"]) {
         
-        url = [NSString stringWithFormat:@"%@&action=doBuyVip&orderNo=%@",URL_Common_ios,_currentOrderNUM];
+        url = [NSString stringWithFormat:@"%@?action=doBuyVip&orderNo=%@",URL_Common_ios,_currentOrderNUM];
     }else{
         
-        url = [NSString stringWithFormat:@"%@&action=doRecharge&orderNo=%@",URL_Common_ios,_currentOrderNUM];
+        url = [NSString stringWithFormat:@"%@?action=doRecharge&orderNo=%@",URL_Common_ios,_currentOrderNUM];
     }
     
     
@@ -389,7 +389,7 @@ static ZBBuyVIPModel * _instance = nil;
      }
      */
     //__weak typeof(self) weakSelf = self;
-    NSString * urlstring = [NSString stringWithFormat:@"%@&action=memberCenter&id=%@",URL_Common_ios,@""];
+    NSString * urlstring = [NSString stringWithFormat:@"%@?action=memberCenter&id=%@",URL_Common_ios,@""];
     NSLog(@"用户中心请求的链接为：%@",urlstring);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:urlstring parameters:nil success:^(id responseObject) {
         NSDictionary *  dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
@@ -489,10 +489,10 @@ static ZBBuyVIPModel * _instance = nil;
     
     if ([type isEqualToString:@"VIP"]) {
         
-        url = [NSString stringWithFormat:@"%@&action=doBuyVip&orderNo=%@",URL_Common_ios,_currentOrderNUM];
+        url = [NSString stringWithFormat:@"%@?action=doBuyVip&orderNo=%@",URL_Common_ios,_currentOrderNUM];
     }else{
         
-        url = [NSString stringWithFormat:@"%@&action=doRecharge&orderNo=%@",URL_Common_ios,_currentOrderNUM];
+        url = [NSString stringWithFormat:@"%@?action=doRecharge&orderNo=%@",URL_Common_ios,_currentOrderNUM];
     }
     
     

@@ -34,7 +34,7 @@
 - (void)startWatchPlayWithID:(NSString *)ids withMID:(NSString *)mids{
     __weak typeof(self) weakSelf = self;
 
-    NSString * url = [NSString stringWithFormat:@"%@&action=watch&mid=%@&id=%@",URL_Common_ios,mids,ids];
+    NSString * url = [NSString stringWithFormat:@"%@?action=watch&mid=%@&id=%@",URL_Common_ios,mids,ids];
     NSLog(@"私房视频链接为：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];

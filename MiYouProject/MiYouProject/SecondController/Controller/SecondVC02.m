@@ -47,7 +47,7 @@ static int _currentPage;
     //    else{
     NSDictionary * memDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
     //page为空时默认为第一页//&action=index&mid=1&level=1&playfrom=youku&hot=1&page=1
-    url = [NSString stringWithFormat:@"%@&action=vip&mid=%@&page=%d",URL_Common_ios,memDic[@"id"],page];
+    url = [NSString stringWithFormat:@"%@?action=vip&mid=%@&page=%d",URL_Common_ios,memDic[@"id"],page];
     //    }
     
     NSLog(@"第一次请求的链接：%@",url);

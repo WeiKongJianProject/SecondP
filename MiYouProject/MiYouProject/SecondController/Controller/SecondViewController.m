@@ -119,7 +119,7 @@
 //    else{
     NSDictionary * memDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
     //page为空时默认为第一页//&action=index&mid=1&level=1&playfrom=youku&hot=1&page=1
-        url = [NSString stringWithFormat:@"%@&action=vip&mid=%@&page=1",URL_Common_ios,memDic[@"id"]];
+        url = [NSString stringWithFormat:@"%@?action=vip&mid=%@&page=1",URL_Common_ios,memDic[@"id"]];
 //    }
     
     NSLog(@"VIP第二个控制器第一次请求的链接：%@",url);

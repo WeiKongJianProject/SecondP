@@ -34,7 +34,7 @@ static int _currentPage;
 - (void)startAFNetWorkingWithid:(NSInteger )ids withPage:(int)page{
 
     __weak typeof(self) weakSelf = self;
-    NSString * url = [NSString stringWithFormat:@"%@&action=comment&id=%ld&page=%d",URL_Common_ios,ids,page];
+    NSString * url = [NSString stringWithFormat:@"%@?action=comment&id=%ld&page=%d",URL_Common_ios,ids,page];
     NSLog(@"评论的链接：%@",url);
     [MBManager showLoadingInView:self.view];
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
@@ -155,7 +155,7 @@ static int _currentPage;
     NSDictionary * memInfo = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
     NSString * mid = [memInfo objectForKey:@"id"];
     
-    NSString * url = [NSString stringWithFormat:@"%@&action=doComment&id=%ld&mid=%@&content=%@",URL_Common_ios,ids,mid,self.textField.text];
+    NSString * url = [NSString stringWithFormat:@"%@?action=doComment&id=%ld&mid=%@&content=%@",URL_Common_ios,ids,mid,self.textField.text];
     NSLog(@"发布评论的链接为：%@",url);
     NSString * codeString = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:codeString parameters:nil success:^(id responseObject) {

@@ -335,7 +335,7 @@ static int _currentPage;
 - (void)startAFNetworkingWithsearchKey:(NSString *)string withPage:(int)page{
     [MBManager showLoadingInView:self.view];
     __weak typeof(self) weakSelf = self;
-    NSString * url = [NSString stringWithFormat:@"%@&action=search&keyword=%@&page=%d",URL_Common_ios,string,page];
+    NSString * url = [NSString stringWithFormat:@"%@?action=search&keyword=%@&page=%d",URL_Common_ios,string,page];
     //NSLog(@"请求的链接为：%@",url);
     //NSString * codeString =  [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString * codeString = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];//去掉特殊字符

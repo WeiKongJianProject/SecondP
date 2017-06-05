@@ -205,7 +205,7 @@ static int _currentPage;
     NSString * userID = userInfoDic[@"id"];
     __weak typeof(self) weakSelf = self;
     //play
-    NSString * urlstr = [NSString stringWithFormat:@"%@&action=zhubo&zid=%@&page=%d",URL_Common_ios,keyID,page];
+    NSString * urlstr = [NSString stringWithFormat:@"%@?action=zhubo&zid=%@&page=%d",URL_Common_ios,keyID,page];
     NSLog(@"评论的链接为：%@",urlstr);
     [[ZLSecondAFNetworking sharedInstance]getWithURLString:urlstr parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];

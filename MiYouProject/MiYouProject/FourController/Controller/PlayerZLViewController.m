@@ -77,7 +77,7 @@ static int _currentPage;
     NSString * userID = userInfoDic[@"id"];
     __weak typeof(self) weakSelf = self;
     //play
-    NSString * urlstr = [NSString stringWithFormat:@"%@&action=comment&id=%@&page=%d",URL_Common_ios,keyID,page];
+    NSString * urlstr = [NSString stringWithFormat:@"%@?action=comment&id=%@&page=%d",URL_Common_ios,keyID,page];
     NSLog(@"评论的链接为：%@",urlstr);
     [[ZLSecondAFNetworking sharedInstance]getWithURLString:urlstr parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
@@ -109,7 +109,7 @@ static int _currentPage;
     NSDictionary * userInfoDic = [[NSUserDefaults standardUserDefaults]objectForKey:MEMBER_INFO_DIC];
     NSString * userID = userInfoDic[@"id"];
     __weak typeof(self) weakSelf = self;
-    NSString * urlstr = [NSString stringWithFormat:@"%@&action=play&id=%@&mid=%@",URL_Common_ios,keyID,userID];
+    NSString * urlstr = [NSString stringWithFormat:@"%@?action=play&id=%@&mid=%@",URL_Common_ios,keyID,userID];
     NSLog(@"播放页请求的链接为：%@",urlstr);
     [[ZLSecondAFNetworking sharedInstance]getWithURLString:urlstr parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];

@@ -51,7 +51,7 @@ static int _is_first;
     [MBManager showLoadingInView:self.view];
     NSDictionary * memDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
     NSString * memID  = memDic[@"id"];
-    NSString * url = [NSString stringWithFormat:@"%@&action=sifang&page=%d&order=%@&mid=%@",URL_Common_ios,page,order,memID];
+    NSString * url = [NSString stringWithFormat:@"%@?action=sifang&page=%d&order=%@&mid=%@",URL_Common_ios,page,order,memID];
     NSLog(@"私房链接为：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         [MBManager hideAlert];

@@ -121,7 +121,7 @@
     
     [MBManager showLoadingInView:self.view];
     __weak typeof(self) weakSelf = self;
-    NSString * url = [NSString stringWithFormat:@"%@&action=index&channel=%@&page=%d",URL_Common_ios,CHANNEL_ID,currentPage];
+    NSString * url = [NSString stringWithFormat:@"%@?action=index&channel=%@&page=%d",URL_Common_ios,CHANNEL_ID,currentPage];
     NSLog(@"首页APP————URL：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         
