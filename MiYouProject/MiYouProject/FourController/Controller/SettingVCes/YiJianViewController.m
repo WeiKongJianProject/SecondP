@@ -23,6 +23,7 @@
 }
 - (IBAction)tiJiaoButton:(id)sender {
     self.textVIew.text = @"";
+    self.qqTextField.text = @"";
     [self.textVIew resignFirstResponder];
     [MBManager showBriefAlert:@"提交成功"];
 }

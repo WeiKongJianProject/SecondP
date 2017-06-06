@@ -18,7 +18,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithhex16stringToColor:@"eeeeee"];
     
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SIZE_WIDTH, 226.0) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SIZE_WIDTH, 176.0) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     //self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -36,7 +36,7 @@
 
 #pragma mark TableViewDelegate代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return 2;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     CGFloat height = 0.0f;
@@ -92,9 +92,9 @@
             NSLog(@"第二行");
             cell.leftLabel.text = @"昵称";
             
-            if (!zlDictIsEmpty(userDic)) {
-                cell.rightNameLabel.text = [kUserDefaults objectForKey:ZB_USER_MID];
-            }
+            NSLog(@"用户ID：%@",[kUserDefaults objectForKey:ZB_USER_NAME]);
+            cell.rightNameLabel.text = [kUserDefaults objectForKey:ZB_USER_NAME];
+            
             break;
         case 2:
             cell.leftLabel.text = @"邮箱";

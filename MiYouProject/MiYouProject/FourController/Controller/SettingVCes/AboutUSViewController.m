@@ -22,7 +22,7 @@
 }
 - (void)startAFnetWorking{
     
-    NSString * url = [NSString stringWithFormat:@"%@&action=statement",URL_Common_ios];
+    NSString * url = [NSString stringWithFormat:@"%@?action=statement",URL_Common_ios];
     NSLog(@"免责声明：链接：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];

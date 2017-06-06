@@ -192,7 +192,7 @@ static int _currentPage;
     self.boFangNumLabel.text = [NSString stringWithFormat:@"%d",[self.currentZBModel.hot intValue]];
     
     self.videoTitleLabel.text = self.currentZBModel.nickname;
-    self.wmPlayer.URLString = self.currentZBModel.thumb;
+    self.wmPlayer.URLString = self.currentZBModel.video;
     //@"http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4";//self.playModel.trial;
     [self.wmPlayer play];
 }

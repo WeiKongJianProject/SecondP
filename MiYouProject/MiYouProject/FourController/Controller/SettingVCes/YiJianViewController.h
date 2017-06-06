@@ -10,5 +10,6 @@
 
 @interface YiJianViewController : ZLBaseViewController
 @property (weak, nonatomic) IBOutlet UITextView *textVIew;
+@property (strong, nonatomic) IBOutlet UITextField *qqTextField;
 
 @end
