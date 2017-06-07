@@ -70,7 +70,7 @@ static ZBBuyVIPModel * _instance = nil;
                 else if ([dic[@"pay"] isEqualToString:@"cloudpay"]){
                     [weak_self(self) thirdZhiFuAction:type withDingDanInfo:dic];
                 }
-                else if ([dic[@"stpay"] isEqualToString:@"stpay"]){
+                else if ([dic[@"pay"] isEqualToString:@"stpay"]){
                 
                     [weak_self(self) stPayZhiFuWithType:type withOrderDic:dic];
                 

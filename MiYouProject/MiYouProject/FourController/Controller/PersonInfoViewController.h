@@ -9,6 +9,7 @@
 #import "ZLBaseViewController.h"
 #import "PersonTableViewCell.h"
 #import "KZPhotoManager.h"
+#import "XiuGaiViewController.h"
 
 @interface PersonInfoViewController : ZLBaseViewController<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) UITableView * tableView;

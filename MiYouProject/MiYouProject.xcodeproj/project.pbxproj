@@ -116,6 +116,8 @@
 		7353385C1EDFB74800A2E0A6 /* WTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7353384B1EDFB74800A2E0A6 /* WTTextView.m */; };
 		735338611EE004FB00A2E0A6 /* ZBALLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 735338601EE004FB00A2E0A6 /* ZBALLModel.m */; };
 		735338641EE14DC800A2E0A6 /* ZBBuyVIPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 735338631EE14DC800A2E0A6 /* ZBBuyVIPModel.m */; };
+		735338681EE7CA9300A2E0A6 /* XiuGaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 735338661EE7CA9300A2E0A6 /* XiuGaiViewController.m */; };
+		735338691EE7CA9300A2E0A6 /* XiuGaiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735338671EE7CA9300A2E0A6 /* XiuGaiViewController.xib */; };
 		736557361E728F5800284C11 /* ReMenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557351E728F5800284C11 /* ReMenView.xib */; };
 		7365573A1E729C4B00284C11 /* DianYingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */; };
 		7365573B1E729C4B00284C11 /* DianYingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */; };
@@ -500,6 +502,9 @@
 		735338601EE004FB00A2E0A6 /* ZBALLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBALLModel.m; sourceTree = "<group>"; };
 		735338621EE14DC800A2E0A6 /* ZBBuyVIPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBBuyVIPModel.h; sourceTree = "<group>"; };
 		735338631EE14DC800A2E0A6 /* ZBBuyVIPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBBuyVIPModel.m; sourceTree = "<group>"; };
+		735338651EE7CA9300A2E0A6 /* XiuGaiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XiuGaiViewController.h; sourceTree = "<group>"; };
+		735338661EE7CA9300A2E0A6 /* XiuGaiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XiuGaiViewController.m; sourceTree = "<group>"; };
+		735338671EE7CA9300A2E0A6 /* XiuGaiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XiuGaiViewController.xib; sourceTree = "<group>"; };
 		736557351E728F5800284C11 /* ReMenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReMenView.xib; sourceTree = "<group>"; };
 		736557371E729C4B00284C11 /* DianYingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianYingCollectionViewCell.h; sourceTree = "<group>"; };
 		736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianYingCollectionViewCell.m; sourceTree = "<group>"; };
@@ -1774,6 +1779,9 @@
 				730D38671E77E1FD00EE4692 /* PersonInfoViewController.h */,
 				730D38681E77E1FD00EE4692 /* PersonInfoViewController.m */,
 				730D38691E77E1FD00EE4692 /* PersonInfoViewController.xib */,
+				735338651EE7CA9300A2E0A6 /* XiuGaiViewController.h */,
+				735338661EE7CA9300A2E0A6 /* XiuGaiViewController.m */,
+				735338671EE7CA9300A2E0A6 /* XiuGaiViewController.xib */,
 				730D38761E78DF0B00EE4692 /* XiaoXiViewController.h */,
 				730D38771E78DF0B00EE4692 /* XiaoXiViewController.m */,
 				730D38781E78DF0B00EE4692 /* XiaoXiViewController.xib */,
@@ -2431,6 +2439,7 @@
 				73EB3FAC1E6FDEE400CA8B5D /* Loading0016.png in Resources */,
 				7339CBB11EC2FEBA00E5E600 /* MianZeViewController02.xib in Resources */,
 				73EB3FB81E6FDEE400CA8B5D /* Loading009.png in Resources */,
+				735338691EE7CA9300A2E0A6 /* XiuGaiViewController.xib in Resources */,
 				73A3B61F1E8BE15600407957 /* ZhiFuButtonView.xib in Resources */,
 				73EB3FA51E6FDEE400CA8B5D /* Loading001.png in Resources */,
 				73EB3FAD1E6FDEE400CA8B5D /* Loading0017.png in Resources */,
@@ -2678,6 +2687,7 @@
 				730D385B1E77CDCB00EE4692 /* MyYuEViewController.m in Sources */,
 				7353384F1EDFB74800A2E0A6 /* NSTimer+WT.m in Sources */,
 				73A3B62D1E8CF2BD00407957 /* SiFangPlayController.m in Sources */,
+				735338681EE7CA9300A2E0A6 /* XiuGaiViewController.m in Sources */,
 				73EB3FDF1E70000F00CA8B5D /* ViewPagerController.m in Sources */,
 				730F97591ECE875800B7A109 /* ZBMemberMTLModel.m in Sources */,
 				73A3B6161E8A86A600407957 /* YiJianViewController.m in Sources */,

@@ -535,7 +535,7 @@ static int _currentPage;
 {
     [self releaseWMPlayer];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    NSLog(@"DetailViewController deallco");
+    NSLog(@"播放页销毁-----DetailViewController deallco");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -702,7 +702,7 @@ static int _currentPage;
                 }
                 else{
                     NSLog(@"加主播微信微信支付");
-                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:nil withVIPorWeiXin:WEIXIN_TYPE_ENUM];
+                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:self.id withVIPorWeiXin:WEIXIN_TYPE_ENUM];
                 }
             }
             else{
