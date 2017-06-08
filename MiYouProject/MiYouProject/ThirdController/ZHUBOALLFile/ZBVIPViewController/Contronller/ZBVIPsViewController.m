@@ -29,7 +29,10 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
     self.navigationController.navigationBar.topItem.title=@"VIP";
+    [self startAFNetworking];
 }
+
+
 
 - (IBAction)weiXinButtonAction:(UIButton *)sender {
     if ([ZBALLModel isLogined]) {
@@ -62,6 +65,23 @@
         
     }
 }
+
+- (void)startAFNetworking{
+    
+    __weak typeof(self) weakSelf = self;
+    NSString * url = [NSString stringWithFormat:@"%@?action=vip",URL_Common_ios];
+    NSLog(@"请求VIP：%@",url);
+    [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        if ([dic[@"result"] isEqualToString:@"success"]) {
+            weakSelf.priceLabel.text = [NSString stringWithFormat:@"￥%d",[dic[@"price"] intValue]];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

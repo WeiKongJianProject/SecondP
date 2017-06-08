@@ -28,7 +28,7 @@ static int jd;
     [super viewDidLoad];
     [self setTabBarImageAndTextColor];//设置Tabbar 文字和颜色
     
-    NSDictionary * memDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
+    //NSDictionary * memDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
     //self.userInfoModel = [MTLJSONAdapter modelOfClass:[UserInfoMTLModel class] fromJSONDictionary:memDic error:nil];
     
     _index_0_height = SIZE_WIDTH*(295.0/675.0);
@@ -49,7 +49,7 @@ static int jd;
         [self startAFNetworking];
     }
     else{
-        
+        [self.tableView reloadData];
     }
 
 }
@@ -180,6 +180,7 @@ static int jd;
             }
             else{
                 hcell.userNameLabel.text = @"登录";
+                [hcell.headerImageVIew setImage:[UIImage imageNamed:@"touxiang"]];
             }
             
             //hcell.UBiNumLabel.text = [NSString stringWithFormat:@"%d",[self.currentZBMemberModel.amount intValue]];

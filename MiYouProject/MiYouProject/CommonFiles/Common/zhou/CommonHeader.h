@@ -68,8 +68,8 @@
 
 #import "Masonry.h"
 
-//ae835d
-#define Main_BackgroundColor @"f9bf34"
+//ae835d ffda46  f9bf34
+#define Main_BackgroundColor @"ffda46"
 #define Main_BackgroundGreen_Color @"1cd39b"
 //bab6b7  e6e6e6   f0eff5  a09993
 #define Main_grayBackgroundColor @"ffffff"

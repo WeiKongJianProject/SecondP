@@ -21,13 +21,13 @@
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapBackgroundGesAction:)];
     [self.view addGestureRecognizer:tap];
    
-    
-    if (self.isBenDi == YES) {
-         [self settingPlayer];
-    }
-    else{
-        [self startWatchPlayWithID:self.id withMID:self.mid];
-    }
+    [self settingPlayer];
+//    if (self.isBenDi == YES) {
+//         [self settingPlayer];
+//    }
+//    else{
+//        [self startWatchPlayWithID:self.id withMID:self.mid];
+//    }
 }
 
 //观看网络请求
@@ -170,7 +170,9 @@
     //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     //self prefersStatusBarHidden
     // 调用playerView的layoutSubviews方法
-    if (self.playerView) { [self.playerView setNeedsLayout]; }
+    if (self.playerView) {
+        [self.playerView setNeedsLayout];
+    }
     // pop回来时候是否自动播放
     if (self.navigationController.viewControllers.count == 2 && self.playerView && self.isPlaying) {
         self.isPlaying = NO;
@@ -190,6 +192,7 @@
         self.isPlaying = YES;
         [self.playerView pause];
     }
+    //self.navigationController setNavigationBarHidden:
 }
 
 - (void)tapBackgroundGesAction:(UITapGestureRecognizer *)sender{

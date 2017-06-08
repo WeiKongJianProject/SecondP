@@ -532,7 +532,23 @@ static ZBBuyVIPModel * _instance = nil;
 
 
 #pragma end mark END
+#pragma mark 获取支付结果
+- (void)getPayResultWithOorderNum:(NSString *)orderNum withBlock:(void (^)(BOOL))resultBlock{
 
-
+    NSString * url = [NSString stringWithFormat:@"%@?action=payresult&tradeno=%@",URL_Common_ios,orderNum];
+    [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        if ([dic[@"result"] isEqualToString:@"success"]) {
+            resultBlock(YES);
+        }
+        else{
+            resultBlock(NO);
+        }
+    } failure:^(NSError *error) {
+        
+        resultBlock(NO);
+    }];
+    
+}
 
 @end

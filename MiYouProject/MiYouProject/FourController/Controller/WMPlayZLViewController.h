@@ -17,8 +17,11 @@
 #import "ZBHomeModel.h"
 #import "ZhuBoBuyVIPAlertView.h"
 #import "ZBBuyVIPModel.h"
+#import "ZBVideoCollectionViewCell.h"
+#import "SiFangPlayController.h"
 
-@interface WMPlayZLViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+
+@interface WMPlayZLViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, retain)NSString * URLString;
 
@@ -35,6 +38,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *tiJiaoButton;
 
 @property (strong, nonatomic) NSMutableArray * tableViewARR;
+@property (strong, nonatomic) NSMutableArray * collectionARR;
 
 //@property (strong, nonatomic) PlayVideoMTLModel * playModel;
 //@property (strong, nonatomic) PlayMemberMTLModel * playMemberModel;
@@ -44,6 +48,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *subTitleLabel;
 @property (strong, nonatomic) IBOutlet UIButton *zhiBoButton;
 @property (strong, nonatomic) IBOutlet UIButton *weiXinButton;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
 
 

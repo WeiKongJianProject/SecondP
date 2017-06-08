@@ -39,3 +39,12 @@
 
 
 @end
+
+@interface ZBVideoCellModel : MTLModel<MTLJSONSerializing>
+
+@property (strong, nonatomic) NSString * nid;
+@property (strong, nonatomic) NSString * video;
+@property (strong, nonatomic) NSString * pic;
+@property (strong, nonatomic) NSNumber * price;
+
+@end

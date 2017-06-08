@@ -8,6 +8,9 @@
 
 #import "WMPlayZLViewController.h"
 
+#define COLLECTION_CELL_WIDTH (SIZE_WIDTH-50)/4.0
+#define COLLECTION_CELL_HEIGHT  70.0
+
 @interface WMPlayZLViewController ()<WMPlayerDelegate>{
     
     //WMPlayer  *wmPlayer;
@@ -16,6 +19,7 @@
     BOOL _isHaveWeiXin;
     BOOL _isCanToRoom;
     NSString * _zbWeiXin;
+    NSString * _zbroom;
     
     NSString * _weixinPrice;
     NSString * _vipPrice;
@@ -40,61 +44,40 @@ static int _currentPage;
     self.pingLunTableVIew.dataSource = self;
     self.pingLunTableVIew.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.pingLunTableVIew.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerShuaXin)];
+    [self loadCollectionView];
     
     
     playerFrame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, ([UIScreen mainScreen].bounds.size.width)* 9 / 16);
-    
-    self.wmPlayer = [[WMPlayer alloc]init];
-    //    wmPlayer = [[WMPlayer alloc]initWithFrame:playerFrame];
-    
-    self.wmPlayer.delegate = self;
-    //self.wmPlayer.URLString = self.URLString;
-    NSLog(@"视频的地址为：%@",self.URLString);
-    self.wmPlayer.titleLabel.text = self.title;
-    self.wmPlayer.closeBtn.hidden = NO;
-    self.wmPlayer.enableFastForwardGesture = YES;
-    self.wmPlayer.enableVolumeGesture = YES;
-    self.wmPlayer.dragEnable = NO;
-    [self.view addSubview:self.wmPlayer];
-    //[self.wmPlayer play];
-    
-    [self.wmPlayer mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).with.offset(0);
-        make.left.equalTo(self.view).with.offset(0);
-        make.right.equalTo(self.view).with.offset(0);
-        make.height.equalTo(@(playerFrame.size.height));
-    }];
-    
-    
-
-    
     [self.XiaZaiButton addTarget:self action:@selector(alertXiaZaiButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.tiJiaoButton addTarget:self action:@selector(tiJiaoButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    
 }
 
 - (void)tiJiaoButtonAction:(UIButton *)sender{
     
     [self.textFieldView resignFirstResponder];
     /*
-    AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
-    
-    alert.titleName = @"观看完整版才可以评论";
-    alert.cancelBtnTitle = @"取消";
-    alert.okBtnTitle = @"确定";
-    [alert showCustomAlertView];
-    [alert cancelBlockAction:^(BOOL success) {
-        //_isKuaiJinAction = 0;
-        [alert hideCustomeAlertView];
-    }];
-    [alert okButtonBlockAction:^(BOOL success) {
-        //_isKuaiJinAction = 0;
-        [alert hideCustomeAlertView];
-        //        [weakSelf.navigationController popViewControllerAnimated:NO];
-        //        [weakSelf xw_postNotificationWithName:KAITONG_VIP_NOTIFICATION userInfo:nil];
-        [self.textFieldView resignFirstResponder];
-    }];
-    [self.view addSubview:alert];
-    */
+     AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
+     
+     alert.titleName = @"观看完整版才可以评论";
+     alert.cancelBtnTitle = @"取消";
+     alert.okBtnTitle = @"确定";
+     [alert showCustomAlertView];
+     [alert cancelBlockAction:^(BOOL success) {
+     //_isKuaiJinAction = 0;
+     [alert hideCustomeAlertView];
+     }];
+     [alert okButtonBlockAction:^(BOOL success) {
+     //_isKuaiJinAction = 0;
+     [alert hideCustomeAlertView];
+     //        [weakSelf.navigationController popViewControllerAnimated:NO];
+     //        [weakSelf xw_postNotificationWithName:KAITONG_VIP_NOTIFICATION userInfo:nil];
+     [self.textFieldView resignFirstResponder];
+     }];
+     [self.view addSubview:alert];
+     */
     
     [self startFaBuAFNetWorkingWithid:[self.id intValue]];
     
@@ -145,7 +128,7 @@ static int _currentPage;
 - (void)startAFNetworkingWithID:(NSString *)keyID{
     [MBManager showLoadingInView:self.view];
     NSString * urlstr = nil;
-
+    
     if ([ZBALLModel isLogined]) {
         NSString * midStr = [kUserDefaults objectForKey:ZB_USER_MID];
         urlstr = [NSString stringWithFormat:@"%@?action=zhubo&zid=%@&mid=%@",URL_Common_ios,keyID,midStr];
@@ -168,6 +151,8 @@ static int _currentPage;
             _weixinPrice = dic[@"zhubo"][@"price"];
             _vipPrice = dic[@"vip"][@"price"];
             _vipLevel = [NSString stringWithFormat:@"%d",[dic[@"vip"][@"level"] intValue]];
+            weakSelf.collectionARR = [MTLJSONAdapter modelsOfClass:[ZBVideoCellModel class] fromJSONArray:dic[@"video"] error:nil];
+            [weakSelf.collectionView reloadData];
             //weakSelf.playMemberModel = [MTLJSONAdapter modelOfClass:[PlayMemberMTLModel class] fromJSONDictionary:dic[@"member"] error:nil];
             //NSString * str = [dic objectForKey:@"actor"];
             //NSLog(@"播放页请求的结果为：%@++++全部结果为：%@",weakSelf.playModel.pic,dic);
@@ -193,7 +178,7 @@ static int _currentPage;
     
     self.videoTitleLabel.text = self.currentZBModel.nickname;
     self.wmPlayer.URLString = self.currentZBModel.video;
-    //@"http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4";//self.playModel.trial;
+    //@"http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4";
     [self.wmPlayer play];
 }
 
@@ -259,16 +244,16 @@ static int _currentPage;
     cell.contentLabel.text = model.content;
     
     //时间 时间戳设置
-//    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[model.time intValue]];
-//    //NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[confromTimesp timeIntervalSince1970]];
-//    //NSDate *date = [NSDate date];
-//    //创建一个时间格式化对象
-//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//    //按照什么样的格式来格式化时间
-//    //formatter.dateFormat = @"yyyy年MM月dd日 HH时mm分ss秒 Z";
-//    formatter.dateFormat = @"yyyy/MM/dd HH:mm:ss";
-//    //formatter.dateFormat = @"MM-dd-yyyy HH-mm-ss";
-//    NSString *res = [formatter stringFromDate:confromTimesp];
+    //    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[model.time intValue]];
+    //    //NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[confromTimesp timeIntervalSince1970]];
+    //    //NSDate *date = [NSDate date];
+    //    //创建一个时间格式化对象
+    //    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    //    //按照什么样的格式来格式化时间
+    //    //formatter.dateFormat = @"yyyy年MM月dd日 HH时mm分ss秒 Z";
+    //    formatter.dateFormat = @"yyyy/MM/dd HH:mm:ss";
+    //    //formatter.dateFormat = @"MM-dd-yyyy HH-mm-ss";
+    //    NSString *res = [formatter stringFromDate:confromTimesp];
     cell.timeLabel.text = model.addtime;
     //NSLog(@"评论的时间为：%@",res);
     return cell;
@@ -376,7 +361,7 @@ static int _currentPage;
     else if(![ZBALLModel isZBVIP]){
         [self alertViewShow];
     }
-
+    
 }
 //操作栏隐藏或者显示都会调用此方法
 -(void)wmplayer:(WMPlayer *)wmplayer isHiddenTopAndBottomView:(BOOL)isHidden{
@@ -470,6 +455,28 @@ static int _currentPage;
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    //设置播放器
+    self.wmPlayer = [[WMPlayer alloc]init];
+    //wmPlayer = [[WMPlayer alloc]initWithFrame:playerFrame];
+    
+    self.wmPlayer.delegate = self;
+    //self.wmPlayer.URLString = self.URLString;
+    NSLog(@"视频的地址为：%@",self.URLString);
+    self.wmPlayer.titleLabel.text = self.title;
+    self.wmPlayer.closeBtn.hidden = NO;
+    self.wmPlayer.enableFastForwardGesture = YES;
+    self.wmPlayer.enableVolumeGesture = YES;
+    self.wmPlayer.dragEnable = NO;
+    [self.view addSubview:self.wmPlayer];
+    //[self.wmPlayer play];
+    [self.wmPlayer mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).with.offset(0);
+        make.left.equalTo(self.view).with.offset(0);
+        make.right.equalTo(self.view).with.offset(0);
+        make.height.equalTo(@(playerFrame.size.height));
+    }];
+    
+    
     //获取设备旋转方向的通知,即使关闭了自动旋转,一样可以监测到设备的旋转方向
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     //旋转屏幕通知
@@ -484,8 +491,10 @@ static int _currentPage;
     [self startPingLunAFNetworkingWithID:self.id withPage:_currentPage];
 }
 -(void)viewDidDisappear:(BOOL)animated{
-    self.navigationController.navigationBarHidden = NO;
+    
     [super viewDidAppear:animated];
+    //self.navigationController.navigationBarHidden = NO;
+    [self releaseWMPlayer];
 }
 #pragma mark
 
@@ -494,7 +503,6 @@ static int _currentPage;
     __weak typeof(self) weakSelf = self;
     
     AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
-    
     alert.titleName = @"下载视频需要开通VIP";
     alert.cancelBtnTitle = @"取消";
     alert.okBtnTitle = @"开通";
@@ -516,8 +524,8 @@ static int _currentPage;
 - (void)releaseWMPlayer
 {
     //堵塞主线程
-    //    [wmPlayer.player.currentItem cancelPendingSeeks];
-    //    [wmPlayer.player.currentItem.asset cancelLoading];
+    //[wmPlayer.player.currentItem cancelPendingSeeks];
+    //[wmPlayer.player.currentItem.asset cancelLoading];
     [self.wmPlayer pause];
     [self.wmPlayer removeFromSuperview];
     [self.wmPlayer.playerLayer removeFromSuperlayer];
@@ -555,9 +563,7 @@ static int _currentPage;
 - (void)alertViewShow{
     
     __weak typeof(self) weakSelf = self;
-    
     AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
-    
     alert.titleName = @"开通VIP进入直播间";
     alert.cancelBtnTitle = @"取消";
     alert.okBtnTitle = @"开通";
@@ -569,10 +575,7 @@ static int _currentPage;
     [alert okButtonBlockAction:^(BOOL success) {
         //_isKuaiJinAction = 0;
         [alert hideCustomeAlertView];
-
         [self alertZhiFuViewWithType:0];
-        
-        
     }];
     [self.view addSubview:alert];
 }
@@ -583,7 +586,6 @@ static int _currentPage;
     ChongZhiViewController * vc = [[ChongZhiViewController alloc]init];
     vc.UB_or_VIP = UB_ChongZhi;
     [self.navigationController pushViewController:vc animated:YES];
-    
 }
 
 #pragma mark 进入直播间
@@ -592,6 +594,12 @@ static int _currentPage;
     if ([ZBALLModel isLogined]) {
         if (_isCanToRoom == YES) {
             NSLog(@"进入直播间");
+            NSString * strIdentifier = _zbroom;
+            BOOL isExsit = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strIdentifier]];
+            if(isExsit) {
+                //NSLog(@"App %@ installed", strIdentifier);
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strIdentifier]];
+            }
         }
         else{
             [self alertZhiFuViewWithType:0];
@@ -605,7 +613,7 @@ static int _currentPage;
 
 
 
-#pragma end 
+#pragma end
 #pragma mark 加主播微信
 - (IBAction)addWeiXinButtonAction:(UIButton *)sender {
     
@@ -625,7 +633,7 @@ static int _currentPage;
             [alert okButtonBlockAction:^(BOOL success) {
                 //_isKuaiJinAction = 0;
                 [alert hideCustomeAlertView];
-
+                
             }];
             [self.view addSubview:alert];
         }
@@ -636,7 +644,7 @@ static int _currentPage;
     else{
         [ZBALLModel pushToLoginViewControllerFromVC:self];
     }
-
+    
 }
 
 - (void)alertZhiFuViewWithType:(NSInteger)type{
@@ -661,13 +669,13 @@ static int _currentPage;
                     
                 }
                 else{
-                     NSLog(@"加主播微信微信支付");
-                     [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:self.id withVIPorWeiXin:WEIXIN_TYPE_ENUM];
+                    NSLog(@"加主播微信微信支付");
+                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:self.id withVIPorWeiXin:WEIXIN_TYPE_ENUM];
                 }
             }
             else{
                 if (CommodityType == 1) {
-                     NSLog(@"成为VIP支付宝支付");
+                    NSLog(@"成为VIP支付宝支付");
                     [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM];
                     
                 }
@@ -680,7 +688,7 @@ static int _currentPage;
         [self.view addSubview:alertView];
     }
     else{
-    
+        
         __weak typeof(self) weakSelf = self;
         
         ZhuBoBuyVIPAlertView * alertView = [[ZhuBoBuyVIPAlertView alloc]init];
@@ -690,7 +698,7 @@ static int _currentPage;
         alertView.demoview.weiXinRightLabel.text = [NSString stringWithFormat:@"￥%@",_weixinPrice];
         [alertView.demoview.headerImageView setImageWithURL:[NSURL URLWithString:self.currentZBModel.thumb] placeholder:[UIImage imageNamed:@"icon_default2"]];
         
-       __weak typeof(alertView) weakAlertView = alertView;
+        __weak typeof(alertView) weakAlertView = alertView;
         [alertView setPlayActionTypeBlockAction:^(BOOL success, NSInteger Paytype, NSInteger CommodityType) {
             //paytype  支付方式  commodityType  商品类型
             
@@ -721,29 +729,104 @@ static int _currentPage;
         [self.view addSubview:alertView];
         
         
-//        __weak typeof(self) weakSelf = self;
-//        AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
-//        alert.titleName = @"观看完整版,需要开通VIP";
-//        alert.cancelBtnTitle = @"取消";
-//        alert.okBtnTitle = @"开通";
-//        [alert showCustomAlertView];
-//        [alert cancelBlockAction:^(BOOL success) {
-//            //_isKuaiJinAction = 0;
-//            [alert hideCustomeAlertView];
-//        }];
-//        [alert okButtonBlockAction:^(BOOL success) {
-//            //_isKuaiJinAction = 0;
-//            [alert hideCustomeAlertView];
-//            [weakSelf.navigationController popViewControllerAnimated:NO];
-//            [weakSelf xw_postNotificationWithName:KAITONG_VIP_NOTIFICATION userInfo:nil];
-//        }];
-//        [self.view addSubview:alert];
+        //        __weak typeof(self) weakSelf = self;
+        //        AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
+        //        alert.titleName = @"观看完整版,需要开通VIP";
+        //        alert.cancelBtnTitle = @"取消";
+        //        alert.okBtnTitle = @"开通";
+        //        [alert showCustomAlertView];
+        //        [alert cancelBlockAction:^(BOOL success) {
+        //            //_isKuaiJinAction = 0;
+        //            [alert hideCustomeAlertView];
+        //        }];
+        //        [alert okButtonBlockAction:^(BOOL success) {
+        //            //_isKuaiJinAction = 0;
+        //            [alert hideCustomeAlertView];
+        //            [weakSelf.navigationController popViewControllerAnimated:NO];
+        //            [weakSelf xw_postNotificationWithName:KAITONG_VIP_NOTIFICATION userInfo:nil];
+        //        }];
+        //        [self.view addSubview:alert];
     }
 }
 
 #pragma end
+#pragma mark CollectionView代理方法  START
+- (void)loadCollectionView{
+    
+    //创建一个Layout布局
+    UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc]init];
+    //设置布局方向为垂直流布局
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    //设置每个item的大小为
+    //layout.itemSize = CGSizeMake(Collection_item_Width, Collection_item_Height);
+    //item距离四周的位置（上左下右）
+    layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10);
+    //item 行与行的距离
+    layout.minimumLineSpacing = 10;
+    //item 列与列的距离
+    layout.minimumInteritemSpacing = 10;
+    
+    UICollectionViewFlowLayout * layout2 = [[UICollectionViewFlowLayout alloc]init];
+    layout2.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    layout2.itemSize = CGSizeMake(COLLECTION_CELL_WIDTH, COLLECTION_CELL_HEIGHT);
+    layout2.sectionInset = UIEdgeInsetsMake(5, 10, 5, 0);
+    layout2.minimumLineSpacing = 10;
+    layout2.minimumInteritemSpacing = 0;
+    
+    [self.collectionView setCollectionViewLayout:layout2];
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    [self.collectionView registerNib:[UINib nibWithNibName:@"ZBVideoCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"ZBVideoCVID"];
+    
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.collectionARR.count;
+}
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    
+    return 1;
+}
 
 
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString * cellID = @"ZBVideoCVID";
+    ZBVideoCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+    ZBVideoCellModel * model = [self.collectionARR objectAtIndex:indexPath.row];
+    [cell.videoImageView setImageWithURL:[NSURL URLWithString:model.pic] placeholder:[UIImage imageNamed:PlaceholderImage_Name]];
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if ([ZBALLModel isLogined]) {
+        if (_isCanToRoom == YES) {
+            ZBVideoCellModel * model = [self.collectionARR objectAtIndex:indexPath.row];
+            SiFangPlayController * vc = [[SiFangPlayController alloc]init];
+            vc.zaiXianUrl = [NSURL URLWithString:model.video];
+            vc.zaiXianName = @"更多视频";
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else{
+            [self alertZhiFuViewWithType:0];
+        }
+    }
+    else{
+        [ZBALLModel pushToLoginViewControllerFromVC:self];
+    }
+}
+
+
+
+
+
+
+#pragma end mark CollectionView代理方发  end
+- (NSMutableArray *)collectionARR{
+    if (!_collectionARR) {
+        _collectionARR = [[NSMutableArray alloc]init];
+    }
+    return _collectionARR;
+}
 /*
  #pragma mark - Navigation
  

@@ -51,14 +51,38 @@
 - (IBAction)finishedButtonAction:(id)sender {
 
     if ([ZBALLModel isLogined]) {
-        [MBManager showBriefAlert:@"提交成功！"];
-        self.nameTextField.text = @"";
-        self.ageTextField.text = @"";
-        self.weixinTextField.text = @"";
+        
+        if ([self isCanFinish]) {
+            [MBManager showBriefAlert:@"提交成功！"];
+            self.nameTextField.text = @"";
+            self.ageTextField.text = @"";
+            self.weixinTextField.text = @"";
+        }
+        else{
+            [MBManager showBriefAlert:@"请完善信息"];
+        }
+
     }
     else{
         [ZBALLModel pushToLoginViewControllerFromVC:self];
     }
+}
+
+- (BOOL)isCanFinish{
+
+    BOOL result;
+    if (![self.nameTextField.text isEqualToString:@""] && ![self.ageTextField.text isEqualToString:@""] && ![self.weixinTextField.text isEqualToString:@""]) {
+        if (self.manButton.isSelected==YES || self.womanButton.isSelected == YES) {
+            result = YES;
+        }
+        else{
+            result = NO;
+        }
+    }else{
+        result = NO;
+    }
+    
+    return result;
 }
 
 /*

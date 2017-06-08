@@ -55,3 +55,17 @@
 
 @end
 
+@implementation ZBVideoCellModel
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey{
+    return @{
+             @"nid":@"nid",
+             @"video":@"video",
+             @"pic":@"pic",
+             @"price":@"price"
+             };
+}
+
+@end
+
+

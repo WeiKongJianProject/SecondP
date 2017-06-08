@@ -18,7 +18,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithhex16stringToColor:@"eeeeee"];
     
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SIZE_WIDTH, 186.0) style:UITableViewStylePlain];
+//    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SIZE_WIDTH, 186.0) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     //self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -27,6 +27,18 @@
     [self.view addSubview:self.tableView];
     // Do any additional setup after loading the view from its nib.
 }
+- (IBAction)logoutButtonAction:(UIButton *)sender {
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:ZB_USER_MID];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:ZB_USER_NAME];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:ZB_USER_IS_VIP];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:ZB_USER_PHONE];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+
 - (void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
