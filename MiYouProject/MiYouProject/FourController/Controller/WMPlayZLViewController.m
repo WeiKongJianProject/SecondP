@@ -51,7 +51,14 @@ static int _currentPage;
     [self.XiaZaiButton addTarget:self action:@selector(alertXiaZaiButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.tiJiaoButton addTarget:self action:@selector(tiJiaoButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
-    
+    //支付完成后通知
+    [self xw_addNotificationForName:ZB_USER_PAY_FINISHED_NF block:^(NSNotification * _Nonnull notification) {
+        NSString * str = notification.userInfo[@"result"];
+        if ([str isEqualToString:@"1"]) {
+            [self startAFNetworkingWithID:self.id];
+        }
+        NSLog(@"接受到支付成功后的通知");
+    }];
     
 }
 
@@ -151,6 +158,7 @@ static int _currentPage;
             _weixinPrice = dic[@"zhubo"][@"price"];
             _vipPrice = dic[@"vip"][@"price"];
             _vipLevel = [NSString stringWithFormat:@"%d",[dic[@"vip"][@"level"] intValue]];
+            _zbroom = dic[@"room"];
             weakSelf.collectionARR = [MTLJSONAdapter modelsOfClass:[ZBVideoCellModel class] fromJSONArray:dic[@"video"] error:nil];
             [weakSelf.collectionView reloadData];
             //weakSelf.playMemberModel = [MTLJSONAdapter modelOfClass:[PlayMemberMTLModel class] fromJSONDictionary:dic[@"member"] error:nil];
@@ -562,7 +570,7 @@ static int _currentPage;
 
 - (void)alertViewShow{
     
-    __weak typeof(self) weakSelf = self;
+   // __weak typeof(self) weakSelf = self;
     AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
     alert.titleName = @"开通VIP进入直播间";
     alert.cancelBtnTitle = @"取消";
@@ -622,7 +630,7 @@ static int _currentPage;
             NSLog(@"加主播微信");
             AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
             
-            alert.titleName = _zbWeiXin;
+            alert.titleName = [NSString stringWithFormat:@"微信号：%@",_zbWeiXin];
             alert.cancelBtnTitle = @"取消";
             alert.okBtnTitle = @"开通";
             [alert showCustomAlertView];
@@ -665,23 +673,23 @@ static int _currentPage;
             if (Paytype == 0) {
                 if (CommodityType == 1) {
                     NSLog(@"成为VIP微信支付");
-                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM];
+                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM withJINE:_vipPrice withVC:self];
                     
                 }
                 else{
                     NSLog(@"加主播微信微信支付");
-                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:self.id withVIPorWeiXin:WEIXIN_TYPE_ENUM];
+                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:self.id withVIPorWeiXin:WEIXIN_TYPE_ENUM withJINE:_weixinPrice withVC:self];
                 }
             }
             else{
                 if (CommodityType == 1) {
                     NSLog(@"成为VIP支付宝支付");
-                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM];
+                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM withJINE:_vipPrice withVC:self];
                     
                 }
                 else{
                     NSLog(@"加主播微信支付宝支付");
-                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:self.id  withVIPorWeiXin:WEIXIN_TYPE_ENUM];
+                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:self.id  withVIPorWeiXin:WEIXIN_TYPE_ENUM withJINE:_weixinPrice withVC:self];
                 }
             }
         }];
@@ -706,21 +714,21 @@ static int _currentPage;
             if (Paytype == 0) {
                 if (CommodityType == 1) {
                     NSLog(@"成为VIP微信支付");
-                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM];
+                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM withJINE:_vipPrice withVC:self];
                 }
                 else{
                     NSLog(@"加主播微信微信支付");
-                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:self.id withVIPorWeiXin:WEIXIN_TYPE_ENUM];
+                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:self.id withVIPorWeiXin:WEIXIN_TYPE_ENUM withJINE:_weixinPrice withVC:self];
                 }
             }
             else{
                 if (CommodityType == 1) {
                     NSLog(@"成为VIP支付宝支付");
-                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM];
+                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM withJINE:_vipPrice withVC:self];
                 }
                 else{
                     NSLog(@"加主播微信支付宝支付");
-                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:self.id  withVIPorWeiXin:WEIXIN_TYPE_ENUM];
+                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:self.id  withVIPorWeiXin:WEIXIN_TYPE_ENUM withJINE:_weixinPrice withVC:self];
                     
                 }
             }

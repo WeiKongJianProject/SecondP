@@ -8,7 +8,9 @@
 
 #import "ZLBaseViewController.h"
 #import "ZBBuyVIPModel.h"
-@interface ZBVIPsViewController : ZLBaseViewController
+#import "FWInterface.h"
+
+@interface ZBVIPsViewController : ZLBaseViewController<FWInterfaceDelegate>
 @property (strong, nonatomic) IBOutlet UIView *backView;
 @property (strong, nonatomic) IBOutlet UILabel *priceLabel;
 

@@ -89,15 +89,14 @@
             cell.touXiangImageView.layer.cornerRadius = cell.touXiangImageView.frame.size.width / 2;
             //将多余的部分切掉
             cell.touXiangImageView.layer.masksToBounds = YES;
-            
-            
-            UIImage * image = [self readHeadImageFromUserDefault];
-            if (!zlObjectIsEmpty(image)) {
-                [cell.touXiangImageView setImage:image];
-            }
-            else{
-                [cell.touXiangImageView setImage:[UIImage imageNamed:@"touxiang"]];
-            }
+//            UIImage * image = [self readHeadImageFromUserDefault];
+//            if (!zlObjectIsEmpty(image)) {
+//                [cell.touXiangImageView setImage:image];
+//            }
+//            else{
+//                [cell.touXiangImageView setImage:[UIImage imageNamed:@"touxiang"]];
+//            }
+            [cell.touXiangImageView setImageWithURL:[NSURL URLWithString:[kUserDefaults objectForKey:ZB_USER_HEADERIMAGE_URL]] placeholder:[UIImage imageNamed:@"touxiang"]];
             self.headImageView = cell.touXiangImageView;
         }
             break;
@@ -202,8 +201,9 @@
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         //NSLog(@"---上传进度--- %@",uploadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-         NSLog(@"```上传成功``` %@",responseObject[@"result"]);
+         NSLog(@"上传成功 %@",responseObject);
         if([responseObject[@"result"] isEqualToString:@"success"]){
+            [kUserDefaults setObject:responseObject[@"url"] forKey:ZB_USER_HEADERIMAGE_URL];
             [MBManager showBriefAlert:@"上传成功"];
         }
         

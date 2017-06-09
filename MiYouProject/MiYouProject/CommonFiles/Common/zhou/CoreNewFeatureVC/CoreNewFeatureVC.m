@@ -166,7 +166,7 @@ NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
             UIButton * buttonStart = [UIButton buttonWithType:UIButtonTypeCustom];
             buttonStart.width = SIZE_WIDTH;
             buttonStart.height = 50;
-            buttonStart.bottom = SIZE_HEIGHT-70;
+            buttonStart.bottom = SIZE_HEIGHT-25;
             buttonStart.backgroundColor = [UIColor clearColor];
             [buttonStart addTarget:self action:@selector(startButtonAction) forControlEvents:UIControlEventTouchUpInside];
             [imageV addSubview:buttonStart];

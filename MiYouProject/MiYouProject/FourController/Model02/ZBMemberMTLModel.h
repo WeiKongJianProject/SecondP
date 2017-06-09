@@ -17,6 +17,6 @@
 @property (strong, nonatomic) NSString * vipName;
 @property (strong, nonatomic) NSNumber * messageNum;
 @property (strong, nonatomic) NSString * result;
-
+@property (strong, nonatomic) NSString * avator;
 
 @end

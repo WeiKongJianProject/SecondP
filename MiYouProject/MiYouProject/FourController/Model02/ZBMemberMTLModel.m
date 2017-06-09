@@ -19,7 +19,8 @@
              @"vip":@"vip",
              @"vipName":@"vipName",
              @"messageNum":@"messageNum",
-             @"result":@"result"
+             @"result":@"result",
+             @"avator":@"avator"
              };
 
 }

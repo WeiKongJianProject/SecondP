@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "UMMobClick/MobClick.h"
 #import <Bugly/Bugly.h>
-//#import "FWInterface.h"
+#import "FWInterface.h"
 //#import <AlipaySDK/AlipaySDK.h>
 //#import <BmobPaySDK/Bmob.h>
 
@@ -174,7 +174,7 @@
     //聚宝云 支付介入
     // 必须
     // FW code start //测试  35656972  //正式 29660012
-    //[FWInterface init:@"29660012" useAPI:NO withWXAppId:nil]; // 35656972是appId
+    [FWInterface init:@"29660012" useAPI:NO withWXAppId:nil]; // 35656972是appId
     // FW code end
     
     return YES;

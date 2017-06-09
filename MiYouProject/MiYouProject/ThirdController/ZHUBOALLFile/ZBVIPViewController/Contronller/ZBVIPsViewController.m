@@ -8,7 +8,10 @@
 
 #import "ZBVIPsViewController.h"
 
-@interface ZBVIPsViewController ()
+@interface ZBVIPsViewController (){
+
+    NSString * _currentJINE;
+}
 
 @end
 
@@ -38,7 +41,7 @@
     if ([ZBALLModel isLogined]) {
         if (![ZBALLModel isZBVIP]) {
             
-            [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM];
+            [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM withJINE:_currentJINE withVC:self];
             
         }
     }
@@ -54,8 +57,8 @@
 - (IBAction)zhiFuBaoButtonAction:(UIButton *)sender {
     if ([ZBALLModel isLogined]) {
         if (![ZBALLModel isZBVIP]) {
-            
-             [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM];
+            [MBManager showLoading];
+             [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM withJINE:_currentJINE withVC:self];
             
         }
     }
@@ -74,7 +77,8 @@
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         if ([dic[@"result"] isEqualToString:@"success"]) {
-            weakSelf.priceLabel.text = [NSString stringWithFormat:@"￥%d",[dic[@"price"] intValue]];
+            weakSelf.priceLabel.text = [NSString stringWithFormat:@"￥%@",dic[@"price"]];
+            _currentJINE = dic[@"price"];
         }
     } failure:^(NSError *error) {
         

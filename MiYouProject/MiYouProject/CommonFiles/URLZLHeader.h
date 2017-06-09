@@ -22,6 +22,9 @@
 #define ZB_USER_PHONE @"zb_user_phone"
 #define ZB_USER_IS_VIP @"zb_user_is_vip"
 #define ZB_USER_MID @"zb_user_mid"
+#define ZB_USER_HEADERIMAGE_URL @"zb_user_headimage_url"
+#define ZB_USER_PAY_FINISHED_NF @"zb_user_pay_finished_nf"
+
 
 
 //友盟APPID 58db47df07fe657cca0001b1

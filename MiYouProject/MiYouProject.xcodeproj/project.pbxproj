@@ -120,6 +120,10 @@
 		735338691EE7CA9300A2E0A6 /* XiuGaiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735338671EE7CA9300A2E0A6 /* XiuGaiViewController.xib */; };
 		7353386D1EE8EFE300A2E0A6 /* ZBVideoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7353386B1EE8EFE300A2E0A6 /* ZBVideoCollectionViewCell.m */; };
 		7353386E1EE8EFE300A2E0A6 /* ZBVideoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7353386C1EE8EFE300A2E0A6 /* ZBVideoCollectionViewCell.xib */; };
+		7353387C1EEA40BD00A2E0A6 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 735338721EEA40BD00A2E0A6 /* libWeChatSDK.a */; };
+		7353387D1EEA40BD00A2E0A6 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 735338731EEA40BD00A2E0A6 /* README.txt */; };
+		7353387E1EEA40BD00A2E0A6 /* FWResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 735338771EEA40BD00A2E0A6 /* FWResource.bundle */; };
+		7353387F1EEA40BD00A2E0A6 /* libFWSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7353387B1EEA40BD00A2E0A6 /* libFWSdk.a */; };
 		736557361E728F5800284C11 /* ReMenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557351E728F5800284C11 /* ReMenView.xib */; };
 		7365573A1E729C4B00284C11 /* DianYingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */; };
 		7365573B1E729C4B00284C11 /* DianYingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736557391E729C4B00284C11 /* DianYingCollectionViewCell.xib */; };
@@ -510,6 +514,15 @@
 		7353386A1EE8EFE300A2E0A6 /* ZBVideoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBVideoCollectionViewCell.h; sourceTree = "<group>"; };
 		7353386B1EE8EFE300A2E0A6 /* ZBVideoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBVideoCollectionViewCell.m; sourceTree = "<group>"; };
 		7353386C1EE8EFE300A2E0A6 /* ZBVideoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBVideoCollectionViewCell.xib; sourceTree = "<group>"; };
+		735338721EEA40BD00A2E0A6 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		735338731EEA40BD00A2E0A6 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		735338741EEA40BD00A2E0A6 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		735338751EEA40BD00A2E0A6 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		735338761EEA40BD00A2E0A6 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		735338771EEA40BD00A2E0A6 /* FWResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FWResource.bundle; sourceTree = "<group>"; };
+		735338791EEA40BD00A2E0A6 /* FWInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWInterface.h; sourceTree = "<group>"; };
+		7353387A1EEA40BD00A2E0A6 /* FWParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWParam.h; sourceTree = "<group>"; };
+		7353387B1EEA40BD00A2E0A6 /* libFWSdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFWSdk.a; sourceTree = "<group>"; };
 		736557351E728F5800284C11 /* ReMenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReMenView.xib; sourceTree = "<group>"; };
 		736557371E729C4B00284C11 /* DianYingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianYingCollectionViewCell.h; sourceTree = "<group>"; };
 		736557381E729C4B00284C11 /* DianYingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianYingCollectionViewCell.m; sourceTree = "<group>"; };
@@ -846,6 +859,7 @@
 			files = (
 				7339CB3D1EBB120000E5E600 /* Security.framework in Frameworks */,
 				7339CB261EBABABF00E5E600 /* UserNotifications.framework in Frameworks */,
+				7353387C1EEA40BD00A2E0A6 /* libWeChatSDK.a in Frameworks */,
 				73485C481E9CCDC900A6691A /* libz.1.2.5.tbd in Frameworks */,
 				73485C3F1E9CADAB00A6691A /* CoreMotion.framework in Frameworks */,
 				73485C3D1E9CAD9C00A6691A /* CFNetwork.framework in Frameworks */,
@@ -859,6 +873,7 @@
 				73485C2F1E9CAD3F00A6691A /* libz.tbd in Frameworks */,
 				73485C2D1E9CAD3600A6691A /* libc++.tbd in Frameworks */,
 				73A3B6081E8A7B5600407957 /* AVKit.framework in Frameworks */,
+				7353387F1EEA40BD00A2E0A6 /* libFWSdk.a in Frameworks */,
 				73A3B6061E8A789F00407957 /* CoreMedia.framework in Frameworks */,
 				73E7DA4E1E7A6C3A00371E33 /* Foundation.framework in Frameworks */,
 				73E7DA4C1E7A6C3000371E33 /* AVFoundation.framework in Frameworks */,
@@ -1362,6 +1377,46 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7353386F1EEA40BD00A2E0A6 /* 对接包 */ = {
+			isa = PBXGroup;
+			children = (
+				735338701EEA40BD00A2E0A6 /* FWDepends */,
+				735338771EEA40BD00A2E0A6 /* FWResource.bundle */,
+				735338781EEA40BD00A2E0A6 /* lib */,
+			);
+			path = "对接包";
+			sourceTree = "<group>";
+		};
+		735338701EEA40BD00A2E0A6 /* FWDepends */ = {
+			isa = PBXGroup;
+			children = (
+				735338711EEA40BD00A2E0A6 /* wx */,
+			);
+			path = FWDepends;
+			sourceTree = "<group>";
+		};
+		735338711EEA40BD00A2E0A6 /* wx */ = {
+			isa = PBXGroup;
+			children = (
+				735338721EEA40BD00A2E0A6 /* libWeChatSDK.a */,
+				735338731EEA40BD00A2E0A6 /* README.txt */,
+				735338741EEA40BD00A2E0A6 /* WechatAuthSDK.h */,
+				735338751EEA40BD00A2E0A6 /* WXApi.h */,
+				735338761EEA40BD00A2E0A6 /* WXApiObject.h */,
+			);
+			path = wx;
+			sourceTree = "<group>";
+		};
+		735338781EEA40BD00A2E0A6 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				735338791EEA40BD00A2E0A6 /* FWInterface.h */,
+				7353387A1EEA40BD00A2E0A6 /* FWParam.h */,
+				7353387B1EEA40BD00A2E0A6 /* libFWSdk.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		7393C6641EDE5D9900C24C65 /* ZBQianYueViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1551,6 +1606,7 @@
 		73AF7AAC1ED9166F00794211 /* ThisCommonFile */ = {
 			isa = PBXGroup;
 			children = (
+				7353386F1EEA40BD00A2E0A6 /* 对接包 */,
 				7353385D1EE004CE00A2E0A6 /* Controller */,
 				7353385E1EE004CE00A2E0A6 /* Model */,
 				73AF7AAF1ED9166F00794211 /* View */,
@@ -2473,6 +2529,7 @@
 				73EB3FB61E6FDEE400CA8B5D /* Loading007.png in Resources */,
 				730D387A1E78DF0B00EE4692 /* XiaoXiViewController.xib in Resources */,
 				73EB431C1E7241F200CA8B5D /* DianShiQiangViewController.xib in Resources */,
+				7353387E1EEA40BD00A2E0A6 /* FWResource.bundle in Resources */,
 				730D386B1E77E1FD00EE4692 /* PersonInfoViewController.xib in Resources */,
 				73A3B63B1E8DF2CC00407957 /* PingLunTableViewCell.xib in Resources */,
 				73C347131E8211CD00BBBDBE /* ShaiXuanViewController.xib in Resources */,
@@ -2484,6 +2541,7 @@
 				735338231EDFA8DC00A2E0A6 /* ZBLoginViewController.xib in Resources */,
 				730D38571E7795FA00EE4692 /* ThirdTeQuanTableViewCell.xib in Resources */,
 				73E7DA8E1E7FBEC100371E33 /* DianYingSubCollectionViewCell.xib in Resources */,
+				7353387D1EEA40BD00A2E0A6 /* README.txt in Resources */,
 				73E7DA891E7FBD2700371E33 /* DianYingSubTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3006,6 +3064,8 @@
 					"$(PROJECT_DIR)/UMessage_Sdk_1.5.0a",
 					"$(PROJECT_DIR)/对接包/FWDepends/wx",
 					"$(PROJECT_DIR)/对接包/lib",
+					"$(PROJECT_DIR)/MiYouProject/ThisCommonFile/对接包/FWDepends/wx",
+					"$(PROJECT_DIR)/MiYouProject/ThisCommonFile/对接包/lib",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -3109,6 +3169,8 @@
 					"$(PROJECT_DIR)/UMessage_Sdk_1.5.0a",
 					"$(PROJECT_DIR)/对接包/FWDepends/wx",
 					"$(PROJECT_DIR)/对接包/lib",
+					"$(PROJECT_DIR)/MiYouProject/ThisCommonFile/对接包/FWDepends/wx",
+					"$(PROJECT_DIR)/MiYouProject/ThisCommonFile/对接包/lib",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",

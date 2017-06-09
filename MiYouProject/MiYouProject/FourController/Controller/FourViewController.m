@@ -73,6 +73,7 @@ static int jd;
         NSLog(@"用户中心请求的数据为：%@",dic);
         if ([dic[@"result"] isEqualToString:@"success"]) {
             weakSelf.currentZBMemberModel = [MTLJSONAdapter modelOfClass:[ZBMemberMTLModel class] fromJSONDictionary:dic error:nil];
+            [kUserDefaults setObject:dic[@"avator"] forKey:ZB_USER_HEADERIMAGE_URL];
 //            [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"amount"] forKey:MEMBER_POINTS_NUM];
 //            [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"vip"] forKey:MEMBER_VIP_LEVEL];
             if (!zlObjectIsEmpty(dic[@"vip"])) {
@@ -173,10 +174,11 @@ static int jd;
             }
             if ([ZBALLModel isLogined]) {
                 hcell.userNameLabel.text = self.currentZBMemberModel.name;
-                UIImage * image = [self readHeadImageFromUserDefault];
-                if (!zlObjectIsEmpty(image)) {
-                    [hcell.headerImageVIew setImage:image];
-                }
+                [hcell.headerImageVIew setImageWithURL:[NSURL URLWithString:[kUserDefaults objectForKey:ZB_USER_HEADERIMAGE_URL]] placeholder:[UIImage imageNamed:@"touxiang"]];
+//                UIImage * image = [self readHeadImageFromUserDefault];
+//                if (!zlObjectIsEmpty(image)) {
+//                    [hcell.headerImageVIew setImage:image];
+//                }
             }
             else{
                 hcell.userNameLabel.text = @"登录";
