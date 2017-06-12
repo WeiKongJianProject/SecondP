@@ -126,7 +126,7 @@ static int jd;
         num = 6;
     }
     else{
-        num = 5;
+        num = 0;
     }
     return num;
 }

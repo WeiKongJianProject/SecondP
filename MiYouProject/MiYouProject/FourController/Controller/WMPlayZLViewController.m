@@ -632,7 +632,7 @@ static int _currentPage;
             
             alert.titleName = [NSString stringWithFormat:@"微信号：%@",_zbWeiXin];
             alert.cancelBtnTitle = @"取消";
-            alert.okBtnTitle = @"开通";
+            alert.okBtnTitle = @"确定";
             [alert showCustomAlertView];
             [alert cancelBlockAction:^(BOOL success) {
                 //_isKuaiJinAction = 0;

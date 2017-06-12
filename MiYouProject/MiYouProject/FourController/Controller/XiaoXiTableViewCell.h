@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface XiaoXiTableViewCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UIImageView *leftImageView;
+
 @property (strong, nonatomic) IBOutlet UILabel *xiaoXiSubTitleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *biaoTiLabel;
+
 
 @end
