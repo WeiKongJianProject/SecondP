@@ -33,9 +33,9 @@
 #define ALIPAY_APP_ID_ZL @"2015110400687059"
 
 
-#define URL_Common_ios @"http://api.miyoutv.cc:8080/ios"//@"http://api4.cn360du.com:88/index.php?m=api-ios"
+#define URL_Common_ios @"http://back.miyoutv.cc:8080/ios"//@"http://api4.cn360du.com:88/index.php?m=api-ios"//http://back.miyoutv.cc:8080//http://api.miyoutv.cc:8080
 #define NewBanBen_URL  @"http://www.baidu.com"
-#define XinBanBenImage @"http://api.miyoutv.cc:8080/static/Index/Images/ios_dld.jpg"
+#define XinBanBenImage @"http://api.miyoutv.cc:8088/static/Index/Images/ios_dld.jpg"
 
 //ae835d ffda46  f9bf34
 #define Main_BackgroundColor            @"ffda46"

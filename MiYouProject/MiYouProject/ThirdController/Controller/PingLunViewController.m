@@ -29,6 +29,8 @@ static int _currentPage;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self startAFNetWorkingWithid:self.id withPage:_currentPage];
+    
+
 }
 
 - (void)startAFNetWorkingWithid:(NSInteger )ids withPage:(int)page{

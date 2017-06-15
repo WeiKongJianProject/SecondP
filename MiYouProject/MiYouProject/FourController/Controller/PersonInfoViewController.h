@@ -14,4 +14,5 @@
 @interface PersonInfoViewController : ZLBaseViewController<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIImageView * headImageView;
+
 @end

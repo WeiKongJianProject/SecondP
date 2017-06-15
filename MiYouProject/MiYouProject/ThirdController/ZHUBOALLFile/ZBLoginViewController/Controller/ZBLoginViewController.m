@@ -18,9 +18,9 @@
     [super viewDidLoad];
     self.title = @"登录";
     
-    [self.backgroundImg setImageWithURL:[NSURL URLWithString:@"http://api.miyoutv.cc:8080/static/Index/Images/loginbg.png"] placeholder:[UIImage imageNamed:@"zllogin"]];
+    [self.backgroundImg setImageWithURL:[NSURL URLWithString:@"http://api.miyoutv.cc:8088/static/Index/Images/loginbg.png"] placeholder:[UIImage imageNamed:@"zllogin"]];
     
-    [self.codeButton border:[UIColor colorWithhex16stringToColor:@"a3a3a3"] width:1.0f CornerRadius:3.0];
+    [self.codeButton border:[UIColor colorWithhex16stringToColor:@"eeeeee"] width:1.0f CornerRadius:3.0];
     
     [self.timeButtonLabel border:[UIColor lightGrayColor] width:1.0f CornerRadius:3.0];
     // Do any additional setup after loading the view from its nib.
@@ -28,24 +28,35 @@
     self.codeTextField.number = YES;
 }
 
+#pragma mark ===================隐藏导航栏==================
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
 - (IBAction)backButtonAction:(UIButton *)sender {
     
-    NSLog(@"返回按钮");
+    //NSLog(@"返回按钮");
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 
-
+#pragma mark ===================发送验证码==================
 - (IBAction)codeButtonAction:(id)sender {
     //UIColor clearColor
     [self senderSMSAction];
 }
-
+#pragma mark ===================登陆按钮==================
 - (IBAction)finishButtonAction:(id)sender {
     
     //    self.phoneTextField.text = @"";
     //    self.codeTextField.text = @"";
+    if (![self.phoneTextField.text isEqualToString:@""] && ![self.codeTextField.text isEqualToString:@""]) {
+        [self loginButtonAction];
+    } else {
+        [MBManager showBriefAlert:@"请完善信息"];
+    }
     
-    [self loginButtonAction];
     
 }
 

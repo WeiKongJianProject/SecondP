@@ -21,6 +21,12 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_default2" translatesAutoresizingMaskIntoConstraints="NO" id="Pt2-oD-UE8">
                         <rect key="frame" x="0.0" y="0.0" width="425" height="295"/>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dibujianbian" translatesAutoresizingMaskIntoConstraints="NO" id="IQM-4w-PgP">
+                        <rect key="frame" x="0.0" y="274" width="425" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="mxe-qG-Kb0"/>
+                        </constraints>
+                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="naX-uZ-RmX">
                         <rect key="frame" x="199.5" y="135" width="25" height="25"/>
                         <constraints>
@@ -98,13 +104,16 @@
                 <constraint firstItem="3Mj-il-Jmb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="VOU-tK-0U8"/>
                 <constraint firstItem="QzV-1P-Dkr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="aX6-1X-pMu"/>
                 <constraint firstItem="naX-uZ-RmX" firstAttribute="centerX" secondItem="Pt2-oD-UE8" secondAttribute="centerX" id="f1F-9N-4mj"/>
+                <constraint firstAttribute="trailing" secondItem="IQM-4w-PgP" secondAttribute="trailing" id="fKt-bl-smI"/>
                 <constraint firstAttribute="trailing" secondItem="7nJ-cY-FEB" secondAttribute="trailing" id="fLv-R8-YKr"/>
                 <constraint firstItem="7nJ-cY-FEB" firstAttribute="top" secondItem="5el-kP-STh" secondAttribute="bottom" constant="5" id="ja0-EL-N5s"/>
                 <constraint firstItem="3Mj-il-Jmb" firstAttribute="centerX" secondItem="ULd-3a-C95" secondAttribute="centerX" constant="-5" id="jfT-qD-EBS"/>
+                <constraint firstItem="IQM-4w-PgP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="kGh-Os-Yd6"/>
                 <constraint firstItem="ULd-3a-C95" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="pTW-aS-kXA"/>
                 <constraint firstAttribute="trailing" secondItem="5el-kP-STh" secondAttribute="trailing" constant="5" id="wNJ-nu-TEg"/>
                 <constraint firstItem="UaL-sf-fxv" firstAttribute="leading" secondItem="QzV-1P-Dkr" secondAttribute="trailing" constant="5" id="xIf-7d-aNG"/>
                 <constraint firstItem="Pt2-oD-UE8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zCm-Rp-EfZ"/>
+                <constraint firstItem="7nJ-cY-FEB" firstAttribute="top" secondItem="IQM-4w-PgP" secondAttribute="bottom" id="zbk-k5-ILK"/>
             </constraints>
             <size key="customSize" width="157" height="131"/>
             <connections>
@@ -121,6 +130,7 @@
     </objects>
     <resources>
         <image name="dabofanganniu" width="59" height="59"/>
+        <image name="dibujianbian" width="300" height="42"/>
         <image name="guankanrenshu" width="10" height="10"/>
         <image name="icon_default2" width="172" height="114"/>
         <image name="zuoshangjiao" width="92" height="20"/>

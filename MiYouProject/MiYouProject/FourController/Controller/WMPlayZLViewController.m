@@ -196,8 +196,10 @@ static int _currentPage;
     self.videoTitleLabel.text = self.currentZBModel.nickname;
     self.buyedCountLabel.text = [NSString stringWithFormat:@"已售:%d",[self.currentZBModel.weixinbuy intValue]];
     self.wmPlayer.URLString = self.currentZBModel.video;
+    
     //@"http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4";
     [self.wmPlayer play];
+    NSLog(@"视频链接：%@+++开始播放----",self.wmPlayer.URLString);
 }
 
 //播放页 请求评论
@@ -479,7 +481,7 @@ static int _currentPage;
     
     self.wmPlayer.delegate = self;
     //self.wmPlayer.URLString = self.URLString;
-    NSLog(@"视频的地址为：%@",self.URLString);
+    //NSLog(@"视频的地址为：%@",self.URLString);
     self.wmPlayer.titleLabel.text = self.title;
     self.wmPlayer.closeBtn.hidden = NO;
     self.wmPlayer.enableFastForwardGesture = YES;
