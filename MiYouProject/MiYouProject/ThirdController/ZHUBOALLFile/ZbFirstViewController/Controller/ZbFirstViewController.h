@@ -19,7 +19,7 @@
 
 
 #import "ZBHomeModel.h"
-
+#import "BanBenUIView.h"
 
 @class FirstSubViewViewController;
 
@@ -29,6 +29,8 @@ static int _currentPage;
 
 
 @interface ZbFirstViewController : ZLBaseViewController<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITableViewDelegate,UITableViewDataSource>
+
+
 
 @property (strong, nonatomic) UIView * lunXianBackgroundView;
 @property (strong, nonatomic) UIScrollView * lunXianScrollView;

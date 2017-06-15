@@ -16,6 +16,8 @@
 #import "ZBUserViewController.h"
 #import "JASidePanelController.h"
 
+#import "AppDelegate+ZLAPPDelegate.h"
+
 @interface AppDelegate ()
 
 @end
@@ -156,7 +158,7 @@
             }];
 
         
-        
+        [self firstDownLoadStartAFNetworking];
         
     }else{
         

@@ -15,6 +15,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *dianYingNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *boFangBtn;
+@property (strong, nonatomic) IBOutlet UILabel *zuoShangLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *zuoShangImage;
+@property (strong, nonatomic) IBOutlet UILabel *hotNumLabel;
 
 
 @end

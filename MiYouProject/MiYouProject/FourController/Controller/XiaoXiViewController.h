@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "XiaoXiTableViewCell.h"
+#import "ZBXiaoXiZLModel.h"
 @interface XiaoXiViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView * tableView;
 @property (strong, nonatomic) NSMutableArray * xiaoXiARR;
+
 
 @end

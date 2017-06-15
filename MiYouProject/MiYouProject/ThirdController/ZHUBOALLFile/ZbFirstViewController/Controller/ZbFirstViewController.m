@@ -10,14 +10,15 @@
 #define Collection_item_Width (SIZE_WIDTH-30)/2.0
 #define Collection_item_Height (SIZE_WIDTH-30)/2.0 * 330.0/425.0
 @interface ZbFirstViewController (){
-
+    
     BOOL _Tend;
     CGFloat _index_0_height;
     CGFloat _index_1_height;
     CGFloat _index_2_height;
     CGFloat _index_3_height;
     NSMutableArray * _cellMinImageViewARR;
-
+    NSString * _newVersionURL;
+    
 }
 
 @end
@@ -26,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self startBanBenInfo];//请求版本信息
     [self setTabBarImageAndTextColor];//设置Tabbar 文字和颜色
     //self.automaticallyAdjustsScrollViewInsets = NO;
     
@@ -69,7 +71,7 @@
     [self.navigationController setNavigationBarHidden:NO];
     self.navigationController.navigationBar.topItem.title=@"直播";
     //[self.navigationController.navigationBar setBarTintColor:[UIColor colorWithHexString:Main_BackgroundGreen_Color]];
-
+    
 }
 
 #pragma mark 下拉刷新
@@ -83,39 +85,43 @@
 - (void)shangLaShuaXin{
     NSLog(@"上拉刷新");
     _currentPage++;
-    NSString * vipLevel = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_VIP_LEVEL];
-    int vipLevelNum = [vipLevel intValue];
-    if (_currentPage >=3) {
-        if (vipLevelNum >0) {
-            [self startAFnetWorkingWithCateID:self.id withPage:_currentPage];
-        }
-        else{
-            __weak typeof(self) weakSelf = self;
-            AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
-            alertZL.titleName = @"需要开通VIP才能观看更多";
-            alertZL.cancelBtnTitle = @"取消";
-            alertZL.okBtnTitle = @"开通";
-            [alertZL cancelBlockAction:^(BOOL success) {
-                [alertZL hideCustomeAlertView];
-                [weakSelf.tableview.mj_footer endRefreshing];
-            }];
-            [alertZL okButtonBlockAction:^(BOOL success) {
-                [alertZL hideCustomeAlertView];
-                [weakSelf.tableview.mj_footer endRefreshing];
-                [weakSelf xw_postNotificationWithName:KAITONG_VIP_NOTIFICATION userInfo:nil];
-            }];
-            [alertZL showCustomAlertView];
-        }
-        _currentPage--;
-    }
-    else{
-        [self startAFnetWorkingWithCateID:self.id withPage:_currentPage];
-        
-    }
+    [self startAFnetWorkingWithCateID:self.id withPage:_currentPage];
+    
+    //    NSString * vipLevel = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_VIP_LEVEL];
+    //    int vipLevelNum = [vipLevel intValue];
+    //    if (_currentPage >=3) {
+    //        if (vipLevelNum >0) {
+    //            [self startAFnetWorkingWithCateID:self.id withPage:_currentPage];
+    //        }
+    //        else{
+    //            __weak typeof(self) weakSelf = self;
+    //            AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+    //            alertZL.titleName = @"需要开通VIP才能观看更多";
+    //            alertZL.cancelBtnTitle = @"取消";
+    //            alertZL.okBtnTitle = @"开通";
+    //            [alertZL cancelBlockAction:^(BOOL success) {
+    //                [alertZL hideCustomeAlertView];
+    //                [weakSelf.tableview.mj_footer endRefreshing];
+    //            }];
+    //            [alertZL okButtonBlockAction:^(BOOL success) {
+    //                [alertZL hideCustomeAlertView];
+    //                [weakSelf.tableview.mj_footer endRefreshing];
+    //                [weakSelf xw_postNotificationWithName:KAITONG_VIP_NOTIFICATION userInfo:nil];
+    //            }];
+    //            [alertZL showCustomAlertView];
+    //        }
+    //        _currentPage--;
+    //    }
+    //    else{
+    //        [self startAFnetWorkingWithCateID:self.id withPage:_currentPage];
+    //    }
     
     
 }
+
+
 #pragma end mark
+
 
 - (void)startAFnetWorkingWithCateID:(int)currenID withPage:(int) currentPage {
     
@@ -145,7 +151,7 @@
                 [weakSelf.lunXianImageARR removeAllObjects];
                 [weakSelf.lunXianImageARR addObjectsFromArray:arr2];
             }
-
+            
             NSArray * arr3 = [MTLJSONAdapter modelsOfClass:[ZBHomeModel class] fromJSONArray:listARR error:nil];
             NSLog(@"加载电影列表的个数：%ld",arr3.count);
             //[weakSelf.dianYingCollectionARR removeAllObjects];
@@ -193,7 +199,6 @@
     [self.lunXianBackgroundView addSubview:self.lunXianPageControl];
     
     [self loadLunXianImage];
-    
     
 }
 //加载 沦陷图片
@@ -302,15 +307,15 @@
     [self.navigationController pushViewController:vc animated:YES];
     
     
-//    NSString * isVIPLevel = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_VIP_LEVEL];
-//    NSString * bannerVIP = [NSString stringWithFormat:@"%d",[bannerModel.vip intValue]];
-//    
-//    if ([isVIPLevel intValue] < [bannerModel.vip intValue] ) {
-//
-//    }
-//    else{
-//
-//    }
+    //    NSString * isVIPLevel = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_VIP_LEVEL];
+    //    NSString * bannerVIP = [NSString stringWithFormat:@"%d",[bannerModel.vip intValue]];
+    //
+    //    if ([isVIPLevel intValue] < [bannerModel.vip intValue] ) {
+    //
+    //    }
+    //    else{
+    //
+    //    }
     
     //    if ([bannerVIP isEqualToString:@"1"]) {
     //        if ([isVIP isEqualToString:@"1"]) {
@@ -425,7 +430,23 @@
      //    cell.backgroundColor = arcColor;
      */
     ZBHomeModel * vModel = [self.dianYingCollectionARR objectAtIndex:indexPath.row];
-    cell.dianYingNameLabel.text = vModel.nickname;
+    cell.dianYingNameLabel.text = vModel.title;
+    /*==========ZL注释start===========
+     *1.是否是热播
+     *2.
+     *3.
+     *4.hot
+     ===========ZL注释end==========*/
+    if ([vModel.tags isEqualToString:@""] || vModel.tags == nil) {
+        cell.zuoShangImage.hidden = YES;
+        cell.zuoShangLabel.hidden = YES;
+    }
+    else{
+        cell.zuoShangLabel.text = vModel.tags;
+        cell.zuoShangImage.hidden = NO;
+        cell.zuoShangLabel.hidden = NO;
+    }
+    cell.hotNumLabel.text = [NSString stringWithFormat:@"%d",[vModel.hot intValue]];
     /*
      时间戳转化
      */
@@ -435,14 +456,14 @@
     //    [formatter setDateFormat:@"HHMMss"];//@"yyyy-MM-dd-HHMMss"
     //    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[vModel.duration intValue]];
     //    NSString* dateString = [formatter stringFromDate:date];
-//    int zongTime = [vModel.duration intValue];
-//    int m,s;
-//    m = zongTime/60;
-//    s = zongTime-60;
-//    
-//    NSString * timeString = [NSString stringWithFormat:@"%d:%d",m,s];
-//    cell.timeLabel.text = timeString;
-
+    //    int zongTime = [vModel.duration intValue];
+    //    int m,s;
+    //    m = zongTime/60;
+    //    s = zongTime-60;
+    //
+    //    NSString * timeString = [NSString stringWithFormat:@"%d:%d",m,s];
+    //    cell.timeLabel.text = timeString;
+    
     
     UIImageView * imageView = [[UIImageView alloc]init];
     [_cellMinImageViewARR addObject:cell.minImageView];
@@ -530,18 +551,18 @@
 #pragma mark  点击CollectionView触发事件
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    __weak typeof(self) weakSelf = self;
-//    
-//    VideoListMTLModel * model = [self.dianYingCollectionARR objectAtIndex:indexPath.row];
-//    NSString * modelVIP = [NSString stringWithFormat:@"%d",[model.vip intValue]];
-//    //NSString * isMemberVIP = [[NSUserDefaults standardUserDefaults] objectForKey:IS_MEMBER_VIP];
-//    NSDictionary * memVIPDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
-//    int vipLevel = [[[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_VIP_LEVEL] intValue];
-//    if (vipLevel < [modelVIP intValue]) {
-//        
-//        
-//        
-//    }
+    //    __weak typeof(self) weakSelf = self;
+    //
+    //    VideoListMTLModel * model = [self.dianYingCollectionARR objectAtIndex:indexPath.row];
+    //    NSString * modelVIP = [NSString stringWithFormat:@"%d",[model.vip intValue]];
+    //    //NSString * isMemberVIP = [[NSUserDefaults standardUserDefaults] objectForKey:IS_MEMBER_VIP];
+    //    NSDictionary * memVIPDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
+    //    int vipLevel = [[[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_VIP_LEVEL] intValue];
+    //    if (vipLevel < [modelVIP intValue]) {
+    //
+    //
+    //
+    //    }
     ZBHomeModel * vModel = [self.dianYingCollectionARR objectAtIndex:indexPath.row];
     WMPlayZLViewController  * vc = [[WMPlayZLViewController alloc]init];
     //vc.URLString = @"http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4";
@@ -681,7 +702,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.row == 1) {
-
+        
     }
 }
 
@@ -705,19 +726,68 @@
 
 #pragma end mark
 
+#pragma mark ===================版本更新==================
+- (void)startBanBenInfo{
+    
+    __weak typeof(self) weakSelf = self;
+    NSString * url = [NSString stringWithFormat:@"%@&action=version&channel=%@",URL_Common_ios,CHANNEL_ID];
+    NSLog(@"版本信息URL：%@",url);
+    [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"版本信息：%@",dic);
+        if ([dic[@"result"] isEqualToString:@"success"]) {
+            NSString * versionStr = dic[@"version"];
+            if (![kAppVersion isEqualToString:versionStr]) {
+                _newVersionURL = dic[@"url"];
+                [weakSelf loadDownView];
+            }
+            //[weakSelf loadDownView];
+        }
+        else{
+            
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+//加载 新版本下载页面
+- (void)loadDownView{
+    BanBenUIView * banView =(BanBenUIView *)[[NSBundle mainBundle]loadNibNamed:@"BanBenUIView" owner:self options:nil][0];
+    [banView.imageView setImageURL:[NSURL URLWithString:XinBanBenImage]];
+    [banView setFrame:CGRectMake(0, 0, SIZE_WIDTH, SIZE_HEIGHT)];
+    // 当前顶层窗口
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    // 添加到窗口
+    [window addSubview:banView];
+    
+    [banView.buttonControl addTarget:self action:@selector(newBanBenButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    //[self.view addSubview:banView];
+    
+}
+- (void)newBanBenButtonAction:(UIControl *)sender{
+    
+    NSString * strIdentifier = _newVersionURL;
+    BOOL isExsit = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strIdentifier]];
+    if(isExsit) {
+        //NSLog(@"App %@ installed", strIdentifier);
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strIdentifier]];
+    }
+}
+#pragma mark ===================版本更新结束==================
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

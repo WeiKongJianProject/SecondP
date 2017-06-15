@@ -18,6 +18,8 @@
     [super viewDidLoad];
     self.title = @"登录";
     
+    [self.backgroundImg setImageWithURL:[NSURL URLWithString:@"http://api.miyoutv.cc:8080/static/Index/Images/loginbg.png"] placeholder:[UIImage imageNamed:@"zllogin"]];
+    
     [self.codeButton border:[UIColor colorWithhex16stringToColor:@"a3a3a3"] width:1.0f CornerRadius:3.0];
     
     [self.timeButtonLabel border:[UIColor lightGrayColor] width:1.0f CornerRadius:3.0];
@@ -25,6 +27,13 @@
     self.phoneTextField.telePhone = YES;
     self.codeTextField.number = YES;
 }
+
+- (IBAction)backButtonAction:(UIButton *)sender {
+    
+    NSLog(@"返回按钮");
+    
+}
+
 
 - (IBAction)codeButtonAction:(id)sender {
     //UIColor clearColor

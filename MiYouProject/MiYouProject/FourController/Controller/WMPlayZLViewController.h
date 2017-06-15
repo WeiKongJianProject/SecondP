@@ -36,6 +36,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *pingLunTableVIew;
 @property (strong, nonatomic) IBOutlet UITextField *textFieldView;
 @property (strong, nonatomic) IBOutlet UIButton *tiJiaoButton;
+@property (strong, nonatomic) IBOutlet UILabel *buyedCountLabel;
 
 @property (strong, nonatomic) NSMutableArray * tableViewARR;
 @property (strong, nonatomic) NSMutableArray * collectionARR;
@@ -49,6 +50,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *zhiBoButton;
 @property (strong, nonatomic) IBOutlet UIButton *weiXinButton;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *collectionHeight;
 
 
 

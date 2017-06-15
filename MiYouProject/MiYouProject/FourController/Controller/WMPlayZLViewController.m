@@ -160,7 +160,16 @@ static int _currentPage;
             _vipLevel = [NSString stringWithFormat:@"%d",[dic[@"vip"][@"level"] intValue]];
             _zbroom = dic[@"room"];
             weakSelf.collectionARR = [MTLJSONAdapter modelsOfClass:[ZBVideoCellModel class] fromJSONArray:dic[@"video"] error:nil];
-            [weakSelf.collectionView reloadData];
+            if (weakSelf.collectionARR.count == 0) {
+                weakSelf.collectionHeight.constant = 0;
+                //weakSelf.collectionView.hidden = YES;
+                [weakSelf.view layoutIfNeeded];
+                //[weakSelf.collectionView reloadData];
+            } else {
+                
+                [weakSelf.collectionView reloadData];
+            }
+            
             //weakSelf.playMemberModel = [MTLJSONAdapter modelOfClass:[PlayMemberMTLModel class] fromJSONDictionary:dic[@"member"] error:nil];
             //NSString * str = [dic objectForKey:@"actor"];
             //NSLog(@"播放页请求的结果为：%@++++全部结果为：%@",weakSelf.playModel.pic,dic);
@@ -185,6 +194,7 @@ static int _currentPage;
     self.boFangNumLabel.text = [NSString stringWithFormat:@"%d",[self.currentZBModel.hot intValue]];
     
     self.videoTitleLabel.text = self.currentZBModel.nickname;
+    self.buyedCountLabel.text = [NSString stringWithFormat:@"已售:%d",[self.currentZBModel.weixinbuy intValue]];
     self.wmPlayer.URLString = self.currentZBModel.video;
     //@"http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4";
     [self.wmPlayer play];

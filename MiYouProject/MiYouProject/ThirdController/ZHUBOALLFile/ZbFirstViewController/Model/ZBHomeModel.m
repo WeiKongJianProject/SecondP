@@ -16,7 +16,9 @@
              @"zid":@"zid",
              @"nickname":@"nickname",
              @"thumb":@"thumb",
-             @"hot":@"hot"
+             @"hot":@"hot",
+             @"title":@"title",
+             @"tags":@"tags"
              };
 
 }
@@ -48,7 +50,9 @@
              @"hot":@"hot",
              @"video":@"video",
              @"zid":@"zid",
-             @"price":@"price"
+             @"price":@"price",
+             @"weixinbuy":@"weixinbuy",
+             @"nid":@"nid"
              };
 
 }

@@ -12,8 +12,10 @@
 
 @property (strong, nonatomic) NSString * zid;
 @property (strong, nonatomic) NSString * nickname;
-@property (strong, nonatomic) NSString * hot;
+@property (strong, nonatomic) NSString * tags;
 @property (strong, nonatomic) NSString * thumb;
+@property (nonatomic, strong) NSString * title;
+@property (nonatomic, strong) NSNumber * hot;
 
 @end
 
@@ -36,6 +38,8 @@
 @property (strong, nonatomic) NSString * video;
 @property (strong, nonatomic) NSString * zid;
 @property (strong, nonatomic) NSString * price;
+@property (strong, nonatomic) NSNumber * weixinbuy;
+@property (strong, nonatomic) NSString * nid;
 
 
 @end

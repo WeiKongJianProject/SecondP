@@ -15,6 +15,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *codeButton;
 
 @property (strong, nonatomic) IBOutlet UIButton *timeButtonLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *backgroundImg;
+@property (strong, nonatomic) IBOutlet UIButton *backButton;
 
 
 

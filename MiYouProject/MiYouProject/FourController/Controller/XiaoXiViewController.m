@@ -15,11 +15,12 @@
 @implementation XiaoXiViewController
 
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
     
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SIZE_WIDTH, SIZE_HEIGHT-64.0f) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SIZE_WIDTH, SIZE_HEIGHT) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -28,9 +29,25 @@
     //self.tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.tableView];
     
-    [self.xiaoXiARR addObjectsFromArray:@[@"1"]];
+    //[self.xiaoXiARR addObjectsFromArray:@[@"1"]];
+    [self startAFNetWorking];
 }
+- (void)startAFNetWorking{
 
+    NSString * mid = [kUserDefaults objectForKey:ZB_USER_MID];
+    NSString * url = [NSString stringWithFormat:@"%@?action=message&mid=%@",URL_Common_ios,mid];
+    NSLog(@"请求消息URL：%@",url);
+    [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"消息返回：%@",dic);
+        self.xiaoXiARR = [MTLJSONAdapter modelsOfClass:[ZBXiaoXiZLModel class] fromJSONArray:dic[@"msg"] error:nil];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
+    
+
+}
 - (NSMutableArray *)xiaoXiARR{
     
     if (!_xiaoXiARR) {
@@ -65,8 +82,10 @@
 //    for (UIView * view in cell.contentView.subviews) {
 //        [view removeFromSuperview];
 //    }
-    cell.xiaoXiSubTitleLabel.text = @"欢迎注册迷优APP，开启欢乐之旅！";
-    cell.timeLabel.text = @"2017-03-15  02:30";
+    ZBXiaoXiZLModel * model = [self.xiaoXiARR objectAtIndex:indexPath.row];
+    cell.xiaoXiSubTitleLabel.text = model.content;
+    cell.timeLabel.text = model.addtime;
+    cell.biaoTiLabel.text = model.title;
     
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

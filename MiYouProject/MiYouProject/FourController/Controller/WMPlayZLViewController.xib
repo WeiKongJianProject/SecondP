@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WMPlayZLViewController">
             <connections>
+                <outlet property="buyedCountLabel" destination="2WF-tg-6yP" id="H6h-EE-7Pv"/>
+                <outlet property="collectionHeight" destination="pHw-hx-r2U" id="iJl-ZS-CrM"/>
                 <outlet property="collectionView" destination="7fb-AU-Sf5" id="n6y-PZ-SEv"/>
                 <outlet property="pingLunTableVIew" destination="8s9-yj-msB" id="mfU-en-Rd9"/>
                 <outlet property="subTitleLabel" destination="gO5-6C-eSI" id="i8G-39-RHD"/>
@@ -34,8 +36,8 @@
                         <constraint firstAttribute="width" secondItem="7RU-Se-Zvr" secondAttribute="height" multiplier="375:211" priority="999" id="zQ1-K8-eAM"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这个杀手不太冷" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bau-5c-Fsu">
-                    <rect key="frame" x="7" y="218" width="361" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美美主播" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="bau-5c-Fsu">
+                    <rect key="frame" x="7" y="218" width="218" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="1JD-hY-da6"/>
                     </constraints>
@@ -43,7 +45,16 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="详细信息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gO5-6C-eSI">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已售520次" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2WF-tg-6yP">
+                    <rect key="frame" x="304" y="218" width="64" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="YpE-zp-kvs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="1" green="0.25224308369999998" blue="0.27056692980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="温馨提示:开通VIP可观看主播直播和视频" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gO5-6C-eSI">
                     <rect key="frame" x="7" y="239" width="361" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="IWs-zR-0GP"/>
@@ -134,9 +145,17 @@
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yigoumai" translatesAutoresizingMaskIntoConstraints="NO" id="a0j-Ll-TCB">
+                    <rect key="frame" x="276" y="220" width="18" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="0tl-w4-o7d"/>
+                        <constraint firstAttribute="width" constant="18" id="7II-yC-eFz"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="2WF-tg-6yP" firstAttribute="centerY" secondItem="bau-5c-Fsu" secondAttribute="centerY" id="6Fw-gl-dWA"/>
                 <constraint firstItem="uOh-G4-5I5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="7vz-aZ-Zg4"/>
                 <constraint firstAttribute="bottom" secondItem="zy2-XO-HOs" secondAttribute="bottom" id="7z6-SN-TcL"/>
                 <constraint firstItem="7RU-Se-Zvr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="C4e-7n-tg3"/>
@@ -146,6 +165,8 @@
                 <constraint firstItem="gO5-6C-eSI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="7" id="Lyy-J8-f4J"/>
                 <constraint firstAttribute="trailing" secondItem="8s9-yj-msB" secondAttribute="trailing" id="NGa-HG-Tc6"/>
                 <constraint firstItem="bau-5c-Fsu" firstAttribute="top" secondItem="7RU-Se-Zvr" secondAttribute="bottom" constant="7.5" id="PwG-A9-z60"/>
+                <constraint firstItem="2WF-tg-6yP" firstAttribute="leading" secondItem="a0j-Ll-TCB" secondAttribute="trailing" constant="10" id="T4l-kx-4tz"/>
+                <constraint firstAttribute="trailing" secondItem="2WF-tg-6yP" secondAttribute="trailing" constant="7" id="UAi-UN-7gi"/>
                 <constraint firstAttribute="trailing" secondItem="7fb-AU-Sf5" secondAttribute="trailing" id="VIP-ia-fX8"/>
                 <constraint firstAttribute="trailing" secondItem="zy2-XO-HOs" secondAttribute="trailing" id="Yv3-Uo-s8e"/>
                 <constraint firstItem="7RU-Se-Zvr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="a3o-NH-Nh7"/>
@@ -153,7 +174,8 @@
                 <constraint firstItem="gO5-6C-eSI" firstAttribute="top" secondItem="bau-5c-Fsu" secondAttribute="bottom" id="fGO-SA-rBy"/>
                 <constraint firstItem="uOh-G4-5I5" firstAttribute="top" secondItem="7fb-AU-Sf5" secondAttribute="bottom" constant="5" id="gYd-DR-TZs"/>
                 <constraint firstItem="bau-5c-Fsu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="7" id="gfx-qT-2hx"/>
-                <constraint firstAttribute="trailing" secondItem="bau-5c-Fsu" secondAttribute="trailing" constant="7" id="jaV-aS-c93"/>
+                <constraint firstAttribute="trailing" secondItem="bau-5c-Fsu" secondAttribute="trailing" constant="150" id="jaV-aS-c93"/>
+                <constraint firstItem="a0j-Ll-TCB" firstAttribute="centerY" secondItem="2WF-tg-6yP" secondAttribute="centerY" id="liZ-jk-QCV"/>
                 <constraint firstAttribute="trailing" secondItem="7RU-Se-Zvr" secondAttribute="trailing" id="p3r-Rt-Owl"/>
                 <constraint firstItem="7fb-AU-Sf5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sOm-YW-gvZ"/>
                 <constraint firstItem="zy2-XO-HOs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sfr-em-igD"/>
@@ -165,5 +187,6 @@
     <resources>
         <image name="+zhuboweix" width="56" height="36"/>
         <image name="jinluzhibojian" width="37" height="30"/>
+        <image name="yigoumai" width="16" height="16"/>
     </resources>
 </document>

@@ -156,6 +156,8 @@ static int jd;
 
     return height;
 }
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell * cell;
     if (indexPath.section == 0) {
@@ -308,8 +310,15 @@ static int jd;
             [self.navigationController pushViewController:vc animated:YES];
         }
         if (indexPath.row == 1) {
-            XiaoXiViewController * vc = [[XiaoXiViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
+            if (![ZBALLModel isLogined]) {
+                [ZBALLModel pushToLoginViewControllerFromVC:self];
+            }
+            else{
+                
+                XiaoXiViewController * vc = [[XiaoXiViewController alloc]init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+
         }
         if (indexPath.row == 2) {
             [self clearTmpPics];

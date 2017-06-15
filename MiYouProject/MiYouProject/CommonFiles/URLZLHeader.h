@@ -8,6 +8,7 @@
 
 #ifndef URLZLHeader_h
 #define URLZLHeader_h
+
 #define IS_FIRST_OPEN @"is_first_open"
 #define MEMBER_INFO_DIC @"member_info_dic"
 #define MEMBER_VIP_LEVEL @"is_member_vip"
@@ -16,7 +17,7 @@
 #define HEAD_IMAGEVIEW_UPDATA_NOTIFICATION @"head_imageView_updata_notification"
 
 #define KAITONG_VIP_NOTIFICATION @"kaitong_vip_notification"
-#define CHANNEL_ID @"66"
+#define CHANNEL_ID @"4"
 
 #define ZB_USER_NAME @"zb_user_name"
 #define ZB_USER_PHONE @"zb_user_phone"
@@ -34,6 +35,13 @@
 
 #define URL_Common_ios @"http://api.miyoutv.cc:8080/ios"//@"http://api4.cn360du.com:88/index.php?m=api-ios"
 #define NewBanBen_URL  @"http://www.baidu.com"
-#define XinBanBenImage @"http://img.miyouad.com:8088/html/img/iosupdate.jpg"
+#define XinBanBenImage @"http://api.miyoutv.cc:8080/static/Index/Images/ios_dld.jpg"
+
+//ae835d ffda46  f9bf34
+#define Main_BackgroundColor            @"ffda46"
+#define Main_BackgroundGreen_Color      @"1cd39b"
+//bab6b7  e6e6e6   f0eff5  a09993
+#define Main_grayBackgroundColor        @"ffffff"
+#define Main_darkGrayBackgroundColor    @"a09993"
 
 #endif /* URLZLHeader_h */
