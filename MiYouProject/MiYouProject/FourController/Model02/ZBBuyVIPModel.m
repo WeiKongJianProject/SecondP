@@ -9,14 +9,14 @@
 #import "ZBBuyVIPModel.h"
 
 @implementation ZBBuyVIPModel{
-
+    
     NSString * _currentJINE;
     NSString * _currentOrderNUM;
 }
 
 static ZBBuyVIPModel * _instance = nil;
 + (instancetype)shareBuyVIPModel{
-
+    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _instance = [[ZBBuyVIPModel alloc]init];
@@ -72,9 +72,12 @@ static ZBBuyVIPModel * _instance = nil;
                     [weak_self(self) thirdZhiFuAction:type withDingDanInfo:dic];
                 }
                 else if ([dic[@"pay"] isEqualToString:@"stpay"]){
-                
+                    
                     [weak_self(self) stPayZhiFuWithType:type withOrderDic:dic];
-                
+                    
+                }else if ([dic[@"pay"] isEqualToString:@"bbnpay"]){
+                    [weak_self(self) fivePayWithType:type withDic:dic];
+                    
                 }
                 
             }
@@ -175,11 +178,11 @@ static ZBBuyVIPModel * _instance = nil;
                 alertZL.okBtnTitle = @"支付完成";
                 [alertZL cancelBlockAction:^(BOOL success) {
                     [alertZL hideCustomeAlertView];
-
+                    
                 }];
                 [alertZL okButtonBlockAction:^(BOOL success) {
                     [alertZL hideCustomeAlertView];
-
+                    
                     NSLog(@"点击了去支付按钮");
                 }];
                 [alertZL showCustomAlertView];
@@ -356,26 +359,26 @@ static ZBBuyVIPModel * _instance = nil;
         //        [controller addAction:[UIAlertAction actionWithTitle:@"知道啦" style:UIAlertActionStyleCancel handler:nil]];
         //        [self presentViewController:controller animated:true completion:nil];
         
-//        [GlobalQueue executeAsyncTask:^{
-//            [self reloadMemberInfoAFNetworking];
-//        }];
+        //        [GlobalQueue executeAsyncTask:^{
+        //            [self reloadMemberInfoAFNetworking];
+        //        }];
         
         
-//        __weak typeof(self) weakSelf = self;
-//        AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
-//        alertZL.titleName = @"支付成功";
-//        alertZL.cancelBtnTitle = @"取消";
-//        alertZL.okBtnTitle = @"确定";
-//        [alertZL cancelBlockAction:^(BOOL success) {
-//            [alertZL hideCustomeAlertView];
-//            //[weakSelf xw_postNotificationWithName:ZHIFU_NOTIFICATION_RESUALT userInfo:@{@"type":@"VIP"}];
-//        }];
-//        [alertZL okButtonBlockAction:^(BOOL success) {
-//            [alertZL hideCustomeAlertView];
-//
-//            NSLog(@"点击了去支付按钮");
-//        }];
-//        [alertZL showCustomAlertView];
+        //        __weak typeof(self) weakSelf = self;
+        //        AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+        //        alertZL.titleName = @"支付成功";
+        //        alertZL.cancelBtnTitle = @"取消";
+        //        alertZL.okBtnTitle = @"确定";
+        //        [alertZL cancelBlockAction:^(BOOL success) {
+        //            [alertZL hideCustomeAlertView];
+        //            //[weakSelf xw_postNotificationWithName:ZHIFU_NOTIFICATION_RESUALT userInfo:@{@"type":@"VIP"}];
+        //        }];
+        //        [alertZL okButtonBlockAction:^(BOOL success) {
+        //            [alertZL hideCustomeAlertView];
+        //
+        //            NSLog(@"点击了去支付按钮");
+        //        }];
+        //        [alertZL showCustomAlertView];
         
         [self alertCustomViewWhenPush];
         
@@ -428,20 +431,20 @@ static ZBBuyVIPModel * _instance = nil;
      }
      */
     //__weak typeof(self) weakSelf = self;
-//    NSString * urlstring = [NSString stringWithFormat:@"%@?action=memberCenter&id=%@",URL_Common_ios,@""];
-//    NSLog(@"用户中心请求的链接为：%@",urlstring);
-//    [[ZLSecondAFNetworking sharedInstance] getWithURLString:urlstring parameters:nil success:^(id responseObject) {
-//        NSDictionary *  dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-//        NSLog(@"用户中心请求的数据为：%@",dic);
-//        if ([dic[@"result"] isEqualToString:@"success"]) {
-//            //weakSelf.userMessageModel = [MTLJSONAdapter modelOfClass:[UserMessageMTLModel class] fromJSONDictionary:dic error:nil];
-//            [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"points"] forKey:MEMBER_POINTS_NUM];
-//            [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"vip"] forKey:MEMBER_VIP_LEVEL];
-//        }
-//        
-//    } failure:^(NSError *error){
-//        NSLog(@"支付完成后，请求用户信息 失败");
-//    }];
+    //    NSString * urlstring = [NSString stringWithFormat:@"%@?action=memberCenter&id=%@",URL_Common_ios,@""];
+    //    NSLog(@"用户中心请求的链接为：%@",urlstring);
+    //    [[ZLSecondAFNetworking sharedInstance] getWithURLString:urlstring parameters:nil success:^(id responseObject) {
+    //        NSDictionary *  dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+    //        NSLog(@"用户中心请求的数据为：%@",dic);
+    //        if ([dic[@"result"] isEqualToString:@"success"]) {
+    //            //weakSelf.userMessageModel = [MTLJSONAdapter modelOfClass:[UserMessageMTLModel class] fromJSONDictionary:dic error:nil];
+    //            [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"points"] forKey:MEMBER_POINTS_NUM];
+    //            [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"vip"] forKey:MEMBER_VIP_LEVEL];
+    //        }
+    //
+    //    } failure:^(NSError *error){
+    //        NSLog(@"支付完成后，请求用户信息 失败");
+    //    }];
     
 }
 
@@ -480,7 +483,7 @@ static ZBBuyVIPModel * _instance = nil;
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strIdentifier]];
                 
                 [self alertCustomViewWhenPush];
-
+                
             }
             
         }
@@ -497,7 +500,7 @@ static ZBBuyVIPModel * _instance = nil;
     
 }
 - (void)stPayzhifushibaiActionWithType:(NSString *)type{
-   // __weak typeof(self) weakSelf = self;
+    // __weak typeof(self) weakSelf = self;
     
     //wechat
     NSString * url  = nil;
@@ -526,7 +529,7 @@ static ZBBuyVIPModel * _instance = nil;
             NSString * result = dic[@"result"];
             if ([result isEqualToString:@"success"]) {
                 [MBManager showBriefAlert:@"支付成功"];
-
+                
             }
             else{
                 [MBManager showBriefAlert:@"支付失败"];
@@ -549,7 +552,7 @@ static ZBBuyVIPModel * _instance = nil;
 #pragma end mark END
 #pragma mark 获取支付结果
 - (void)getPayResultWithOorderNum:(NSString *)orderNum withBlock:(void (^)(BOOL))resultBlock withFailure:(void (^)(NSError *))failureError{
-
+    
     NSString * url = [NSString stringWithFormat:@"%@?action=payresult&tradeno=%@",URL_Common_ios,orderNum];
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
@@ -567,7 +570,7 @@ static ZBBuyVIPModel * _instance = nil;
 #pragma mark 跳转页面时弹出
 
 - (void)alertCustomViewWhenPush{
-
+    
     AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
     alertZL.titleName = @"支付结果";
     alertZL.cancelBtnTitle = @"支付失败";
@@ -603,7 +606,19 @@ static ZBBuyVIPModel * _instance = nil;
     
 }
 #pragma end mark
+#pragma mark ===================05支付方式开始==================
+- (void)fivePayWithType:(NSString *)type withDic:(NSDictionary *)dic{
+    _currentOrderNUM = dic[@"payid"];
+    NSString * strIdentifier = dic[@"url"];
+    NSLog(@"第五种支付方式URL：%@",strIdentifier);
+    BOOL isExsit = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:strIdentifier]];
+    if(isExsit) {
+        //NSLog(@"App %@ installed", strIdentifier);
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:strIdentifier]];
+        [self alertCustomViewWhenPush];
+    }
+}
 
-
+#pragma mark ===================05支付方式END==================
 
 @end

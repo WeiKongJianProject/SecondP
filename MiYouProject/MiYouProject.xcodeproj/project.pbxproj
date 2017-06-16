@@ -137,6 +137,7 @@
 		7393C67A1EDEA7C900C24C65 /* ZBFourTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7393C6781EDEA7C900C24C65 /* ZBFourTableViewCell.xib */; };
 		73A0C3661EEF84930020C113 /* ZBXiaoXiZLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A0C3651EEF84930020C113 /* ZBXiaoXiZLModel.m */; };
 		73A0C3691EF12BE60020C113 /* AppDelegate+ZLAPPDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A0C3681EF12BE60020C113 /* AppDelegate+ZLAPPDelegate.m */; };
+		73A0C36D1EF3CF810020C113 /* JHSysAlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A0C36C1EF3CF810020C113 /* JHSysAlertUtil.m */; };
 		73A3B5FB1E89F7A900407957 /* UserInfoMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B5FA1E89F7A900407957 /* UserInfoMTLModel.m */; };
 		73A3B5FE1E89FA0E00407957 /* UserMessageMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B5FD1E89FA0E00407957 /* UserMessageMTLModel.m */; };
 		73A3B6031E8A2D8400407957 /* RenZhengViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3B6011E8A2D8400407957 /* RenZhengViewController.m */; };
@@ -548,6 +549,8 @@
 		73A0C3651EEF84930020C113 /* ZBXiaoXiZLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBXiaoXiZLModel.m; sourceTree = "<group>"; };
 		73A0C3671EF12BE60020C113 /* AppDelegate+ZLAPPDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+ZLAPPDelegate.h"; sourceTree = "<group>"; };
 		73A0C3681EF12BE60020C113 /* AppDelegate+ZLAPPDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ZLAPPDelegate.m"; sourceTree = "<group>"; };
+		73A0C36B1EF3CF810020C113 /* JHSysAlertUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHSysAlertUtil.h; sourceTree = "<group>"; };
+		73A0C36C1EF3CF810020C113 /* JHSysAlertUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHSysAlertUtil.m; sourceTree = "<group>"; };
 		73A3B5F91E89F7A900407957 /* UserInfoMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoMTLModel.h; sourceTree = "<group>"; };
 		73A3B5FA1E89F7A900407957 /* UserInfoMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoMTLModel.m; sourceTree = "<group>"; };
 		73A3B5FC1E89FA0E00407957 /* UserMessageMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMessageMTLModel.h; sourceTree = "<group>"; };
@@ -1491,6 +1494,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		73A0C36A1EF3CF810020C113 /* JHAlertUtil */ = {
+			isa = PBXGroup;
+			children = (
+				73A0C36B1EF3CF810020C113 /* JHSysAlertUtil.h */,
+				73A0C36C1EF3CF810020C113 /* JHSysAlertUtil.m */,
+			);
+			path = JHAlertUtil;
+			sourceTree = "<group>";
+		};
 		73A3B5F71E89F78C00407957 /* Model02 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2076,6 +2088,7 @@
 		73EB3F241E6FDEE400CA8B5D /* zhou */ = {
 			isa = PBXGroup;
 			children = (
+				73A0C36A1EF3CF810020C113 /* JHAlertUtil */,
 				73EB3FE31E70FAE900CA8B5D /* ColorZL */,
 				73EB3F251E6FDEE400CA8B5D /* AnimationZL */,
 				73EB3F411E6FDEE400CA8B5D /* CommonHeader.h */,
@@ -2087,7 +2100,6 @@
 				73EB3F571E6FDEE400CA8B5D /* HYGCD */,
 				73EB3F641E6FDEE400CA8B5D /* iCarousel */,
 				73EB3F6A1E6FDEE400CA8B5D /* MJAlertView */,
-				73EB3F6D1E6FDEE400CA8B5D /* MJRefresh */,
 				73EB3F6E1E6FDEE400CA8B5D /* paymentcontrol */,
 				73EB3F731E6FDEE400CA8B5D /* PrefixHeader.pch */,
 				73EB3F741E6FDEE400CA8B5D /* TopNavBackground */,
@@ -2233,13 +2245,6 @@
 				73C3470D1E8125B900BBBDBE /* UIAlertVIewZL.xib */,
 			);
 			path = MJAlertView;
-			sourceTree = "<group>";
-		};
-		73EB3F6D1E6FDEE400CA8B5D /* MJRefresh */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MJRefresh;
 			sourceTree = "<group>";
 		};
 		73EB3F6E1E6FDEE400CA8B5D /* paymentcontrol */ = {
@@ -2735,6 +2740,7 @@
 				73EB3FC01E6FDEE400CA8B5D /* NewFeatureModel.m in Sources */,
 				73E7DA921E80BF7C00371E33 /* PlayVideoTableViewCell.m in Sources */,
 				73A0C3691EF12BE60020C113 /* AppDelegate+ZLAPPDelegate.m in Sources */,
+				73A0C36D1EF3CF810020C113 /* JHSysAlertUtil.m in Sources */,
 				7339CBB01EC2FEBA00E5E600 /* MianZeViewController02.m in Sources */,
 				73C347331E84E96600BBBDBE /* MSSAutoresizeLabelFlowLayout.m in Sources */,
 				73C3471D1E8249E200BBBDBE /* MemberMTLModel.m in Sources */,

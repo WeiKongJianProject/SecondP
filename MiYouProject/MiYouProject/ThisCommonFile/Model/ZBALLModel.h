@@ -11,6 +11,12 @@
 @interface ZBALLModel : NSObject
 
 //创建单利
+
+/**
+ 创建单例
+
+ @return 
+ */
 + (instancetype )shareALLModel;
 
 //判断是否是VIP

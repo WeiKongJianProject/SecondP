@@ -685,7 +685,15 @@ static int _currentPage;
             if (Paytype == 0) {
                 if (CommodityType == 1) {
                     NSLog(@"成为VIP微信支付");
-                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM withJINE:_vipPrice withVC:self];
+                    if (![ZBALLModel isZBVIP]) {
+                        [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM withJINE:_vipPrice withVC:self];
+                        
+                    }else{
+                        [JHSysAlertUtil presentAlertViewWithTitle:@"已是VIP" message:nil confirmTitle:@"确定" handler:^{
+                            
+                        }];
+                    }
+                    
                     
                 }
                 else{
@@ -696,7 +704,15 @@ static int _currentPage;
             else{
                 if (CommodityType == 1) {
                     NSLog(@"成为VIP支付宝支付");
-                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM withJINE:_vipPrice withVC:self];
+                    if (![ZBALLModel isZBVIP]) {
+                        [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM withJINE:_vipPrice withVC:self];
+                        
+                    }else{
+                        [JHSysAlertUtil presentAlertViewWithTitle:@"已是VIP" message:nil confirmTitle:@"确定" handler:^{
+                            
+                        }];
+                    }
+                    
                     
                 }
                 else{
@@ -726,7 +742,15 @@ static int _currentPage;
             if (Paytype == 0) {
                 if (CommodityType == 1) {
                     NSLog(@"成为VIP微信支付");
-                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM withJINE:_vipPrice withVC:self];
+                    if (![ZBALLModel isZBVIP]) {
+                        [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM withJINE:_vipPrice withVC:self];
+                        
+                    }else{
+                        [JHSysAlertUtil presentAlertViewWithTitle:@"已是VIP" message:nil confirmTitle:@"确定" handler:^{
+                            
+                        }];
+                    }
+                    
                 }
                 else{
                     NSLog(@"加主播微信微信支付");
@@ -736,7 +760,15 @@ static int _currentPage;
             else{
                 if (CommodityType == 1) {
                     NSLog(@"成为VIP支付宝支付");
-                    [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM withJINE:_vipPrice withVC:self];
+                    if (![ZBALLModel isZBVIP]) {
+                        [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM withJINE:_vipPrice withVC:self];
+                        
+                    }else{
+                        [JHSysAlertUtil presentAlertViewWithTitle:@"已是VIP" message:nil confirmTitle:@"确定" handler:^{
+                            
+                        }];
+                    }
+                    
                 }
                 else{
                     NSLog(@"加主播微信支付宝支付");
@@ -817,6 +849,11 @@ static int _currentPage;
     return cell;
 }
 
+/**
+ *CollectionView点击cell执行的方法
+ @param collectionView UIcollectionView
+ @param indexPath 点击选择
+ */
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if ([ZBALLModel isLogined]) {
         if (_isCanToRoom == YES) {
@@ -834,10 +871,6 @@ static int _currentPage;
         [ZBALLModel pushToLoginViewControllerFromVC:self];
     }
 }
-
-
-
-
 
 
 #pragma end mark CollectionView代理方发  end

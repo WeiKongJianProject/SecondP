@@ -43,6 +43,10 @@
             
             [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"wechat" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM withJINE:_currentJINE withVC:self];
             
+        }else{
+            [JHSysAlertUtil presentAlertViewWithTitle:@"已是VIP" message:nil confirmTitle:@"确定" handler:^{
+                
+            }];
         }
     }
     else{
@@ -55,11 +59,16 @@
 
 
 - (IBAction)zhiFuBaoButtonAction:(UIButton *)sender {
+    
     if ([ZBALLModel isLogined]) {
         if (![ZBALLModel isZBVIP]) {
             [MBManager showLoading];
              [[ZBBuyVIPModel shareBuyVIPModel] loadDingDanInfoWithFirstType:@"alipay" withZBID:nil withVIPorWeiXin:VIP_TYPE_ENUM withJINE:_currentJINE withVC:self];
             
+        }else{
+            [JHSysAlertUtil presentAlertViewWithTitle:@"已是VIP" message:nil confirmTitle:@"确定" handler:^{
+                
+            }];
         }
     }
     else{
@@ -77,13 +86,13 @@
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         if ([dic[@"result"] isEqualToString:@"success"]) {
-            weakSelf.priceLabel.text = [NSString stringWithFormat:@"￥%@",dic[@"price"]];
+            weakSelf.priceLabel.text = [NSString stringWithFormat:@"￥%@/月",dic[@"price"]];
             _currentJINE = dic[@"price"];
         }
     } failure:^(NSError *error) {
         
     }];
-
+    
 }
 
 

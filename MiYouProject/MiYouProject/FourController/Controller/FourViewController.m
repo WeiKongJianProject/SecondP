@@ -123,7 +123,7 @@ static int jd;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSInteger num;
     if (section == 0) {
-        num = 6;
+        num = 7;
     }
     else{
         num = 0;
@@ -277,6 +277,21 @@ static int jd;
             
             
             cell = fcell;
+            //fengxiang
+        }
+        else if (indexPath.row == 6){
+            static NSString * buttonCellID = @"ZBFoursCellID";
+            ZBFourTableViewCell * fcell = (ZBFourTableViewCell *)[tableView dequeueReusableCellWithIdentifier:buttonCellID];
+            if (!fcell) {
+                fcell = (ZBFourTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"ZBFourTableViewCell" owner:self options:nil][0];
+            }
+            
+            [fcell.leftImageView setImage:[UIImage imageNamed:@"fengxiang"]];
+            fcell.biaoTiLabel.text = @"分享APP";
+            
+            
+            cell = fcell;
+            //fengxiang
         }
    
     }
@@ -341,13 +356,36 @@ static int jd;
             AboutUSViewController * vc = [[AboutUSViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
         }
+        if (indexPath.row == 6) {
+            [self shareAPPButtonAction];
+        }
     }
     else{
         
     }
+}
 
 
+/**
+ 分享APP Button
+ */
+- (void)shareAPPButtonAction{
     
+    UIAlertAction * alertAction = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    UIAlertController * vc = [UIAlertController alertControllerWithTitle:@"APP地址已复制" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [vc addAction:alertAction];
+    [self presentViewController:vc animated:YES completion:^{
+        
+    }];
+    
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    NSString * url = [kUserDefaults objectForKey:LOADDOWN_SHARE_URL];
+    if (![url isEqualToString:@""] && url != nil) {
+        pasteboard.string = url;
+    }
 }
 
 #pragma end mark

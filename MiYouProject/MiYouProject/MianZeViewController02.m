@@ -39,7 +39,7 @@
             self.label.text = string;
         }
         
-        NSLog(@"免责声明结果：%@",dic);
+        //NSLog(@"免责声明结果：%@",dic);
     } failure:^(NSError *error) {
         
     }];

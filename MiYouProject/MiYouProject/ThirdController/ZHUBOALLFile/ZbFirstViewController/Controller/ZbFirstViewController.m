@@ -51,19 +51,33 @@
     self.tableview.showsVerticalScrollIndicator = NO;
     self.tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableview];
+    /*==========ZL注释start===========
+     *1.MJRefresh 添加
+     *2.使用方法
+     *3.
+     *4.
+     ===========ZL注释end==========*/
     //下拉刷新设置
     self.tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(xiaLaShuaXin)];
     //自动改变 透明度
     self.tableview.mj_header.automaticallyChangeAlpha = YES;
-    
     [self.tableview.mj_header beginRefreshing];
-    
-    
     //上拉刷新
     self.tableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(shangLaShuaXin)];
-    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(handleSchedule) userInfo:nil repeats:YES];
+    
+    //[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(handleSchedule) userInfo:nil repeats:YES];
     //[self loadRemenView];
     //[self loadDianYingCollectionView];
+    
+    UIBarButtonItem * rightBarItem = [[UIBarButtonItem alloc]initWithTitle:@"分享" style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonAction:)];
+    rightBarItem.tintColor = [UIColor whiteColor];
+    //self.navigationController.navigationBar.topItem.rightBarButtonItem = rightBarItem;
+    //self.navigationItem.rightBarButtonItem = rightBarItem;
+}
+
+- (void)rightButtonAction:(id)sender{
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = @"测试数据粘贴";
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -741,6 +755,8 @@
                 _newVersionURL = dic[@"url"];
                 [weakSelf loadDownView];
             }
+            NSLog(@"新版本下载地址：%@",_newVersionURL);
+            [kUserDefaults setObject:dic[@"url"] forKey:LOADDOWN_SHARE_URL];
             //[weakSelf loadDownView];
         }
         else{

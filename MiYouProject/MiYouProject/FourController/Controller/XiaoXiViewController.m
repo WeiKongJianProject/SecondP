@@ -8,7 +8,10 @@
 
 #import "XiaoXiViewController.h"
 
-@interface XiaoXiViewController ()
+@interface XiaoXiViewController (){
+
+    int _currentPage;
+}
 
 @end
 
@@ -18,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _currentPage = 1;
     self.view.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
     
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SIZE_WIDTH, SIZE_HEIGHT) style:UITableViewStylePlain];
@@ -29,21 +33,59 @@
     //self.tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.tableView];
     
+    /*==========ZL注释start===========
+     *1.MJRefresh 添加
+     *2.使用方法
+     *3.
+     *4.
+     ===========ZL注释end==========*/
+    //下拉刷新设置
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(xiaLaShuaXin)];
+    //自动改变 透明度
+    self.tableView.mj_header.automaticallyChangeAlpha = YES;
+    [self.tableView.mj_header beginRefreshing];
+    //上拉刷新
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(shangLaShuaXin)];
     //[self.xiaoXiARR addObjectsFromArray:@[@"1"]];
-    [self startAFNetWorking];
+    
 }
-- (void)startAFNetWorking{
+
+- (void)xiaLaShuaXin{
+
+    _currentPage = 1;
+    [self startAFNetWorkingWithPage:_currentPage];
+    
+}
+- (void)shangLaShuaXin{
+    _currentPage++;
+    [self startAFNetWorkingWithPage:_currentPage];
+}
+
+- (void)startAFNetWorkingWithPage:(int)page{
 
     NSString * mid = [kUserDefaults objectForKey:ZB_USER_MID];
-    NSString * url = [NSString stringWithFormat:@"%@?action=message&mid=%@",URL_Common_ios,mid];
+    NSString * url = [NSString stringWithFormat:@"%@?action=message&mid=%@&page=%d",URL_Common_ios,mid,page];
     NSLog(@"请求消息URL：%@",url);
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"消息返回：%@",dic);
-        self.xiaoXiARR = [MTLJSONAdapter modelsOfClass:[ZBXiaoXiZLModel class] fromJSONArray:dic[@"msg"] error:nil];
+        NSArray * arr = dic[@"msg"];
+        if (_currentPage == 1) {
+            [self.xiaoXiARR removeAllObjects];
+        }
+        if (arr.count > 0) {
+            [self.xiaoXiARR addObjectsFromArray:[MTLJSONAdapter modelsOfClass:[ZBXiaoXiZLModel class] fromJSONArray:dic[@"msg"] error:nil]];
+        }
+        else{
+            
+        }
+
         [self.tableView reloadData];
     } failure:^(NSError *error) {
-        
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
     }];
     
 

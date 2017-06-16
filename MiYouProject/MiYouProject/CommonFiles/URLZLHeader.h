@@ -19,6 +19,8 @@
 #define KAITONG_VIP_NOTIFICATION @"kaitong_vip_notification"
 #define CHANNEL_ID @"4"
 
+#define LOADDOWN_SHARE_URL @"LOADDOWN_URL_SHARE"
+
 #define ZB_USER_NAME @"zb_user_name"
 #define ZB_USER_PHONE @"zb_user_phone"
 #define ZB_USER_IS_VIP @"zb_user_is_vip"
@@ -43,5 +45,7 @@
 //bab6b7  e6e6e6   f0eff5  a09993
 #define Main_grayBackgroundColor        @"ffffff"
 #define Main_darkGrayBackgroundColor    @"a09993"
+
+
 
 #endif /* URLZLHeader_h */
