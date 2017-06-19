@@ -33,7 +33,7 @@ static ZBBuyVIPModel * _instance = nil;
     
     //用户信息
     NSString * UID = [kUserDefaults objectForKey:ZB_USER_MID];
-    NSLog(@"生成订单：用户的ID：%@,支付宝支付:金额为：%@",UID,_currentJINE);
+    NSLog(@"生成订单：用户的ID：%@,支付宝支付:金额为：%@",UID,jinE);
     _currentJINE = jinE;
     NSString * url = nil;
     if (vipOrWxEnum == VIP_TYPE_ENUM) {
@@ -295,7 +295,7 @@ static ZBBuyVIPModel * _instance = nil;
             // goodsname：购买商品名称
             param.goodsname = [NSString stringWithFormat:@"%@",_currentJINE];
             // amount：购买商品价格，单位是元
-            param.amount = @"1.0";[NSString stringWithFormat:@"%@",_currentJINE];
+            param.amount = [NSString stringWithFormat:@"%@",_currentJINE];
             // payid：第三方平台上的订单号，请传真实订单号，方便后续对账，例子里采用随机数，
             param.payid  =  _currentOrderNUM;//[self demoOrderId];
             [FWInterface start:weak_self(VC) withParams:param withDelegate:weak_self(self)];
