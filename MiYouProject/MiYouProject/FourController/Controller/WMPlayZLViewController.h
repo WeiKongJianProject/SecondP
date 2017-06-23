@@ -52,6 +52,10 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *collectionHeight;
 
+@property (strong, nonatomic) IBOutlet UIButton *faSongButton;
+@property (strong, nonatomic) IBOutlet UITextField *textField;
+@property (strong, nonatomic) IBOutlet UILabel *weixinLabel;
+@property (strong, nonatomic) IBOutlet UILabel *zhiboLabel;
 
 
 

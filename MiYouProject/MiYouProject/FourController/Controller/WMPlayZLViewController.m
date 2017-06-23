@@ -50,7 +50,7 @@ static int _currentPage;
     
     playerFrame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, ([UIScreen mainScreen].bounds.size.width)* 9 / 16);
     [self.XiaZaiButton addTarget:self action:@selector(alertXiaZaiButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.tiJiaoButton addTarget:self action:@selector(tiJiaoButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.tiJiaoButton addTarget:self action:@selector(tiJiaoButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
     //支付完成后通知
     [self xw_addNotificationForName:ZB_USER_PAY_FINISHED_NF block:^(NSNotification * _Nonnull notification) {
@@ -60,15 +60,17 @@ static int _currentPage;
         }
         NSLog(@"接受到支付成功后的通知");
     }];
-    
+    //设置圆角
+    self.faSongButton.layer.cornerRadius = 5.0f;
+    //将多余的部分切掉
+    self.faSongButton.layer.masksToBounds = YES;
 }
 
-- (void)tiJiaoButtonAction:(UIButton *)sender{
+- (void)tiJiaoButtonActions:(UIButton *)sender{
     
     [self.textFieldView resignFirstResponder];
     /*
      AlertViewCustomZL  * alert = [[AlertViewCustomZL alloc]init];
-     
      alert.titleName = @"观看完整版才可以评论";
      alert.cancelBtnTitle = @"取消";
      alert.okBtnTitle = @"确定";
@@ -164,6 +166,8 @@ static int _currentPage;
             _isFree = [dic[@"free"] boolValue];
             weakSelf.collectionARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[ZBVideoCellModel class] fromJSONArray:dic[@"video"] error:nil];
             self.subTitleLabel.text = _wenXinTiShi;
+            self.weixinLabel.text = [NSString stringWithFormat:@"主播微信:%@  %@元",_zbWeiXin,_weixinPrice];
+            self.zhiboLabel.text = [NSString stringWithFormat:@"激情随意撩(购买)￥%@元/月",_vipPrice];
             if (weakSelf.collectionARR.count == 0) {
                 weakSelf.collectionHeight.constant = 0;
                 //weakSelf.collectionView.hidden = YES;
@@ -927,6 +931,21 @@ static int _currentPage;
     }
     return _collectionARR;
 }
+#pragma mark ===================提交按钮==================
+- (IBAction)tijiaoButtonAction:(id)sender {
+    
+
+    if (![self.textField.text isEqualToString:@""] && self.textField.text != nil) {
+        self.textField.text = @"";
+        
+        [self.textField resignFirstResponder];
+        
+        [MBManager showBriefAlert:@"提交成功,待审核"];
+    } else {
+        [MBManager showBriefAlert:@"请输入内容"];
+    }
+}
+
 /*
  #pragma mark - Navigation
  
