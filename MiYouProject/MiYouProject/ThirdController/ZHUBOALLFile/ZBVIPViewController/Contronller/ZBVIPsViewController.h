@@ -12,6 +12,9 @@
 
 @interface ZBVIPsViewController : ZLBaseViewController<FWInterfaceDelegate>
 @property (strong, nonatomic) IBOutlet UIView *backView;
-@property (strong, nonatomic) IBOutlet UILabel *priceLabel;
+
+@property (strong, nonatomic) IBOutlet UILabel *wenxinTishiLabel;
+
+
 
 @end

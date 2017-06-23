@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GuanYuUSViewController">
             <connections>
                 <outlet property="imageview" destination="6bk-BF-Smu" id="Xse-Fl-8Ca"/>
+                <outlet property="kefuLabel" destination="DFM-KK-vkx" id="JSK-f3-Atp"/>
                 <outlet property="label" destination="Y9E-Es-vJF" id="jHH-CZ-izV"/>
+                <outlet property="phoneLabel" destination="Wbn-QF-8kM" id="WcV-Gm-1yN"/>
                 <outlet property="versionLabel" destination="msO-52-cqp" id="QV1-fn-OeU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -50,8 +52,20 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如有任何问题请联系我们  客服电话：400-0793-033   咨询时间：08:30-22:00   Copyright©2017" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9E-Es-vJF">
-                    <rect key="frame" x="103" y="584" width="170" height="63"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Copyright©2017" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9E-Es-vJF">
+                    <rect key="frame" x="136.5" y="631" width="103.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电话:13819424818" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbn-QF-8kM">
+                    <rect key="frame" x="131" y="579" width="113.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客服:2317579750 （工作日9:00-22：00）" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFM-KK-vkx">
+                    <rect key="frame" x="60" y="605" width="255.5" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -60,10 +74,14 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="F8x-Md-E6z" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4o8-8X-4gm"/>
+                <constraint firstItem="Wbn-QF-8kM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5Ig-90-0Zp"/>
                 <constraint firstItem="F8x-Md-E6z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="120" id="Cdb-P7-TGs"/>
                 <constraint firstItem="msO-52-cqp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Exh-sJ-NdU"/>
                 <constraint firstItem="9T7-Ze-IPa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="GsV-4E-Qdv"/>
                 <constraint firstItem="msO-52-cqp" firstAttribute="top" secondItem="9T7-Ze-IPa" secondAttribute="bottom" id="MQg-td-YYT"/>
+                <constraint firstItem="Y9E-Es-vJF" firstAttribute="top" secondItem="DFM-KK-vkx" secondAttribute="bottom" constant="10" id="S1k-uq-OcR"/>
+                <constraint firstItem="DFM-KK-vkx" firstAttribute="top" secondItem="Wbn-QF-8kM" secondAttribute="bottom" constant="10" id="VTS-Nd-MGT"/>
+                <constraint firstItem="DFM-KK-vkx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YMD-P8-fZO"/>
                 <constraint firstAttribute="bottom" secondItem="Y9E-Es-vJF" secondAttribute="bottom" constant="20" id="mWj-mr-l3l"/>
                 <constraint firstItem="9T7-Ze-IPa" firstAttribute="top" secondItem="F8x-Md-E6z" secondAttribute="bottom" constant="15" id="qIB-26-zAJ"/>
                 <constraint firstItem="Y9E-Es-vJF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vgQ-Md-sAo"/>

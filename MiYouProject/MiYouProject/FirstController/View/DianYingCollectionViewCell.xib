@@ -21,7 +21,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_default2" translatesAutoresizingMaskIntoConstraints="NO" id="Pt2-oD-UE8">
                         <rect key="frame" x="0.0" y="0.0" width="425" height="295"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dibujianbian" translatesAutoresizingMaskIntoConstraints="NO" id="IQM-4w-PgP">
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dibujianbian" translatesAutoresizingMaskIntoConstraints="NO" id="IQM-4w-PgP">
                         <rect key="frame" x="0.0" y="274" width="425" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="mxe-qG-Kb0"/>
@@ -72,14 +72,14 @@
                         <color key="textColor" red="1" green="0.25224308369999998" blue="0.27056692980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="guankanrenshu" translatesAutoresizingMaskIntoConstraints="NO" id="QzV-1P-Dkr">
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="guankanrenshu" translatesAutoresizingMaskIntoConstraints="NO" id="QzV-1P-Dkr">
                         <rect key="frame" x="5" y="276" width="14" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="AEp-E7-OiH"/>
                             <constraint firstAttribute="width" constant="14" id="SfT-oe-2Xl"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5263" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UaL-sf-fxv">
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5263" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UaL-sf-fxv">
                         <rect key="frame" x="24" y="276" width="34.5" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="PsR-qF-ffF"/>

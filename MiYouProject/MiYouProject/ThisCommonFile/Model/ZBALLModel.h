@@ -15,7 +15,7 @@
 /**
  创建单例
 
- @return 
+ @return 登录信息  是否是会员
  */
 + (instancetype )shareALLModel;
 

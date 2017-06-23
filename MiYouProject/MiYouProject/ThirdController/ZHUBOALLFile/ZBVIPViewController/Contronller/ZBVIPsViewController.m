@@ -86,7 +86,8 @@
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         if ([dic[@"result"] isEqualToString:@"success"]) {
-            weakSelf.priceLabel.text = [NSString stringWithFormat:@"￥%@/月",dic[@"price"]];
+            //weakSelf.priceLabel.text = [NSString stringWithFormat:@"￥%@/月",dic[@"price"]];
+            self.wenxinTishiLabel.text = dic[@"notice"];
             _currentJINE = dic[@"price"];
         }
     } failure:^(NSError *error) {

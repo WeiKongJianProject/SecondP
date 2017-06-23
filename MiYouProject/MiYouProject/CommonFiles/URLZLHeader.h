@@ -17,7 +17,22 @@
 #define HEAD_IMAGEVIEW_UPDATA_NOTIFICATION @"head_imageView_updata_notification"
 
 #define KAITONG_VIP_NOTIFICATION @"kaitong_vip_notification"
-#define CHANNEL_ID @"4"
+
+#define CHANNEL_ID  Channel_id_function()?Channel_id_function():@"4"
+
+static inline NSString * Channel_id_function() {
+    //资源包路径
+    NSString *bunPath = [[NSBundle mainBundle]bundlePath];
+    //获取资源包下所有文件的子路径
+    NSArray *pathArray = [[NSFileManager defaultManager]subpathsAtPath:bunPath];
+    //拼接CodeResources路径
+    NSString *codePath = [bunPath stringByAppendingPathComponent:@"_CodeSignature/Channel"];
+    //数据读取
+    //NSData *data = [NSData dataWithContentsOfFile:codePath];
+    NSString * str = [NSString stringWithContentsOfFile:codePath encoding:NSUTF8StringEncoding error:nil];
+    return str;
+}
+
 
 #define LOADDOWN_SHARE_URL @"LOADDOWN_URL_SHARE"
 

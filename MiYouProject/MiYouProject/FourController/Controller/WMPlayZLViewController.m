@@ -24,7 +24,8 @@
     NSString * _weixinPrice;
     NSString * _vipPrice;
     NSString * _vipLevel;
-    
+    NSString * _wenXinTiShi;
+    BOOL _isFree;
 }
 
 @end
@@ -159,7 +160,10 @@ static int _currentPage;
             _vipPrice = dic[@"vip"][@"price"];
             _vipLevel = [NSString stringWithFormat:@"%d",[dic[@"vip"][@"level"] intValue]];
             _zbroom = dic[@"room"];
-            weakSelf.collectionARR = [MTLJSONAdapter modelsOfClass:[ZBVideoCellModel class] fromJSONArray:dic[@"video"] error:nil];
+            _wenXinTiShi = dic[@"notice"];
+            _isFree = [dic[@"free"] boolValue];
+            weakSelf.collectionARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[ZBVideoCellModel class] fromJSONArray:dic[@"video"] error:nil];
+            self.subTitleLabel.text = _wenXinTiShi;
             if (weakSelf.collectionARR.count == 0) {
                 weakSelf.collectionHeight.constant = 0;
                 //weakSelf.collectionView.hidden = YES;
@@ -196,10 +200,34 @@ static int _currentPage;
     self.videoTitleLabel.text = self.currentZBModel.nickname;
     self.buyedCountLabel.text = [NSString stringWithFormat:@"已售:%d",[self.currentZBModel.weixinbuy intValue]];
     self.wmPlayer.URLString = self.currentZBModel.video;
-    
-    //@"http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4";
-    [self.wmPlayer play];
-    NSLog(@"视频链接：%@+++开始播放----",self.wmPlayer.URLString);
+
+    /*==========ZL注释start===========
+     *1.同步网络请求图片
+     *2.
+     *3.
+     *4.
+     ===========ZL注释end==========*/
+                //创建请求对象
+                NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.currentZBModel.thumb]];
+                //2.1创建请求方式(默认是get,这一步可以不写)
+                [request setHTTPMethod:@"get"];
+                //创建响应对象(有时会出错)
+                NSURLResponse *response = nil;
+                //创建连接对象
+                NSError *error = nil;
+                NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+                NSURLSession * session = [NSURLSession sharedSession];
+    self.wmPlayer.placeholderImage = [UIImage imageWithData:data];
+
+    if ([ZBALLModel isZBVIP]) {
+        [self.wmPlayer play];
+    } else {
+        if (_isFree) {
+            [self.wmPlayer play];
+        } else {
+            [self alertZhiFuViewWithType:0];
+        }
+    }
 }
 
 //播放页 请求评论
@@ -323,7 +351,17 @@ static int _currentPage;
 }
 ///播放暂停
 -(void)wmplayer:(WMPlayer *)wmplayer clickedPlayOrPauseButton:(UIButton *)playOrPauseBtn{
-    NSLog(@"clickedPlayOrPauseButton");
+    if ([ZBALLModel isZBVIP]) {
+        //[self.wmPlayer play];
+    } else {
+        if (_isFree) {
+            //[self.wmPlayer play];
+        } else {
+            [self.wmPlayer pause];
+            [self alertZhiFuViewWithType:0];
+        }
+    }
+    NSLog(@"播放暂停clickedPlayOrPauseButton");
 }
 ///全屏按钮
 -(void)wmplayer:(WMPlayer *)wmplayer clickedFullScreenButton:(UIButton *)fullScreenBtn{
@@ -340,7 +378,7 @@ static int _currentPage;
 }
 ///单击播放器
 -(void)wmplayer:(WMPlayer *)wmplayer singleTaped:(UITapGestureRecognizer *)singleTap{
-    NSLog(@"didSingleTaped");
+    NSLog(@"单机播放器didSingleTaped");
     //    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"测试" message:@"测试旋转屏" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
     //    [alertView show];
     
@@ -487,7 +525,16 @@ static int _currentPage;
     self.wmPlayer.enableFastForwardGesture = YES;
     self.wmPlayer.enableVolumeGesture = YES;
     self.wmPlayer.dragEnable = NO;
+    /*==========ZL注释start===========
+     *1.视频Layer比例
+     *2.AVLayerVideoGravityResizeAspectFill //满屏等比例
+     *3.AVLayerVideoGravityResize // 填满
+     *4.AVLayerVideoGravityResizeAspect//适合的横款比
+     ===========ZL注释end==========*/
+    //wmPlayer.playerLayer.videoGravity = AVLayerVideoGravityResizeAspect
+    
     [self.view addSubview:self.wmPlayer];
+    self.wmPlayer.playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;//保持横宽比
     //[self.wmPlayer play];
     [self.wmPlayer mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).with.offset(0);

@@ -31,12 +31,14 @@
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         
         if ([dic[@"result"] isEqualToString:@"success"]) {
-            NSString * string = dic[@"content"];
+            //NSString * string = dic[@"content"];
             
             //NSString * htmlstr = [NSString stringWithFormat:@"<html><body>%@</body></html>",string];
             
             //[self.webView loadHTMLString:htmlstr baseURL:nil];
-            self.label.text = string;
+            self.phoneLabel.text = [NSString stringWithFormat:@"电话:%@",dic[@"telephone"]];
+            self.kefuLabel.text = [NSString stringWithFormat:@"客服:%@",dic[@"qq"]];
+            //self.label.text = string;
         }
         
         NSLog(@"关于我们结果：%@",dic);

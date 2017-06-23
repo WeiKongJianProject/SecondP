@@ -12,5 +12,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *label;
 @property (strong, nonatomic) IBOutlet UILabel *versionLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *imageview;
+@property (strong, nonatomic) IBOutlet UILabel *phoneLabel;
+@property (strong, nonatomic) IBOutlet UILabel *kefuLabel;
+
+
 
 @end

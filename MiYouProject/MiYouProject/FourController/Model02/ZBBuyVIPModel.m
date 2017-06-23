@@ -453,7 +453,7 @@ static ZBBuyVIPModel * _instance = nil;
 - (void)stPayZhiFuWithType:(NSString *)type withOrderDic:(NSDictionary *)dic{
     __weak typeof(self) weakSelf = self;
     if (self.currentTypeEnum == VIP_TYPE_ENUM) {
-        //UB充值
+        //VIP
         if ([type isEqualToString:@"alipay"]) {
             _currentOrderNUM = dic[@"payid"];
             //@"https://qr.alipay.com/bax00225fwvaxotgyqcj602a"
@@ -467,11 +467,21 @@ static ZBBuyVIPModel * _instance = nil;
         }
         else{
             NSLog(@"微信支付！");
+            long appid = [dic[@"cfg"][@"appid"] longValue];
+            NSString *appkey = dic[@"cfg"][@"appkey"];
+             _currentOrderNUM = dic[@"tradeno"];
+            NSString * str = [NSString stringWithFormat:@"%ld_%@",appid,_currentOrderNUM];
+            int  jinE = [_currentJINE intValue];
+            //int money = 10;
+           // NSTimeInterval time=[[NSDate date] timeIntervalSince1970]*1000;
+            //NSString *morder = [NSString stringWithFormat:@"%li_%f",appid,time];
+            
+            [WxpaySdk Pay:appid cent:jinE*100 oid:str itemname:@"wechat" orderdesc:CHANNEL_ID scburl:dic[@"cfg"][@"asyncUrl"] ccburl:dic[@"cfg"][@"payOffUrl"] appkey:appkey];
         }
         
     }
     else{
-        //VIP会员购买
+        
         if ([type isEqualToString:@"alipay"]) {
             _currentOrderNUM = dic[@"orderNo"];
             NSLog(@"当前的订单号为：%@",_currentOrderNUM);
@@ -490,6 +500,15 @@ static ZBBuyVIPModel * _instance = nil;
         else{
             
             NSLog(@"微信支付！");
+            long appid = [dic[@"cfg"][@"appid"] longValue];
+            NSString *appkey = dic[@"cfg"][@"appkey"];
+            _currentOrderNUM = dic[@"tradeno"];
+            NSString * str = [NSString stringWithFormat:@"%ld_%@",appid,_currentOrderNUM];
+            int  jinE = [_currentJINE intValue];
+            //int money = 10;
+            // NSTimeInterval time=[[NSDate date] timeIntervalSince1970]*1000;
+            //NSString *morder = [NSString stringWithFormat:@"%li_%f",appid,time];
+            [WxpaySdk Pay:appid cent:jinE * 100 oid:str itemname:@"wechat" orderdesc:CHANNEL_ID scburl:dic[@"cfg"][@"asyncUrl"] ccburl:dic[@"cfg"][@"payOffUrl"] appkey:appkey];
         }
         
         
@@ -499,6 +518,20 @@ static ZBBuyVIPModel * _instance = nil;
     
     
 }
+
+-(void) UrlRedirection:(NSString *) path
+{
+    NSURL *url = [ [ NSURL alloc ] initWithString: path ];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+    }
+    else
+    {
+        NSLog(@"不能打开微信 !");
+    }
+}
+
 - (void)stPayzhifushibaiActionWithType:(NSString *)type{
     // __weak typeof(self) weakSelf = self;
     

@@ -26,8 +26,8 @@ static ZBALLModel * _instance = nil;
 //判断是否是VIP
 + (BOOL)isZBVIP{
     
-    NSString * isVIP = [[NSUserDefaults standardUserDefaults]objectForKey:ZB_USER_IS_VIP];
-    if ([isVIP isEqualToString:@"1"]) {
+    NSNumber * isVIP = [[NSUserDefaults standardUserDefaults]objectForKey:ZB_USER_IS_VIP];
+    if ([isVIP intValue] == 1) {
         return YES;
     }
     else{

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "FWInterface.h"
+#import "WxpaySdk.h"
 
 typedef NS_ENUM(NSUInteger, VipORWeiXin_ENUM) {
     VIP_TYPE_ENUM,

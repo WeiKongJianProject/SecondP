@@ -54,6 +54,8 @@
         
         if ([self isCanFinish]) {
             [MBManager showBriefAlert:@"提交成功！"];
+
+            [self startAFNetworking];
             self.nameTextField.text = @"";
             self.ageTextField.text = @"";
             self.weixinTextField.text = @"";
@@ -84,6 +86,25 @@
     
     return result;
 }
+
+- (void)startAFNetworking{
+    NSString * sex = _isMan?@"1":@"2";
+    //__weak typeof(self) weakSelf = self;
+    NSString * url = [NSString stringWithFormat:@"%@?action=sign&nickname=%@&age=%@&weixin=%@&sex=%@",URL_Common_ios,self.nameTextField.text,self.ageTextField.text,self.weixinTextField.text,sex];
+    NSLog(@"提交签约：%@",url);
+    [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        if ([dic[@"result"] isEqualToString:@"success"]) {
+
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+    
+}
+
+
+
 
 /*
 #pragma mark - Navigation

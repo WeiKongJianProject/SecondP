@@ -73,8 +73,51 @@
     rightBarItem.tintColor = [UIColor whiteColor];
     //self.navigationController.navigationBar.topItem.rightBarButtonItem = rightBarItem;
     //self.navigationItem.rightBarButtonItem = rightBarItem;
+    [self firstLoginAFNetworking];
+}
+#pragma mark ===================自动登录==================
+
+- (void)firstLoginAFNetworking{
+    if (![ZBALLModel isLogined]) {
+        [self startLogin];
+    }
+    else{
+    
+    }
+    //[ZBALLModel isZBVIP];
+}
+- (void)startLogin{
+
+    NSString * url = [NSString stringWithFormat:@"%@?action=fresh&channel=%@",URL_Common_ios,CHANNEL_ID];
+    NSLog(@"自动登录：%@",url);
+    [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"自动登录信息：%@",dic);
+        if ([dic[@"result"] isEqualToString:@"success"]) {
+            /*
+             [kUserDefaults setObject:dic[@"name"] forKey:ZB_USER_NAME];
+             NSString * phoneStr = [weakSelf.phoneTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+             [kUserDefaults setObject:phoneStr forKey:ZB_USER_PHONE];
+             [kUserDefaults setObject:dic[@"mid"] forKey:ZB_USER_MID];
+             
+             if (!zlObjectIsEmpty(dic[@"vip"])) {
+             [kUserDefaults setObject:dic[@"vip"] forKey:ZB_USER_IS_VIP];
+             }
+             */
+            [kUserDefaults setObject:dic[@"name"] forKey:ZB_USER_NAME];
+            [kUserDefaults setObject:dic[@"mid"] forKey:ZB_USER_MID];
+            [kUserDefaults setObject:dic[@"vip"] forKey:ZB_USER_IS_VIP];
+            
+        }
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
 }
 
+
+#pragma mark ===================首次登陆==================
 - (void)rightButtonAction:(id)sender{
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = @"测试数据粘贴";
@@ -83,9 +126,8 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
-    self.navigationController.navigationBar.topItem.title=@"直播";
+    self.navigationController.navigationBar.topItem.title=@"迷优宝贝";
     //[self.navigationController.navigationBar setBarTintColor:[UIColor colorWithHexString:Main_BackgroundGreen_Color]];
-    
 }
 
 #pragma mark 下拉刷新
@@ -100,37 +142,6 @@
     NSLog(@"上拉刷新");
     _currentPage++;
     [self startAFnetWorkingWithCateID:self.id withPage:_currentPage];
-    
-    //    NSString * vipLevel = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_VIP_LEVEL];
-    //    int vipLevelNum = [vipLevel intValue];
-    //    if (_currentPage >=3) {
-    //        if (vipLevelNum >0) {
-    //            [self startAFnetWorkingWithCateID:self.id withPage:_currentPage];
-    //        }
-    //        else{
-    //            __weak typeof(self) weakSelf = self;
-    //            AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
-    //            alertZL.titleName = @"需要开通VIP才能观看更多";
-    //            alertZL.cancelBtnTitle = @"取消";
-    //            alertZL.okBtnTitle = @"开通";
-    //            [alertZL cancelBlockAction:^(BOOL success) {
-    //                [alertZL hideCustomeAlertView];
-    //                [weakSelf.tableview.mj_footer endRefreshing];
-    //            }];
-    //            [alertZL okButtonBlockAction:^(BOOL success) {
-    //                [alertZL hideCustomeAlertView];
-    //                [weakSelf.tableview.mj_footer endRefreshing];
-    //                [weakSelf xw_postNotificationWithName:KAITONG_VIP_NOTIFICATION userInfo:nil];
-    //            }];
-    //            [alertZL showCustomAlertView];
-    //        }
-    //        _currentPage--;
-    //    }
-    //    else{
-    //        [self startAFnetWorkingWithCateID:self.id withPage:_currentPage];
-    //    }
-    
-    
 }
 
 
@@ -143,6 +154,7 @@
     __weak typeof(self) weakSelf = self;
     NSString * url = [NSString stringWithFormat:@"%@?action=index&channel=%@&page=%d",URL_Common_ios,CHANNEL_ID,currentPage];
     NSLog(@"首页APP————URL：%@",url);
+    
     [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
         
         [MBManager hideAlert];
@@ -756,7 +768,7 @@
                 [weakSelf loadDownView];
             }
             NSLog(@"新版本下载地址：%@",_newVersionURL);
-            [kUserDefaults setObject:dic[@"url"] forKey:LOADDOWN_SHARE_URL];
+            [kUserDefaults setObject:_newVersionURL forKey:LOADDOWN_SHARE_URL];
             //[weakSelf loadDownView];
         }
         else{

@@ -175,6 +175,7 @@
 		73AF7AB21ED9169500794211 /* ZLAlertVIew02.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AF7AB11ED9169500794211 /* ZLAlertVIew02.m */; };
 		73AF7AB41ED916A900794211 /* ZLAlertView02.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73AF7AB31ED916A900794211 /* ZLAlertView02.xib */; };
 		73AF7AB71ED94E4500794211 /* ZhuBoBuyVIPAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AF7AB61ED94E4500794211 /* ZhuBoBuyVIPAlertView.m */; };
+		73BCC2E91EFC9D9200275C13 /* wxPaySdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BCC2E81EFC9D9200275C13 /* wxPaySdk.a */; };
 		73C347091E80FCF800BBBDBE /* MBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C347081E80FCF700BBBDBE /* MBManager.m */; };
 		73C3470C1E8125A800BBBDBE /* UIAlertViewZL.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C3470B1E8125A800BBBDBE /* UIAlertViewZL.m */; };
 		73C3470E1E8125B900BBBDBE /* UIAlertVIewZL.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73C3470D1E8125B900BBBDBE /* UIAlertVIewZL.xib */; };
@@ -610,6 +611,8 @@
 		73AF7AB31ED916A900794211 /* ZLAlertView02.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZLAlertView02.xib; sourceTree = "<group>"; };
 		73AF7AB51ED94E4500794211 /* ZhuBoBuyVIPAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhuBoBuyVIPAlertView.h; sourceTree = "<group>"; };
 		73AF7AB61ED94E4500794211 /* ZhuBoBuyVIPAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhuBoBuyVIPAlertView.m; sourceTree = "<group>"; };
+		73BCC2E71EFC9D7E00275C13 /* WxpaySdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WxpaySdk.h; sourceTree = "<group>"; };
+		73BCC2E81EFC9D9200275C13 /* wxPaySdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = wxPaySdk.a; sourceTree = "<group>"; };
 		73C347071E80FCF700BBBDBE /* MBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBManager.h; sourceTree = "<group>"; };
 		73C347081E80FCF700BBBDBE /* MBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBManager.m; sourceTree = "<group>"; };
 		73C3470A1E8125A800BBBDBE /* UIAlertViewZL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewZL.h; sourceTree = "<group>"; };
@@ -878,6 +881,7 @@
 				73485C351E9CAD6300A6691A /* QuartzCore.framework in Frameworks */,
 				7339CB241EBABAA400E5E600 /* libUMessage_Sdk_1.5.0a.a in Frameworks */,
 				73485C331E9CAD5600A6691A /* CoreTelephony.framework in Frameworks */,
+				73BCC2E91EFC9D9200275C13 /* wxPaySdk.a in Frameworks */,
 				73485C311E9CAD4B00A6691A /* SystemConfiguration.framework in Frameworks */,
 				73485C2F1E9CAD3F00A6691A /* libz.tbd in Frameworks */,
 				73485C2D1E9CAD3600A6691A /* libc++.tbd in Frameworks */,
@@ -1391,6 +1395,7 @@
 		7353386F1EEA40BD00A2E0A6 /* 对接包 */ = {
 			isa = PBXGroup;
 			children = (
+				73BCC2E51EFC9D7E00275C13 /* include */,
 				735338701EEA40BD00A2E0A6 /* FWDepends */,
 				735338771EEA40BD00A2E0A6 /* FWResource.bundle */,
 				735338781EEA40BD00A2E0A6 /* lib */,
@@ -1646,6 +1651,23 @@
 				73AF7AB61ED94E4500794211 /* ZhuBoBuyVIPAlertView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		73BCC2E51EFC9D7E00275C13 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				73BCC2E61EFC9D7E00275C13 /* WxpaySdk */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		73BCC2E61EFC9D7E00275C13 /* WxpaySdk */ = {
+			isa = PBXGroup;
+			children = (
+				73BCC2E71EFC9D7E00275C13 /* WxpaySdk.h */,
+				73BCC2E81EFC9D9200275C13 /* wxPaySdk.a */,
+			);
+			path = WxpaySdk;
 			sourceTree = "<group>";
 		};
 		73C347061E80FCF700BBBDBE /* MBProgressHUDZL */ = {
@@ -2426,7 +2448,7 @@
 				TargetAttributes = {
 					732BC8641E6FD17400B8B1BD = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 39QNYYYY23;
+						DevelopmentTeam = AJVQAFZ37V;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -3061,9 +3083,11 @@
 			baseConfigurationReference = C96CAE7EF2E4E9477C04B021 /* Pods-MiYouProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Xinyu Tan (5C368MBBW3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = 39QNYYYY23;
+				DEVELOPMENT_TEAM = AJVQAFZ37V;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MiYouProject/CommonFiles/Common/Resource/FrameWork/iOS-WebP",
@@ -3084,6 +3108,7 @@
 					"$(PROJECT_DIR)/对接包/lib",
 					"$(PROJECT_DIR)/MiYouProject/ThisCommonFile/对接包/FWDepends/wx",
 					"$(PROJECT_DIR)/MiYouProject/ThisCommonFile/对接包/lib",
+					"$(PROJECT_DIR)/MiYouProject/ThisCommonFile/对接包/include/WxpaySdk",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -3155,8 +3180,9 @@
 					"\"WebP\"",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = miyou.com.ZHUBO2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wanle.yx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
@@ -3166,9 +3192,11 @@
 			baseConfigurationReference = D188F06DE47739FC8A709CA1 /* Pods-MiYouProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Xinyu Tan (5C368MBBW3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = 39QNYYYY23;
+				DEVELOPMENT_TEAM = AJVQAFZ37V;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MiYouProject/CommonFiles/Common/Resource/FrameWork/iOS-WebP",
@@ -3189,6 +3217,7 @@
 					"$(PROJECT_DIR)/对接包/lib",
 					"$(PROJECT_DIR)/MiYouProject/ThisCommonFile/对接包/FWDepends/wx",
 					"$(PROJECT_DIR)/MiYouProject/ThisCommonFile/对接包/lib",
+					"$(PROJECT_DIR)/MiYouProject/ThisCommonFile/对接包/include/WxpaySdk",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -3260,8 +3289,9 @@
 					"\"WebP\"",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = miyou.com.ZHUBO2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wanle.yx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;

@@ -123,7 +123,7 @@ static int jd;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSInteger num;
     if (section == 0) {
-        num = 7;
+        num = 6;
     }
     else{
         num = 0;
@@ -230,7 +230,7 @@ static int jd;
             NSLog(@"缓存的大小：%ld",[[SDImageCache sharedImageCache] getSize]);
             cell1.rightLabel.text = [NSString stringWithFormat:@"%.2fM",tmpSize];
             if (tmpSize > 0) {
-                cell1.rightLabel.hidden = NO;
+                cell1.rightLabel.hidden = YES;
             }
             else{
                 cell1.rightLabel.hidden = YES;
@@ -247,12 +247,12 @@ static int jd;
             }
             
             [fcell.leftImageView setImage:[UIImage imageNamed:@"yijianfankui-1"]];
-            fcell.biaoTiLabel.text = @"意见反馈";
+            fcell.biaoTiLabel.text = @"联系我们";
             
             
             cell = fcell;
         }
-        else if (indexPath.row == 4){
+        else if (indexPath.row == 10){
             static NSString * buttonCellID = @"ZBFoursCellID";
             ZBFourTableViewCell * fcell = (ZBFourTableViewCell *)[tableView dequeueReusableCellWithIdentifier:buttonCellID];
             if (!fcell) {
@@ -265,7 +265,7 @@ static int jd;
             
             cell = fcell;
         }
-        else if (indexPath.row == 5){
+        else if (indexPath.row == 4){
             static NSString * buttonCellID = @"ZBFoursCellID";
             ZBFourTableViewCell * fcell = (ZBFourTableViewCell *)[tableView dequeueReusableCellWithIdentifier:buttonCellID];
             if (!fcell) {
@@ -279,7 +279,7 @@ static int jd;
             cell = fcell;
             //fengxiang
         }
-        else if (indexPath.row == 6){
+        else if (indexPath.row == 5){
             static NSString * buttonCellID = @"ZBFoursCellID";
             ZBFourTableViewCell * fcell = (ZBFourTableViewCell *)[tableView dequeueReusableCellWithIdentifier:buttonCellID];
             if (!fcell) {
@@ -348,15 +348,15 @@ static int jd;
             }
 
         }
-        if (indexPath.row == 4) {
+        if (indexPath.row == 10) {
             GuanYuUSViewController * vc = [[GuanYuUSViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
         }
-        if (indexPath.row == 5) {
+        if (indexPath.row == 4) {
             AboutUSViewController * vc = [[AboutUSViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
         }
-        if (indexPath.row == 6) {
+        if (indexPath.row == 5) {
             [self shareAPPButtonAction];
         }
     }

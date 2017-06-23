@@ -158,7 +158,7 @@
             }];
 
         
-        [self firstDownLoadStartAFNetworking];
+        //[self firstDownLoadStartAFNetworking];
         
     }else{
         
