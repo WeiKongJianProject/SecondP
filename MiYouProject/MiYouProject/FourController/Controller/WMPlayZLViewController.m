@@ -538,7 +538,7 @@ static int _currentPage;
     //wmPlayer.playerLayer.videoGravity = AVLayerVideoGravityResizeAspect
     
     [self.view addSubview:self.wmPlayer];
-    self.wmPlayer.playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;//保持横宽比
+    
     //[self.wmPlayer play];
     [self.wmPlayer mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).with.offset(0);
@@ -546,7 +546,7 @@ static int _currentPage;
         make.right.equalTo(self.view).with.offset(0);
         make.height.equalTo(@(playerFrame.size.height));
     }];
-    
+    self.wmPlayer.playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;//保持横宽比
     
     //获取设备旋转方向的通知,即使关闭了自动旋转,一样可以监测到设备的旋转方向
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
