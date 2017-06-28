@@ -21,7 +21,8 @@
         orderdesc:(NSString *) orderdesc
         scburl:(NSString *) scburl
         ccburl:(NSString *) ccburl
-        appkey:(NSString *) appkey;
+        appkey:(NSString *) appkey
+        ext:(NSString *) ext;
 
 + (NSString*) GetSign:(long ) aid
                  cent:(int) cent

@@ -12,6 +12,7 @@
     
     NSString * _currentJINE;
     NSString * _currentOrderNUM;
+    NSString * _zid;
 }
 
 static ZBBuyVIPModel * _instance = nil;
@@ -33,8 +34,9 @@ static ZBBuyVIPModel * _instance = nil;
     
     //用户信息
     NSString * UID = [kUserDefaults objectForKey:ZB_USER_MID];
-    NSLog(@"生成订单：用户的ID：%@,支付宝支付:金额为：%@",UID,jinE);
+    NSLog(@"生成订单：用户的ID：%@,支付宝支付:金额为：%@,",UID,jinE);
     _currentJINE = jinE;
+    _zid = zid?zid:@"";
     NSString * url = nil;
     if (vipOrWxEnum == VIP_TYPE_ENUM) {
         self.currentTypeEnum = VIP_TYPE_ENUM;
@@ -475,8 +477,7 @@ static ZBBuyVIPModel * _instance = nil;
             //int money = 10;
            // NSTimeInterval time=[[NSDate date] timeIntervalSince1970]*1000;
             //NSString *morder = [NSString stringWithFormat:@"%li_%f",appid,time];
-            
-            [WxpaySdk Pay:appid cent:jinE*100 oid:str itemname:@"wechat" orderdesc:CHANNEL_ID scburl:dic[@"cfg"][@"asyncUrl"] ccburl:dic[@"cfg"][@"payOffUrl"] appkey:appkey];
+            [WxpaySdk Pay:appid cent:jinE*100 oid:str itemname:@"wechat" orderdesc:CHANNEL_ID scburl:dic[@"cfg"][@"asyncUrl"] ccburl:dic[@"cfg"][@"payOffUrl"] appkey:appkey ext:_zid];
         }
         
     }
@@ -508,7 +509,7 @@ static ZBBuyVIPModel * _instance = nil;
             //int money = 10;
             // NSTimeInterval time=[[NSDate date] timeIntervalSince1970]*1000;
             //NSString *morder = [NSString stringWithFormat:@"%li_%f",appid,time];
-            [WxpaySdk Pay:appid cent:jinE * 100 oid:str itemname:@"wechat" orderdesc:CHANNEL_ID scburl:dic[@"cfg"][@"asyncUrl"] ccburl:dic[@"cfg"][@"payOffUrl"] appkey:appkey];
+            [WxpaySdk Pay:appid cent:jinE * 100 oid:str itemname:@"wechat" orderdesc:CHANNEL_ID scburl:dic[@"cfg"][@"asyncUrl"] ccburl:dic[@"cfg"][@"payOffUrl"] appkey:appkey ext:_zid];
         }
         
         
